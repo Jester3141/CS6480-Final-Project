@@ -10,7 +10,7 @@ import geni.rspec.emulab.spectrum as spectrum
 
 
 tourDescription = """
-### srsRAN 5G using the POWDER Indoor OTA Lab
+### srsRAN 5G using the POWDER Indoor OTA Lab with an EVIL GNB
 
 This profile instantiates an experiment for running srsRAN_Project 5G with COTS UEs in standalone mode using resources in the POWDER indoor over-the-air (OTA) lab. The indoor OTA lab includes:
 
@@ -23,6 +23,7 @@ The following will be deployed:
 
 - Server-class compute node (d430) with running the Open5GS 5G core network
 - Server-class compute node (d740) with GnuRadio and a fiber connection to an X310 and srsRAN_Project for use as a gNodeB
+- Server-class compute node (d740) with GnuRadio and a fiber connection to an X310 and srsRAN_Project for use as a EVIL gNodeB (running in test mode)
 - Up to four NUC compute nodes, each with a COTS 5G module and supporting tools
 
 Note: This profile currently defaults to using the 3430-3470 MHz spectrum range and you need an approved reservation for this spectrum in order to use it. It's also strongly recommended that you include the following necessary resources in your reservation to gaurantee their availability at the time of your experiment:
