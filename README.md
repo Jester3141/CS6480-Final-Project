@@ -143,21 +143,21 @@ Received JSON: {'timestamp': 1728188250.433, 'rlc_metrics': [{'drb': {'du_id': 0
   "ue_list": [
     {
       "ue_container": {
-        "pci": 1,
-        "rnti": 17921,
-        "cqi": 15,
-        "ri": 1,
-        "dl_mcs": 27,
+        "pci": 1,  # Physical Cell Idenifier  (antenna id?)
+        "rnti": 17921,  # Radio Network Temporary Identifier   (assigned after connection)
+        "cqi": 15, # Channel Quality Indicator (0-15)
+        "ri": 1,    # Rank Indicator (how orthoginal the channels are  - MIMO capacity) 2 should be double the throughput
+        "dl_mcs": 27,  # Modulation and Coding Scheme 0-28      QAM type and Coding rate
         "dl_brate": 291680.0,
-        "dl_nof_ok": 352,
-        "dl_nof_nok": 0,
-        "dl_bs": 0,
-        "pusch_snr_db": 24.025097,
+        "dl_nof_ok": 352,   # No idea.  Possibly packet error rate.  Don't use.
+        "dl_nof_nok": 0,    # No idea
+        "dl_bs": 0,   # Unknown.  Liklely in docs
+        "pusch_snr_db": 24.025097,  # Uplink SNR.
         "ul_mcs": 26,
         "ul_brate": 12838928.0,
         "ul_nof_ok": 431,
         "ul_nof_nok": 0,
-        "bsr": 0
+        "bsr": 0 # buffer status report.  how much is in buffers.
       }
     }
   ]
@@ -166,5 +166,27 @@ Received JSON: {'timestamp': 1728188250.433, 'rlc_metrics': [{'drb': {'du_id': 0
 
 
 
+Which profile? srs-indoor-ota
 
+tdd (Time division Duplexing) parameterization?
+
+
+
+Will instantiate 1 normal setup gNBs core with 1 or more UEs connected to the first gNB where measurements will be recorded.  Iperf will be ran on this one with the UEs connected here.
+
+Additionally we will have 1 more gNB in test mode where it is in test mode and constantly transmitting.  This second one allows
+us to configure the interference more easily.
+
+UE1-4  ------------ > GNB -> Core
+
+                      Evil GNB
+
+
+how to get UE metrics?
+And IperfD
+
+Knobs GnB are transmit power and the tdd config.  https://gitlab.flux.utah.edu/dmaas/srs-indoor-ota/-/blob/master/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml?ref_type=heads
+
+
+Need to figure out how to run the EVIL gNB.  Some kind of a boolean flag.  Read the documentation....
 
