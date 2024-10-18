@@ -280,8 +280,8 @@ cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
 cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
-# single x310 for gNodeB
-x310_node_pair(0, params.x310_radio)
+# single x310 for the good gNodeB
+x310_node_pair(0, params.x310_good_radio)
 
 for ue_node in params.ue_nodes:
     b210_nuc_pair(ue_node.node_id)
