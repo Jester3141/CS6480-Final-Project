@@ -203,10 +203,18 @@ indoor_ota_x310s = [
      "USRP X310 #4"),
 ]
 pc.defineParameter(
-    name="x310_radio",
-    description="X310 Radio for gNodeB",
+    name="x310_good_radio",
+    description="X310 Radio for the good gNodeB",
     typ=portal.ParameterType.STRING,
     defaultValue=indoor_ota_x310s[0],
+    legalValues=indoor_ota_x310s
+)
+
+pc.defineParameter(
+    name="x310_evli_radio",
+    description="X310 Radio for the EVIL gNodeB",
+    typ=portal.ParameterType.STRING,
+    defaultValue=indoor_ota_x310s[1],
     legalValues=indoor_ota_x310s
 )
 
