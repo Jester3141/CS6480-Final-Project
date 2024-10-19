@@ -65,7 +65,11 @@ tddsystem,  downlink and uplink share
 
 Started everything like in lab on simulated hardware.
 
-before starting the gNB, edited /etc/srsran/gnb.cfg and chagned the addr in the metric session to local host.
+before starting the gNB, edited /etc/srsran/gnb.cfg and chagned the addr in the metric session to local host
+with the following command
+```shell
+sudo sed -i 's/addr: 172.19.1.4/addr: 127.0.0.1/g' /etc/srsran/gnb.conf
+```
 
 https://docs.srsran.com/projects/project/en/latest/user_manuals/source/outputs.html#json-metrics
 
@@ -107,9 +111,7 @@ except KeyboardInterrupt:
     # Save received data to a file
     filename = "gnb_metrics.json"
     with open(filename, "w") as file:
-        for entry in received_data:
-            json.dump(entry, file)
-            file.write("\n")  # Add a new line after each entry
+        json.dump(received_data, file)
     print(f"Received data saved to {filename}. Exiting...")
 ```
 
