@@ -2,7 +2,7 @@
 
 import os
 
-import geni.portal as portal
+import geni.portal as portal # type: ignore
 import geni.rspec.pg as rspec
 import geni.rspec.igext as IG
 import geni.rspec.emulab.pnext as PN
