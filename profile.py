@@ -161,6 +161,7 @@ node_types = [
     ("d430", "Emulab, d430"),
     ("d740", "Emulab, d740"),
 ]
+
 pc.defineParameter(
     name="sdr_nodetype",
     description="Type of compute node paired with the SDRs",
@@ -223,23 +224,23 @@ indoor_ota_nucs = [
     ("ota-nuc{}".format(i), "Indoor OTA nuc{} with B210 and COTS UE".format(i)) for i in range(1, 5)
 ]
 
-pc.defineStructParameter(
-    name="ue_nodes",
-    description="Indoor OTA NUC with COTS UE (can't be the same as gNodeB node!)",
-    defaultValue=[{ "node_id": "ota-nuc1" }],
-    multiValue=True,
-    min=1,
-    max=4,
-    members=[
-        portal.Parameter(
-            "node_id",
-            "Indoor OTA NUC",
-            portal.ParameterType.STRING,
-            indoor_ota_nucs[0],
-            indoor_ota_nucs
-        )
-    ]
-)
+# pc.defineStructParameter(
+#     name="ue_nodes",
+#     description="Indoor OTA NUC with COTS UE (can't be the same as gNodeB node!)",
+#     defaultValue=[{ "node_id": "ota-nuc1" }],
+#     multiValue=True,
+#     min=1,
+#     max=4,
+#     members=[
+#         portal.Parameter(
+#             "node_id",
+#             "Indoor OTA NUC",
+#             portal.ParameterType.STRING,
+#             indoor_ota_nucs[0],
+#             indoor_ota_nucs
+#         )
+#     ]
+# )
 
 pc.defineStructParameter(
     "freq_ranges", "Frequency Ranges To Transmit In",
@@ -270,22 +271,39 @@ pc.verifyParameters()
 request = pc.makeRequestRSpec()
 
 role = "cn"
-cn_node = request.RawPC("cn5g")
-cn_node.component_manager_id = COMP_MANAGER_ID
-cn_node.hardware_type = params.cn_nodetype
-cn_node.disk_image = UBUNTU_IMG
-cn_if = cn_node.addInterface("cn-if")
+
+# Good GnB
+good_cn_node = request.RawPC("goodcn5g")
+good_cn_node.component_manager_id = COMP_MANAGER_ID
+good_cn_node.hardware_type = params.cn_nodetype
+good_cn_node.disk_image = UBUNTU_IMG
+cn_if = good_cn_node.addInterface("cn-if")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
 cn_link = request.Link("cn-link")
 cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
-cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
+good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
+
+# Good GnB
+evil_cn_node = request.RawPC("evilcn5g")
+evil_cn_node.component_manager_id = COMP_MANAGER_ID
+evil_cn_node.hardware_type = params.cn_nodetype
+evil_cn_node.disk_image = UBUNTU_IMG
+cn_if = evil_cn_node.addInterface("cn-if")
+cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
+cn_link = request.Link("cn-link")
+cn_link.setNoBandwidthShaping()
+cn_link.addInterface(cn_if)
+evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
 # single x310 for the good gNodeB
 x310_node_pair(0, params.x310_good_radio)
 
-for ue_node in params.ue_nodes:
-    b210_nuc_pair(ue_node.node_id)
+# single x310 for the evil gNodeB
+x310_node_pair(0, params.x310_evil_radio)
+
+for ue_node_id, ue_name in indoor_ota_nucs:
+    b210_nuc_pair(ue_node_id)
 
 for frange in params.freq_ranges:
     request.requestSpectrum(frange.freq_min, frange.freq_max, 0)
