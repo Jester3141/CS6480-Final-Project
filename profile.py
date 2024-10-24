@@ -111,10 +111,10 @@ OPEN5GS_DEPLOY_SCRIPT = os.path.join(BIN_PATH, "deploy-open5gs.sh")
 SRSRAN_DEPLOY_SCRIPT = os.path.join(BIN_PATH, "deploy-srsran.sh")
 
 
-def x310_node_pair(idx, x310_radio):
+def x310_node_pair(idx, compute_node_type, x310_radio):
     node = request.RawPC("{}-gnuradio-comp".format(x310_radio))
     node.component_manager_id = COMP_MANAGER_ID
-    node.hardware_type = params.sdr_nodetype
+    node.hardware_type = compute_node_type
 
     if params.sdr_compute_image:
         node.disk_image = params.sdr_compute_image
@@ -220,6 +220,22 @@ pc.defineParameter(
     legalValues=indoor_ota_x310s
 )
 
+pc.defineParameter(
+    name="x310_unused_radio_1",
+    description="X310 Radio 1 that will be reserved but not used",
+    typ=portal.ParameterType.STRING,
+    defaultValue=indoor_ota_x310s[2],
+    legalValues=indoor_ota_x310s
+)
+
+pc.defineParameter(
+    name="x310_unused_radio_2",
+    description="X310 Radio 2 that will be reserved but not used",
+    typ=portal.ParameterType.STRING,
+    defaultValue=indoor_ota_x310s[3],
+    legalValues=indoor_ota_x310s
+)
+
 indoor_ota_nucs = [
     ("ota-nuc{}".format(i), "Indoor OTA nuc{} with B210 and COTS UE".format(i)) for i in range(1, 5)
 ]
@@ -285,7 +301,11 @@ cn_link.addInterface(cn_if)
 good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
 # single x310 for the good gNodeB
-x310_node_pair(0, params.x310_good_radio)
+x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio)
+
+# 2x x310 reserved (in theory could be used for the first GNB)
+x310_node_pair(0, node_types[0][0], params.x310_good_radio)
+x310_node_pair(0, node_types[0][0], params.x310_good_radio)
 
 # Evil GnB
 evil_cn_node = request.RawPC("evilcn5g")
@@ -300,7 +320,9 @@ cn_link.addInterface(cn_if)
 evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
 # single x310 for the evil gNodeB
-x310_node_pair(0, params.x310_evil_radio)
+x310_node_pair(0, params.sdr_nodetype, params.x310_evil_radio)
+
+
 
 for ue_node_id, ue_name in indoor_ota_nucs:
     b210_nuc_pair(ue_node_id)
