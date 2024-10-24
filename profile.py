@@ -300,7 +300,7 @@ evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIP
 x310_node_pair(0, params.x310_good_radio)
 
 # single x310 for the evil gNodeB
-x310_node_pair(0, params.x310_evil_radio)
+x310_node_pair(0, params.x310_evli_radio)
 
 for ue_node_id, ue_name in indoor_ota_nucs:
     b210_nuc_pair(ue_node_id)
