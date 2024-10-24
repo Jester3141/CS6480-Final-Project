@@ -304,8 +304,8 @@ good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIP
 x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio)
 
 # 2x x310 reserved (in theory could be used for the first GNB)
-x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio)
-x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio)
+x310_node_pair(0, node_types[0][0], params.x310_unused_radio_1)
+x310_node_pair(0, node_types[0][0], params.x310_unused_radio_2)
 
 # Evil GnB
 evil_cn_node = request.RawPC("evilcn5g")
