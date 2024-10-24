@@ -213,7 +213,7 @@ pc.defineParameter(
 )
 
 pc.defineParameter(
-    name="x310_evli_radio",
+    name="x310_evil_radio",
     description="X310 Radio for the EVIL gNodeB",
     typ=portal.ParameterType.STRING,
     defaultValue=indoor_ota_x310s[1],
@@ -284,7 +284,10 @@ cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
 good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
-# Good GnB
+# single x310 for the good gNodeB
+x310_node_pair(0, params.x310_good_radio)
+
+# Evil GnB
 evil_cn_node = request.RawPC("evilcn5g")
 evil_cn_node.component_manager_id = COMP_MANAGER_ID
 evil_cn_node.hardware_type = params.cn_nodetype
@@ -296,11 +299,8 @@ cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
 evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
-# single x310 for the good gNodeB
-x310_node_pair(0, params.x310_good_radio)
-
 # single x310 for the evil gNodeB
-x310_node_pair(0, params.x310_evli_radio)
+x310_node_pair(0, params.x310_evil_radio)
 
 for ue_node_id, ue_name in indoor_ota_nucs:
     b210_nuc_pair(ue_node_id)
