@@ -120,6 +120,10 @@ Started this script.
 Then started the GNB
 
 
+The items received by the stats are described here:
+
+https://docs.srsran.com/projects/project/en/latest/user_manuals/source/console_ref.html#manual-console-ref
+
           |--------------------DL---------------------|-------------------------UL------------------------------
  pci rnti | cqi  ri  mcs  brate   ok  nok  (%)  dl_bs | pusch  rsrp  mcs  brate   ok  nok  (%)    bsr    ta  phr
    1 4601 |  15   1   21    10k   13    3  18%      3 |  65.5   ovl   26    28k   14    0   0%     53   0us  n/a
@@ -134,38 +138,42 @@ Then started the GNB
    1 4601 |  15   1    0      0    0    0   0%      0 |   n/a   n/a    0      0    0    0   0%      0   0us  n/a
    1 4601 |  15   1    0      0    0    0   0%      0 |   n/a   n/a    0      0    0    0   0%      0   0us  n/a
 
+Items that are in the JSON are also described below.
 
-Received JSON: {'timestamp': 1728188249.32, 'ue_list': [{'ue_container': {'pci': 1, 'rnti': 17921, 'cqi': 15, 'ri': 1, 'dl_mcs': 21, 'dl_brate': 10120.0, 'dl_nof_ok': 13, 'dl_nof_nok': 3, 'dl_bs': 3, 'pusch_snr_db': 65.532005, 'ul_mcs': 26, 'ul_brate': 28000.0, 'ul_nof_ok': 14, 'ul_nof_nok': 0, 'bsr': 53}}]}
-Received JSON: {'timestamp': 1728188250.433, 'rlc_metrics': [{'drb': {'du_id': 0, 'ue_id': 0, 'drb_id': 1, 'tx': {'num_sdus': 0, 'num_sdu_bytes': 0, 'num_dropped_sdus': 0, 'num_discarded_sdus': 0, 'num_discard_failures': 0, 'num_pdus': 0, 'num_pdu_bytes': 0}, 'rx': {'num_sdus': 0, 'num_sdu_bytes': 0, 'num_pdus': 0, 'num_pdu_bytes': 0, 'num_lost_pdus': 0, 'num_malformed_pdus': 0}}}]}
+Here are the items not in the JSON.
 
-
+pusch:  PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
+rsrp:   Reference Signal Received Power   https://www.sharetechnote.com/html/5G/5G_PowerDefinition.html
+ta:     Timing Advance in microseconds    https://www.sharetechnote.com/html/5G/5G_TimingAdvance.html
+phr:    Power Headroom as reported by the UE  https://www.sharetechnote.com/html/Handbook_LTE_PHR.html
 
 {
   "timestamp": 1700671417.005,
   "ue_list": [
     {
       "ue_container": {
-        "pci": 1,  # Physical Cell Idenifier  (antenna id?)
-        "rnti": 17921,  # Radio Network Temporary Identifier   (assigned after connection)
-        "cqi": 15, # Channel Quality Indicator (0-15)
-        "ri": 1,    # Rank Indicator (how orthoginal the channels are  - MIMO capacity) 2 should be double the throughput
-        "dl_mcs": 27,  # Modulation and Coding Scheme 0-28      QAM type and Coding rate
-        "dl_brate": 291680.0,
-        "dl_nof_ok": 352,   # No idea.  Possibly packet error rate.  Don't use.
-        "dl_nof_nok": 0,    # No idea
-        "dl_bs": 0,   # Unknown.  Liklely in docs
+        "pci": 1,  # Physical Cell Identifier  https://www.sharetechnote.com/html/Handbook_LTE_PCI.html
+        "rnti": 17921,  # Radio Network Temporary Identifier (UE identifier)   https://www.sharetechnote.com/html/5G/5G_RNTI.html
+        "cqi": 15, # Channel Quality Indicator reported by the UE (1-15)   https://www.sharetechnote.com/html/Handbook_LTE_CQI.html
+        "ri": 1,    # Rank Indicator as reported by the UE   https://www.sharetechnote.com/html/Handbook_LTE_RI.html
+        "dl_mcs": 27,  # Modulation and Coding Scheme (0-28)      QAM type and Coding rate  https://www.sharetechnote.com/html/5G/5G_MCS_TBS_CodeRate.html
+        "dl_brate": 291680.0,  # Bitrate (bits/sec)
+        "dl_nof_ok": 352,   # Number of packets successfully sent
+        "dl_nof_nok": 0,    # Number of packets dropped
+        "dl_bs": 0,   # Downlink Buffer Status, data waiting to be transmitted as reported by the gNB (bytes)
         "pusch_snr_db": 24.025097,  # Uplink SNR.
-        "ul_mcs": 26,
-        "ul_brate": 12838928.0,
-        "ul_nof_ok": 431,
-        "ul_nof_nok": 0,
-        "bsr": 0 # buffer status report.  how much is in buffers.
+        "ul_mcs": 26,  # Modulation and Coding Scheme (0-28)      QAM type and Coding rate  https://www.sharetechnote.com/html/5G/5G_MCS_TBS_CodeRate.html
+        "ul_brate": 12838928.0,  # Bitrate (bits/sec)
+        "ul_nof_ok": 431,  # Number of packets successfully sent
+        "ul_nof_nok": 0,# Number of packets dropped
+        "bsr": 0  # Buffer Status Report, data waiting to be transmitted as reported by the UE (bytes)  https://www.sharetechnote.com/html/Handbook_LTE_BSR.html
       }
     }
   ]
 }
 
-
+Received JSON: {'timestamp': 1728188249.32, 'ue_list': [{'ue_container': {'pci': 1, 'rnti': 17921, 'cqi': 15, 'ri': 1, 'dl_mcs': 21, 'dl_brate': 10120.0, 'dl_nof_ok': 13, 'dl_nof_nok': 3, 'dl_bs': 3, 'pusch_snr_db': 65.532005, 'ul_mcs': 26, 'ul_brate': 28000.0, 'ul_nof_ok': 14, 'ul_nof_nok': 0, 'bsr': 53}}]}
+Received JSON: {'timestamp': 1728188250.433, 'rlc_metrics': [{'drb': {'du_id': 0, 'ue_id': 0, 'drb_id': 1, 'tx': {'num_sdus': 0, 'num_sdu_bytes': 0, 'num_dropped_sdus': 0, 'num_discarded_sdus': 0, 'num_discard_failures': 0, 'num_pdus': 0, 'num_pdu_bytes': 0}, 'rx': {'num_sdus': 0, 'num_sdu_bytes': 0, 'num_pdus': 0, 'num_pdu_bytes': 0, 'num_lost_pdus': 0, 'num_malformed_pdus': 0}}}]}
 
 
 Which profile? srs-indoor-ota
