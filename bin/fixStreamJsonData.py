@@ -6,7 +6,10 @@ import socket
 import json
 import argparse
 import jsonstream
+import tempfile
+from pprint import PrettyPrinter
 
+pp = PrettyPrinter(indent=4, width=180)
 
 
 
@@ -19,12 +22,40 @@ if __name__ == "__main__":
     if not os.path.exists(args.input):
         print(f"ERROR: specified input file does not exist: {args.input}")
         sys.exit(1)
-
-    outputContents = ""
-    with open(args.input, 'r') as file:
-        f = jsonstream.load(file)
-        outputContents = list(f)
     
-    formattedOutput = json.dumps(outputContents, sort_keys=True, indent=4)
-    with open(args.output, 'w') as file:
-        file.write(formattedOutput)
+    # going to do this in 2 phases.
+    # phase 1 read the file and write it back out to a temp file.
+    #    during this phase we will squelch any text between the json outputs (like what iperf likes to put)
+    lines = []
+    cleanedLines = []
+    with open(args.input, 'r') as file:
+        lines = file.readlines()
+        insideJSON = False
+        for n in range(0, len(lines)):
+            if lines[n].startswith("}"):
+                insideJSON = False
+            elif lines[n].startswith("{"):
+                insideJSON = True
+            else:
+                if not insideJSON:
+                    # print("Troublesome line")
+                    continue
+            cleanedLines.append(lines[n])
+
+    tempfilename = ""
+    with tempfile.NamedTemporaryFile() as fp:
+        tempFilename = fp.name
+        with open(tempFilename, 'w') as file:
+            file.writelines(cleanedLines)
+
+
+
+        # Phase 2:  read in the now properly formatted json stream file and dump out a pure json file
+        outputContents = ""
+        with open(tempFilename, 'r') as file:
+            f = jsonstream.load(file)
+            outputContents = list(f)
+        
+        formattedOutput = json.dumps(outputContents, sort_keys=True, indent=4)
+        with open(args.output, 'w') as file:
+            file.write(formattedOutput)
