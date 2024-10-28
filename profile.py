@@ -242,7 +242,7 @@ pc.defineParameter(
 )
 
 indoor_ota_nucs = [
-    ("ota-nuc{}".format(i), "Indoor OTA nuc{} with B210 and COTS UE".format(i)) for i in range(1, 5)
+    ("ota-nuc{}".format(i), "Indoor OTA nuc{} with B210 and COTS UE".format(i)) for i in range(1, 2)
 ]
 
 # pc.defineStructParameter(
@@ -309,25 +309,25 @@ good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIP
 # single x310 for the good gNodeB
 x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio, "Good gNodeB")
 
-# 2x x310 reserved (in theory could be used for the first GNB)
-x310_node_pair(0, node_types[0][0], params.x310_unused_radio_1, "Unused")
-x310_node_pair(0, node_types[0][0], params.x310_unused_radio_2, "Unused")
+# # 2x x310 reserved (in theory could be used for the first GNB)
+# x310_node_pair(0, node_types[0][0], params.x310_unused_radio_1, "Unused")
+# x310_node_pair(0, node_types[0][0], params.x310_unused_radio_2, "Unused")
 
-# Evil GnB
-evil_cn_node = request.RawPC("evilcn5g")
-evil_cn_node.Site("Evil gNodeB")
-#evil_cn_node.component_manager_id = COMP_MANAGER_ID
-evil_cn_node.hardware_type = params.cn_nodetype
-evil_cn_node.disk_image = UBUNTU_IMG
-cn_if = evil_cn_node.addInterface("cn-if")
-cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
-cn_link = request.Link("cn-link")
-cn_link.setNoBandwidthShaping()
-cn_link.addInterface(cn_if)
-evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
+# # Evil GnB
+# evil_cn_node = request.RawPC("evilcn5g")
+# evil_cn_node.Site("Evil gNodeB")
+# #evil_cn_node.component_manager_id = COMP_MANAGER_ID
+# evil_cn_node.hardware_type = params.cn_nodetype
+# evil_cn_node.disk_image = UBUNTU_IMG
+# cn_if = evil_cn_node.addInterface("cn-if")
+# cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
+# cn_link = request.Link("cn-link")
+# cn_link.setNoBandwidthShaping()
+# cn_link.addInterface(cn_if)
+# evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
-# single x310 for the evil gNodeB
-x310_node_pair(0, params.sdr_nodetype, params.x310_evil_radio, "Evil gNodeB")
+# # single x310 for the evil gNodeB
+# x310_node_pair(0, params.sdr_nodetype, params.x310_evil_radio, "Evil gNodeB")
 
 
 
