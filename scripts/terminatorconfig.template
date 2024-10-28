@@ -2,6 +2,8 @@
 [keybindings]
 [profiles]
   [[default]]
+    background_darkness = 0.9
+    background_type = transparent
     cursor_color = "#aaaaaa"
     scrollback_infinite = True
 [layouts]
@@ -30,7 +32,7 @@
       order = 0
       profile = default
       uuid = 155240ce-01e5-48df-8d4a-2c9894d1e611
-      command = ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME}; bash
+      command = bash
   [[TestRunner]]
     [[[child0]]]
       type = Window
@@ -41,14 +43,14 @@
       fullscreen = False
       size = 1872, 944
       title = mtomer@JesterTablet: ~
-      last_active_term = 38b8c4e8-3f82-4c80-9ac8-977b19894d1c
+      last_active_term = d185c34a-7dc6-4980-ba8e-17ed2e8840b2
       last_active_window = True
     [[[child1]]]
       type = VPaned
       parent = child0
       order = 0
-      position = 470
-      ratio = 0.5005324813631523
+      position = 232
+      ratio = 0.2470713525026624
     [[[child2]]]
       type = HPaned
       parent = child1
@@ -59,8 +61,8 @@
       type = HPaned
       parent = child2
       order = 0
-      position = 464
-      ratio = 0.49946178686759957
+      position = 465
+      ratio = 0.5005382131324004
     [[[terminal4]]]
       type = Terminal
       parent = child3
@@ -68,7 +70,7 @@
       profile = default
       title = 5G Core
       uuid = d185c34a-7dc6-4980-ba8e-17ed2e8840b2
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activate5GCore.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${FIVEG_CORE_HOSTNAME} -t '/local/repository/bin/activateIPerf3Server.sh; bash'; bash"
     [[[terminal5]]]
       type = Terminal
       parent = child3
@@ -76,77 +78,193 @@
       profile = default
       title = Good gNodeB
       uuid = f2f5f317-eb29-4733-be6c-fa547fa9528b
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateGoodGNodeB.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${GOOD_GNB_HOSTNAME} -t '/local/repository/bin/activateGoodGNodeB.sh; bash'; bash"
     [[[child6]]]
       type = HPaned
       parent = child2
       order = 1
-      position = 464
-      ratio = 0.5
+      position = 465
+      ratio = 0.5010775862068966
     [[[terminal7]]]
       type = Terminal
       parent = child6
       order = 0
       profile = default
-      title = GNode B Statistics Reader
+      title = Good gNodeB Stats Gatherer
       uuid = 32fe10e7-d956-4ec0-aa69-cd38d673bc05
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateGoodGNodeBStatsDumper.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${GOOD_GNB_HOSTNAME} -t '/local/repository/bin/activateGoodGNodeBStatsDumper.sh; bash'; bash"
     [[[terminal8]]]
       type = Terminal
       parent = child6
       order = 1
       profile = default
-      title = UE 1
+      title = Evil gNodeB
       uuid = dbc159d7-1a11-4b61-9f21-8e80516c59c4
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateUE1.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${EVIL_GNB_HOSTNAME} -t '/local/repository/bin/activateEvilGNodeB.sh; bash'; bash"
     [[[child9]]]
-      type = HPaned
+      type = VPaned
       parent = child1
       order = 1
-      position = 934
-      ratio = 0.5002678093197643
+      position = 555
+      ratio = 0.7905982905982906
     [[[child10]]]
-      type = VPaned
+      type = HPaned
       parent = child9
       order = 0
-      position = 232
-      ratio = 0.5
+      position = 934
+      ratio = 0.5002678093197643
     [[[child11]]]
-      type = VPaned
+      type = HPaned
       parent = child10
       order = 0
-      position = 114
-      ratio = 0.5022026431718062
-    [[[terminal12]]]
-      type = Terminal
+      position = 464
+      ratio = 0.49946178686759957
+    [[[child12]]]
+      type = VPaned
       parent = child11
       order = 0
-      profile = default
-      title = UE 1 ping
-      uuid = b49185d9-21b0-48ca-be0c-5db73ac788e6
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateUE1Ping.sh; bash'; bash"
+      position = 283
+      ratio = 0.5145454545454545
     [[[terminal13]]]
       type = Terminal
+      parent = child12
+      order = 0
+      profile = default
+      title = UE1
+      uuid = b49185d9-21b0-48ca-be0c-5db73ac788e6
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1.sh; bash'; bash"
+    [[[child14]]]
+      type = VPaned
+      parent = child12
+      order = 1
+      position = 137
+      ratio = 0.5229007633587787
+    [[[terminal15]]]
+      type = Terminal
+      parent = child14
+      order = 0
+      profile = default
+      title = UE1 Ping
+      uuid = ca855bb9-e204-4f5c-9e75-c637374fe45a
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1Ping.sh; bash'; bash"
+    [[[terminal16]]]
+      type = Terminal
+      parent = child14
+      order = 1
+      profile = default
+      title = UE1 IPerf3 Client
+      uuid = f842d809-85e0-4795-b9d0-f4f5b73927c6
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1IPerfClient.sh; bash'; bash"
+    [[[child17]]]
+      type = VPaned
       parent = child11
       order = 1
-      profile = default
-      title = UE 1 IPerf3 Server
-      uuid = 2de8ad32-8e85-48b8-b4d5-f5b00692e4f2
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateIPerf3Server.sh; bash'; bash"
-    [[[terminal14]]]
+      position = 283
+      ratio = 0.5145454545454545
+    [[[terminal18]]]
       type = Terminal
-      parent = child10
+      parent = child17
+      order = 0
+      profile = default
+      title = UE2
+      uuid = c3fca73d-770b-4376-ae85-d555f91715fc
+    [[[child19]]]
+      type = VPaned
+      parent = child17
+      order = 1
+      position = 137
+      ratio = 0.5229007633587787
+    [[[terminal20]]]
+      type = Terminal
+      parent = child19
+      order = 0
+      profile = default
+      title = UE2 Ping
+      uuid = a992d503-977d-471c-91c7-f92c38ce082e
+    [[[terminal21]]]
+      type = Terminal
+      parent = child19
       order = 1
       profile = default
-      title = UE 1 Iperf3 Client
-      uuid = 0217d3b0-19be-4588-af0c-c04a3a5ef6f2
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/activateUE1IPerfClient.sh; bash'; bash"
-    [[[terminal15]]]
+      title = UE2 IPerf3 Client
+      uuid = a17d940d-1aa8-4700-8680-98d8d08eddf6
+    [[[child22]]]
+      type = HPaned
+      parent = child10
+      order = 1
+      position = 464
+      ratio = 0.5
+    [[[child23]]]
+      type = VPaned
+      parent = child22
+      order = 0
+      position = 283
+      ratio = 0.5145454545454545
+    [[[terminal24]]]
+      type = Terminal
+      parent = child23
+      order = 0
+      profile = default
+      title = UE3
+      uuid = bbfbefc1-bbd2-436e-bd57-b9d47ada1037
+    [[[child25]]]
+      type = VPaned
+      parent = child23
+      order = 1
+      position = 137
+      ratio = 0.5229007633587787
+    [[[terminal26]]]
+      type = Terminal
+      parent = child25
+      order = 0
+      profile = default
+      title = UE3 Ping
+      uuid = 4b05160b-5cef-4465-ad83-b85cfc7d66ad
+    [[[terminal27]]]
+      type = Terminal
+      parent = child25
+      order = 1
+      profile = default
+      title = UE3 IPerf3 Client
+      uuid = de60c764-550d-4a3c-a86e-30cb3c55fa2e
+    [[[child28]]]
+      type = VPaned
+      parent = child22
+      order = 1
+      position = 285
+      ratio = 0.5181818181818182
+    [[[terminal29]]]
+      type = Terminal
+      parent = child28
+      order = 0
+      profile = default
+      title = UE4
+      uuid = 2417279f-5766-484a-bff6-afe553038d41
+    [[[child30]]]
+      type = VPaned
+      parent = child28
+      order = 1
+      position = 137
+      ratio = 0.5269230769230769
+    [[[terminal31]]]
+      type = Terminal
+      parent = child30
+      order = 0
+      profile = default
+      title = UE4 Ping
+      uuid = daf5977f-d00e-444f-a77f-bc6caab89603
+    [[[terminal32]]]
+      type = Terminal
+      parent = child30
+      order = 1
+      profile = default
+      title = UE4 IPerf3 Client
+      uuid = d5ec883d-5935-4443-b5d5-b347cfd57d8a
+    [[[terminal33]]]
       type = Terminal
       parent = child9
       order = 1
       profile = default
       title = Results Gatherer
-      uuid = 38b8c4e8-3f82-4c80-9ac8-977b19894d1c
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${HOSTNAME} -t '/local/repository/bin/stopServicesAndGatherResults.sh; bash'; bash"
+      uuid = 0217d3b0-19be-4588-af0c-c04a3a5ef6f2
 [plugins]

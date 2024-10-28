@@ -40,6 +40,8 @@ if __name__ == "__main__":
         if args.metricsPort is not None:
             code['metrics']['port'] = int(args.metricsPort)
 
+        code['metrics']['enable_json_metrics'] = True
+
         if args.testMode is not None:
             if 'test_mode' not in code:
                 code['test_mode'] = {}

@@ -10,6 +10,11 @@ echo "Sleeping for ${GOOD_GNODEB_STATUS_DUMPER_STARTUP_DELAY} seconds to allow t
 echo ""
 sleep ${GOOD_GNODEB_STATUS_DUMPER_STARTUP_DELAY}
 
+sudo mkdir -p ${RESULTS_FOLDER}
+sudo chmod a+rwx ${RESULTS_FOLDER}
+sudo mkdir -p ${RESULTS_FOLDER}/roughData/
+sudo chmod a+rwx ${RESULTS_FOLDER}/roughData/
+
 if [ -f ${RESULTS_FOLDER}/roughData/gNodeB_statistics.jsons ]; then
     sudo rm -f ${RESULTS_FOLDER}/roughData/gNodeB_statistics.json
 fi

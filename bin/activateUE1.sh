@@ -15,4 +15,6 @@ if [ -f ${RESULTS_FOLDER}/roughData/UE1_metrics.jsons ]; then
 fi
 
 # start the UE1
-sudo srsue /etc/srsran/ue1.conf
+#sudo srsue /etc/srsran/ue1.conf
+
+sudo quectel-CM -s internet -4
