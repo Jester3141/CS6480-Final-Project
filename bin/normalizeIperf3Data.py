@@ -43,7 +43,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='normalizeIperf3Data.py', description='Normalizes a stream of iperf3 json data to a better format')
     parser.add_argument('--input',         required=True, help="The file to read the stream in from")
     parser.add_argument('--output',        required=True, help="the file to write json out to")
-    parser.add_argument('--ue',             required=True, help="the UE number that this came from (1-4)")
+    parser.add_argument('--ue',            required=True, type=int, help="the UE number that this came from (1-4)")
     args = parser.parse_args()
 
     if not os.path.exists(args.input):

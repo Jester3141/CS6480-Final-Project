@@ -17,121 +17,144 @@ except ModuleNotFoundError as ex:
 
 
 def loadDataFromJsonFile(filename):
+    if not os.path.exists(filename):
+        return []
     with open(filename, 'r') as file:
         data = json.load(file)
         return data
 
-def extractBandwidthInfoFromIperfData(iperfData):
-    """
-    Iperf data requires some finagling because the timestamp is not embedded with the data point
-    """
-    pp.pprint(iperfData)
-    iperfStartTimestamp = iperfData["start"]["timestamp"]["timesecs"]
-    ret = []
-    for interval in iperfData["intervals"]:
-        p = {}
-        p["timestamp"] = iperfStartTimestamp + interval["sum"]["end"]
-        p["bits_per_second"] = interval["sum"]["bits_per_second"]
-        ret.append(p)
-    return ret
+
+def getXYDataFromData(data, paramName, ueNum):
+    x = [p["timestamp"] for p in data if "ue_list" in p]
+    # print(data)
+    y = []
+    for p in data:
+        if "ue_list" not in p:
+            continue
+        for ueCont in p['ue_list']:
+            # print(ueCont)
+            if 'ue_container' in ueCont and 'ue' in ueCont['ue_container'] and ueCont['ue_container']['ue'] == ueNum:
+                y.append(ueCont['ue_container'][paramName])
+    return x,y
+
+def getXYTotalsDataFromData(data, paramName):
+    print("getXYTotalsDataFromData")
+    x = [p["timestamp"] for p in data]
+    # print(data)
+    y = []
+    for p in data:
+        if "totals" not in p:
+            continue
+        y.append(p['totals'][paramName])
+    return x,y
 
 
-
-
-def writeGraphWithDataToFile(args, ueNum, gnbData, gnbParameter, ueData, iperfData):
+def writeGraphWithDataToFile(args, filename, gNodeBParameter, gNodeBDisplayName, ueParameter, ueDisplayName, gNodeBUeNum=1):
     #pp.pprint(gnbData)
-    x = [p["timestamp"] for p in gnbData if "ue_list" in p]
-    y = [p["ue_list"][ueNum]["ue_container"][gnbParameter] for p in gnbData if "ue_list" in p]
-    #print(x)
-    #print(y)
+    plt.clf()
+
+    if gNodeBParameter.startswith("total_"):
+        print(f"Adding GNB totals data to graph for {gNodeBParameter}")
+        x,y = getXYTotalsDataFromData(args.gNodebStatistics, gNodeBParameter)
+    else:
+        print(f"Adding GNB data for UE {gNodeBUeNum} to graph for {gNodeBParameter}")
+        x,y = getXYDataFromData(args.gNodebStatistics, gNodeBParameter, gNodeBUeNum)
+
     # plotting the points 
-    plt.plot(x, y, label=f"{parameter} vs Time")
+    plt.plot(x, y, label=f"{gNodeBDisplayName} vs Time")
 
     # naming the x axis
-    plt.xlabel('Timestamp')
+    plt.xlabel('Time')
     # naming the y axis
-    plt.ylabel(parameter)
+    plt.ylabel(gNodeBDisplayName)
 
     # giving a title to my graph
-    plt.title(f"UE {ueNum} - {parameter} vs Time")
+    plt.title(f"TODO Graph Title")
 
-    #pp.pprint(ueData)
-    uex = [p["timestamp"] for p in ueData]
-    uey = [p["gw_container"]["dl_bitrate"] for p in ueData]
-    #print(x)
-    #print(y)
-    # plotting the points
-    plt.plot(uex, uey, label=f"dl bbitrate vs Time")
-
-
-    #pp.pprint(ueData)
-    iperfx = [p["timestamp"] for p in iperfData]
-    iperfy = [p["bits_per_second"] for p in iperfData]
-    #print(x)
-    #print(y)
-    # plotting the points
-    plt.plot(iperfx, iperfy, label=f"iperfbitspersecond")
+    for ueNum in range(0,4):   # 1-4
+            x,y = getXYDataFromData(args.ueIperfStatistics[ueNum], ueParameter, ueNum+1)
+            if len(y) == 0:
+                # We don't have any data for this UE.  Skip it
+                continue
+            print(f"Adding UE{ueNum+1} data to graph for {ueParameter}")
+            calcUeDisplayName = ueDisplayName.replace("<UE>", "UE%s" % (ueNum+1))
+            plt.plot(x, y, label=f"{calcUeDisplayName} vs Time")
 
 
 
     # function to show the plot
     # plt.show()
     plt.legend(loc="upper left")
-    plt.savefig(f'{args.outputDir}/UE{ueNum}_{parameter}.png')  # Save as PNG file
+    plt.savefig(f'{args.outputDir}/{filename}')  # Save as PNG file
     plt.clf()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='ConvertDataToImages', description='converts a json file containing the data to plot images',)
-    parser.add_argument('-ig',         '--inputGnbJson',   required=True, help="Input json of data from the gNodeB")
-    parser.add_argument('-iue',        '--inputUeJson',    required=True, help="Input json of data from the UE")
-    parser.add_argument('-iperf',      '--inputIPerfJson', required=True, help="Input json of data from the IPerf")
+    parser.add_argument('-i',          '--inputDir',      required=True, help="Input Directory containing 'gNodeB_stats_normalized.json` and one or more UE iperf files of the format 'UE1_iperf_results_normalized.json'")
     parser.add_argument('-o',          '--outputDir',      required=True, help="Output Directory")
     args = parser.parse_args()
 
     print("Generating images")
 
-    if not os.path.exists(args.inputGnbJson):
-        print("Error specified gNodeB input file doesn't exist: %s" % args.inputGnbJson)
+    gNodeBFilename = f"{os.path.abspath(args.inputDir)}/gNodeB_stats_normalized.json"
+    ue1IperfFilename = f"{os.path.abspath(args.inputDir)}/UE1_iperf_results_normalized.json"
+    ue2IperfFilename = f"{os.path.abspath(args.inputDir)}/UE2_iperf_results_normalized.json"
+    ue3IperfFilename = f"{os.path.abspath(args.inputDir)}/UE3_iperf_results_normalized.json"
+    ue4IperfFilename = f"{os.path.abspath(args.inputDir)}/UE4_iperf_results_normalized.json"
+
+    if not os.path.exists(gNodeBFilename):
+        print("Error: the gnodeB normailzed stats file doesn't exist: %s    (This is required)" % gNodeBFilename)
         sys.exit(1)
 
-    if not os.path.exists(args.inputUeJson):
-        print("Error specified UE input file doesn't exist: %s" % args.inputUeJson)
+    if not os.path.exists(ue1IperfFilename):
+        print("Error: the UE1 normalized stats file doesn't exist: %s    (This is required)" % ue1IperfFilename)
         sys.exit(1)
 
-    if not os.path.exists(args.inputIPerfJson):
-        print("Error specified iperf input file doesn't exist: %s" % args.inputIPerfJson)
-        sys.exit(1)
+    if not os.path.exists(ue2IperfFilename):
+        print("Info: the UE2 normalized stats file doesn't exist: %s    (UE2 data won't be included)" % ue2IperfFilename)
 
-    gNodeBData = loadDataFromJsonFile(args.inputGnbJson)
-    ueData = loadDataFromJsonFile(args.inputUeJson)
-    iperfData = extractBandwidthInfoFromIperfData(loadDataFromJsonFile(args.inputIPerfJson))
-    pp.pprint(iperfData)
+    if not os.path.exists(ue3IperfFilename):
+        print("Info: the UE3 normalized stats file doesn't exist: %s    (UE3 data won't be included)" % ue3IperfFilename)
 
-    parameters = ["pci",
-                  "rnti",
-                  "cqi",
-                  "ri",
-                  "dl_mcs",
-                  "dl_brate",
-                  "dl_nof_ok",
-                  "dl_nof_nok",
-                  "dl_bs",
-                  "pusch_snr_db",
-                  "ul_mcs",
-                  "ul_brate",
-                  "ul_nof_ok",
-                  "ul_nof_nok",
-                  "bsr",
-                  ]
+    if not os.path.exists(ue4IperfFilename):
+        print("Info: the UE4 normalized stats file doesn't exist: %s    (UE4 data won't be included)" % ue4IperfFilename)
 
-    for parameter in parameters:
-        writeGraphWithDataToFile(args=args,
-                                 ueNum=0,
-                                 gnbData=gNodeBData,
-                                 gnbParameter=parameter,
-                                 ueData=ueData,
-                                 iperfData=iperfData,
-                                 )
+    args.gNodebStatistics = loadDataFromJsonFile(gNodeBFilename)
+    args.ue1IperfStatistics = loadDataFromJsonFile(ue1IperfFilename)
+    args.ue2IperfStatistics = loadDataFromJsonFile(ue2IperfFilename)
+    args.ue3IperfStatistics = loadDataFromJsonFile(ue3IperfFilename)
+    args.ue4IperfStatistics = loadDataFromJsonFile(ue4IperfFilename)
+    args.ueIperfStatistics = [args.ue1IperfStatistics, args.ue2IperfStatistics, args.ue3IperfStatistics, args.ue4IperfStatistics]
 
+
+    print("****************************************************************************************************")
+    writeGraphWithDataToFile(args=args,
+                             filename="dl_bitrate.png",
+                             gNodeBParameter="dl_brate",
+                             gNodeBDisplayName="gNodeB DL bitrate",
+                             gNodeBUeNum=2,
+                             ueParameter="bits_per_second",
+                             ueDisplayName="<UE> bit per second"
+                             )
+    
+    print("****************************************************************************************************")
+    writeGraphWithDataToFile(args=args,
+                             filename="ul_bitrate.png",
+                             gNodeBParameter="ul_brate",
+                             gNodeBDisplayName="gNodeB UL bitrate",
+                             gNodeBUeNum=2,
+                             ueParameter="bits_per_second",
+                             ueDisplayName="<UE> bit per second"
+                             )
+
+    print("****************************************************************************************************")
+    writeGraphWithDataToFile(args=args,
+                             filename="total.png",
+                             gNodeBParameter="total_brate",
+                             gNodeBDisplayName="gNodeB UL bitrate",
+                             ueParameter="bits_per_second",
+                             ueDisplayName="<UE> bit per second"
+                             )
+    print("****************************************************************************************************")
     

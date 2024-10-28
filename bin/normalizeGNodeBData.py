@@ -23,11 +23,20 @@ def normalizeGNodeBData(iperfData):
         j = {}
         j['timestamp'] = iperfJson['timestamp']
         j['ue_list'] = []
+        totalDownloadBitrateForAllUEs = 0.0
+        totalUploadBitrateForAllUEs = 0.0
         print("----------------------------------------------------------")
         for i in range(0, len(iperfJson["ue_list"])):
             ueContDict = iperfJson["ue_list"][i]
             ueContDict['ue_container']["ue"] = i+1
+            totalDownloadBitrateForAllUEs += ueContDict['ue_container']["dl_brate"]
+            totalUploadBitrateForAllUEs += ueContDict['ue_container']["ul_brate"]
+            ueContDict['ue_container']["total_brate"] = ueContDict['ue_container']["dl_brate"] + ueContDict['ue_container']["ul_brate"]
             j['ue_list'].append(ueContDict)
+        j['totals'] = {}
+        j['totals']['total_ul_brate'] = totalUploadBitrateForAllUEs
+        j['totals']['total_dl_brate'] = totalDownloadBitrateForAllUEs
+        j['totals']['total_brate'] = totalDownloadBitrateForAllUEs + totalUploadBitrateForAllUEs
         ret.append(j)
 
 
