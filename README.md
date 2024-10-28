@@ -293,3 +293,10 @@ And IperfD
 
 Knobs GnB are transmit power and the tdd config.  https://gitlab.flux.utah.edu/dmaas/srs-indoor-ota/-/blob/master/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml?ref_type=heads
 
+ssh commands need 
+-o StrictHostKeyChecking=no
+
+on gnb servers
+sudo sysctl -w net.core.wmem_max=24912805
+
+on NUCs install iperf3
