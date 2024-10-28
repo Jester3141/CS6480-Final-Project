@@ -123,7 +123,6 @@ def x310_node_pair(idx, compute_node_type, x310_radio, site):
         node.disk_image = UBUNTU_IMG
 
     node_radio_if = node.addInterface("usrp_if")
-    node_radio_if.Site(site)
     node_radio_if.addAddress(rspec.IPv4Address("192.168.40.1", "255.255.255.0"))
 
     radio_link = request.Link("radio-link-{}".format(idx))
@@ -138,7 +137,6 @@ def x310_node_pair(idx, compute_node_type, x310_radio, site):
     radio_link.addNode(radio)
 
     nodeb_cn_if = node.addInterface("nodeb-cn-if")
-    nodeb_cn_if.Site(site)
     nodeb_cn_if.addAddress(rspec.IPv4Address("192.168.1.{}".format(idx + 2), "255.255.255.0"))
     cn_link.addInterface(nodeb_cn_if)
 
@@ -301,7 +299,6 @@ good_cn_node.component_manager_id = COMP_MANAGER_ID
 good_cn_node.hardware_type = params.cn_nodetype
 good_cn_node.disk_image = UBUNTU_IMG
 cn_if = good_cn_node.addInterface("cn-if")
-cn_if.Site("Good gNodeB")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
 cn_link = request.Link("cn-link")
 cn_link.setNoBandwidthShaping()
@@ -322,7 +319,6 @@ evil_cn_node.component_manager_id = COMP_MANAGER_ID
 evil_cn_node.hardware_type = params.cn_nodetype
 evil_cn_node.disk_image = UBUNTU_IMG
 cn_if = evil_cn_node.addInterface("cn-if")
-cn_if.Site("Evil gNodeB")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
 cn_link = request.Link("cn-link")
 cn_link.setNoBandwidthShaping()
