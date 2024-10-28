@@ -5,9 +5,10 @@ import os
 import geni.portal as portal # type: ignore
 import geni.rspec.pg as rspec
 import geni.rspec.igext as IG
+# Import the Emulab specific extensions.
+import geni.rspec.emulab as emulab
 import geni.rspec.emulab.pnext as PN
 import geni.rspec.emulab.spectrum as spectrum
-
 
 tourDescription = """
 ### srsRAN 5G using the POWDER Indoor OTA Lab with an EVIL GNB
@@ -114,7 +115,7 @@ SRSRAN_DEPLOY_SCRIPT = os.path.join(BIN_PATH, "deploy-srsran.sh")
 def x310_node_pair(idx, compute_node_type, x310_radio, site):
     node = request.RawPC("{}-gnuradio-comp".format(x310_radio))
     node.Site(site)
-    node.component_manager_id = COMP_MANAGER_ID
+    #node.component_manager_id = COMP_MANAGER_ID
     node.hardware_type = compute_node_type
 
     if params.sdr_compute_image:
@@ -133,7 +134,7 @@ def x310_node_pair(idx, compute_node_type, x310_radio, site):
     radio = request.RawPC("{}-gnb-sdr".format(x310_radio))
     radio.Site(site)
     radio.component_id = x310_radio
-    radio.component_manager_id = COMP_MANAGER_ID
+    #radio.component_manager_id = COMP_MANAGER_ID
     radio_link.addNode(radio)
 
     nodeb_cn_if = node.addInterface("nodeb-cn-if")
@@ -152,7 +153,7 @@ def x310_node_pair(idx, compute_node_type, x310_radio, site):
 def b210_nuc_pair(b210_node):
     node = request.RawPC("{}-cots-ue".format(b210_node))
     node.Site("UEs")
-    node.component_manager_id = COMP_MANAGER_ID
+    #node.component_manager_id = COMP_MANAGER_ID
     node.component_id = b210_node
     node.disk_image = COTS_UE_IMG
     node.addService(rspec.Execute(shell="bash", command="/local/repository/bin/module-off.sh"))
@@ -295,7 +296,7 @@ role = "cn"
 # Good GnB
 good_cn_node = request.RawPC("goodcn5g")
 good_cn_node.Site("Good gNodeB")
-good_cn_node.component_manager_id = COMP_MANAGER_ID
+#good_cn_node.component_manager_id = COMP_MANAGER_ID
 good_cn_node.hardware_type = params.cn_nodetype
 good_cn_node.disk_image = UBUNTU_IMG
 cn_if = good_cn_node.addInterface("cn-if")
@@ -315,7 +316,7 @@ x310_node_pair(0, node_types[0][0], params.x310_unused_radio_2, "Unused")
 # Evil GnB
 evil_cn_node = request.RawPC("evilcn5g")
 evil_cn_node.Site("Evil gNodeB")
-evil_cn_node.component_manager_id = COMP_MANAGER_ID
+#evil_cn_node.component_manager_id = COMP_MANAGER_ID
 evil_cn_node.hardware_type = params.cn_nodetype
 evil_cn_node.disk_image = UBUNTU_IMG
 cn_if = evil_cn_node.addInterface("cn-if")
