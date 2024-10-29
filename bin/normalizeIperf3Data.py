@@ -22,6 +22,8 @@ def normalizeIperfData(iperfData, ueNum):
     for iperfJson in iperfData:
         print("----------------------------------------------------------")
         pp.pprint(iperfJson)
+        if len(iperfJson["intervals"]) == 0:
+            continue
         iperfStartTimestamp = iperfJson["start"]["timestamp"]["timesecs"]
         for interval in iperfJson["intervals"]:
             p = {}

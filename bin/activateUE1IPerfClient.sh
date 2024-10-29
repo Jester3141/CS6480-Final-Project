@@ -23,4 +23,4 @@ fi
 
 # start iperf3 client for UE1 and pass traffic on the downlink
 echo "Starting IPerf3 Client.  Output is being redirected to file so you won't see anything. This is normal."
-iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE1_iperf_results.json
+iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json

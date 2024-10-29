@@ -33,7 +33,7 @@ if __name__ == "__main__":
     try:
         while True:
             # Receive message from the sender
-            data, addr = sock.recvfrom(1024)
+            data, addr = sock.recvfrom(1024*1024)
             
             # Decode the received message as JSON
             try:

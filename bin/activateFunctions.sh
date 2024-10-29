@@ -69,6 +69,7 @@ TerminateGNodeBs () {
 TerminateUEs () {
     echo "Terminating the UEs"
     (set +e ; ps -ef | grep "srsue" | awk '{print $2}' | sudo xargs kill -SIGINT)
+    (set +e ; ps -ef | grep "quectel-CM" | awk '{print $2}' | sudo xargs kill -SIGINT)
     echo "The UEs have been terminated"
 }
 
