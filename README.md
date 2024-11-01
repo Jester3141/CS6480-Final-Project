@@ -300,3 +300,43 @@ on gnb servers
 sudo sysctl -w net.core.wmem_max=24912805
 
 on NUCs install iperf3
+
+
+Launch the ubuntu wsl.  There should be a shortcut to this in your start menu.
+This will open a terminal / command prompt window inside your new ubuntu linux environment.
+
+When it prompts for your password it will be the one you set during 
+
+
+First to update distro packages to latest to ensure a sane environment run these 2 commands: 
+
+sudo apt update
+sudo apt upgrade -y
+
+
+Second: Install necessary OS packages and programs with this command:
+
+sudo apt install -y python3-pip terminator gedit
+
+Third: Install the python packages that are used by the various scripts with this command
+
+sudo pip install ruamel.yaml jsonstream matplotlib
+
+
+
+
+
+
+
+
+ru_sdr:
+ tx_gain: 50   # will modify this somehow
+   clock: external
+  sync: external
+  Set clock to external
+
+ Can send it to stdin live to modify.
+
+cell_cfg:
+  dl_arfcn: 536020                      # Required UINT (536020). Sets the Downlink ARFCN.
+  band: auto                            # Optional TEXT (auto). Sets the NR band being used for the cell. If not specified, will be set automatically based on ARFCN. Supported: all release 17 bands.
