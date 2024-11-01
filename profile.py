@@ -301,7 +301,7 @@ good_cn_node.hardware_type = params.cn_nodetype
 good_cn_node.disk_image = UBUNTU_IMG
 cn_if = good_cn_node.addInterface("cn-if")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
-cn_link = request.Link("cn-link")
+cn_link = request.Link("cn-link-1")
 cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
 good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
@@ -321,7 +321,7 @@ evil_cn_node.hardware_type = params.cn_nodetype
 evil_cn_node.disk_image = UBUNTU_IMG
 cn_if = evil_cn_node.addInterface("cn-if")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
-cn_link = request.Link("cn-link")
+cn_link = request.Link("cn-link-2")
 cn_link.setNoBandwidthShaping()
 cn_link.addInterface(cn_if)
 evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
