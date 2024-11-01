@@ -175,13 +175,13 @@ node_types = [
 #     legalValues=node_types
 # )
 
-pc.defineParameter(
-    name="cn_nodetype",
-    description="Type of compute node to use for CN node (if included)",
-    typ=portal.ParameterType.STRING,
-    defaultValue=node_types[0],
-    legalValues=node_types
-)
+# pc.defineParameter(
+#     name="cn_nodetype",
+#     description="Type of compute node to use for CN node (if included)",
+#     typ=portal.ParameterType.STRING,
+#     defaultValue=node_types[0],
+#     legalValues=node_types
+# )
 
 pc.defineParameter(
     name="sdr_compute_image",
@@ -297,7 +297,7 @@ role = "cn"
 good_cn_node = request.RawPC("goodcn5g")
 good_cn_node.Site("Good gNodeB")
 #good_cn_node.component_manager_id = COMP_MANAGER_ID
-good_cn_node.hardware_type = params.cn_nodetype
+good_cn_node.hardware_type = node_types[0][0]
 good_cn_node.disk_image = UBUNTU_IMG
 cn_if = good_cn_node.addInterface("cn-if")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
@@ -317,7 +317,7 @@ x310_node_pair(3, node_types[0][0], params.x310_unused_radio_2, "Unused")
 evil_cn_node = request.RawPC("evilcn5g")
 evil_cn_node.Site("Evil gNodeB")
 #evil_cn_node.component_manager_id = COMP_MANAGER_ID
-evil_cn_node.hardware_type = params.cn_nodetype
+evil_cn_node.hardware_type = node_types[0][0]
 evil_cn_node.disk_image = UBUNTU_IMG
 cn_if = evil_cn_node.addInterface("cn-if")
 cn_if.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
