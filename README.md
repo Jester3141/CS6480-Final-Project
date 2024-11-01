@@ -269,6 +269,61 @@ ru_sdr:
   lo_offset: 45
 ```
 
+## Running an experiment
+
+You will need to either be running this from a linux machine or a WSL that is running a X server.
+
+First we need to install required packages with the following 4 commands:
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y python3-pip terminator gedit git
+sudo pip install ruamel.yaml jsonstream matplotlib
+```
+
+Then test to ensure that your X server is started by running:
+
+```bash
+terminator
+```
+That should pop up a terminator window
+
+![asdf](images/terminator.png)
+
+If you've got all that, in theory your ready to run.
+
+Check out the code and cd into the directory.
+
+```bash
+git clone https://github.com/Jester3141/CS6480-Final-Project
+cd CS6480-Final-Project/scripts
+```
+
+Next, you will need an experiment yaml file.  
+```bash
+cp experiments.template.yaml myexperiment.yaml
+```
+Edit this file and provide whatever parameters you desire.  More about this file will be said in the next section.
+
+Launch an experiment with this profile.  Take note of the experiment number from powder.  The is a 6 digit number at the end of the name.  For example if my experiment name was `u0204096-227153`, then `227153` would be my experiment number.
+
+Once the experiment is running and all startup scripts have completed, then you can launch the experiment with the following (Replacing the `<ITEM>` with its corresponding value)
+```bash
+./launchExperiment.py -u <USERNAME> -n <EXPERIMENT_NUMBER> -e <EXPERIMENT_YAML_FILENAME>
+```
+Once the test finishes, you will find results in the `<GITCHECKOUTDIR>/results/<DATE>/` folder
+
+## Experiment config file
+
+The experiement yaml file allows you to run 1 or more tests serially (one after the other).  See the `scripts/experiments.template.yaml` for examples of how to use it.
+
+In each test there is a section called `goodGNodeBParameters` and if your using the evil gNodeB a section called `evilGNodeBParameters`.  Items under these section will override the default .yml config files for the good/evil gnb.  The defaults can be found in `scripts/gnb_rf_x310_tdd_n78_40mhz.yml`
+
+### graphs
+
+Output graphs will be able to be defined here.  This functionality has not yet been implemented (nor the yml syntax defined).
+
+TODO
 
 ## Other random unorganized thoughts
 
@@ -302,41 +357,21 @@ sudo sysctl -w net.core.wmem_max=24912805
 on NUCs install iperf3
 
 
-Launch the ubuntu wsl.  There should be a shortcut to this in your start menu.
-This will open a terminal / command prompt window inside your new ubuntu linux environment.
-
-When it prompts for your password it will be the one you set during 
-
-
-First to update distro packages to latest to ensure a sane environment run these 2 commands: 
-
-sudo apt update
-sudo apt upgrade -y
-
-
-Second: Install necessary OS packages and programs with this command:
-
-sudo apt install -y python3-pip terminator gedit
-
-Third: Install the python packages that are used by the various scripts with this command
-
-sudo pip install ruamel.yaml jsonstream matplotlib
 
 
 
 
+In theory can send it to stdin live to modify.
 
-
-
-
+Configuration values discussed on 10/31/2024.
+```yml
 ru_sdr:
  tx_gain: 50   # will modify this somehow
-   clock: external
-  sync: external
-  Set clock to external
+    clock: external # sets the clock sync to external
+    sync: external # sets the clock sync to external
 
- Can send it to stdin live to modify.
 
 cell_cfg:
   dl_arfcn: 536020                      # Required UINT (536020). Sets the Downlink ARFCN.
   band: auto                            # Optional TEXT (auto). Sets the NR band being used for the cell. If not specified, will be set automatically based on ARFCN. Supported: all release 17 bands.
+```
