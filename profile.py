@@ -167,13 +167,13 @@ node_types = [
     ("d740", "Emulab, d740"),
 ]
 
-pc.defineParameter(
-    name="sdr_nodetype",
-    description="Type of compute node paired with the SDRs",
-    typ=portal.ParameterType.STRING,
-    defaultValue=node_types[1],
-    legalValues=node_types
-)
+# pc.defineParameter(
+#     name="sdr_nodetype",
+#     description="Type of compute node paired with the SDRs",
+#     typ=portal.ParameterType.STRING,
+#     defaultValue=node_types[1],
+#     legalValues=node_types
+# )
 
 pc.defineParameter(
     name="cn_nodetype",
@@ -307,7 +307,7 @@ cn_link.addInterface(cn_if)
 good_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
 # single x310 for the good gNodeB
-x310_node_pair(0, params.sdr_nodetype, params.x310_good_radio, "Good gNodeB")
+x310_node_pair(0, node_types[1][0], params.x310_good_radio, "Good gNodeB")
 
 # 2x x310 reserved (in theory could be used for the first GNB)
 x310_node_pair(2, node_types[0][0], params.x310_unused_radio_1, "Unused")
@@ -327,7 +327,7 @@ cn_link.addInterface(cn_if)
 evil_cn_node.addService(rspec.Execute(shell="bash", command=OPEN5GS_DEPLOY_SCRIPT))
 
 # single x310 for the evil gNodeB
-x310_node_pair(1, params.sdr_nodetype, params.x310_evil_radio, "Evil gNodeB")
+x310_node_pair(1, node_types[1][0], params.x310_evil_radio, "Evil gNodeB")
 
 
 
