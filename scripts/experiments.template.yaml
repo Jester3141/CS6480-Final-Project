@@ -49,3 +49,37 @@ experiment:
 #                - 2
 #                - 3
 #                - 4
+
+
+        - test2:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: false # whether or not to start the evil gNodeB
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+                - 2
+                - 3
+                - 4

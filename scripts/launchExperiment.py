@@ -172,10 +172,12 @@ def runExperimentTest(testName, testParamDict, args):
     
     # collect results and place them into the correct locations
 
-    print(f"Collecting results and placing them into {args.resultsFolder}")
-    os.makedirs(args.resultsFolder, exist_ok=True)
-    subprocess.call([f"{os.path.dirname(__file__)}/collectResults.sh {args.resultsFolder}"], shell=True)
-    print(f"Results have been collected and are in: {args.resultsFolder}")
+    testResultsFolder = f"{args.resultsFolder}/{testName}"
+    print(f"Collecting results and placing them into {testResultsFolder}")
+    os.makedirs(testResultsFolder, exist_ok=True)
+    subprocess.call([f"{os.path.dirname(__file__)}/collectResults.sh {testResultsFolder}"], shell=True)
+    shutil.copy(args.experimentDefinitionFile, args.resultsFolder)
+    print(f"Results have been collected and are in: {testResultsFolder}")
 
 
 

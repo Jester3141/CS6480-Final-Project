@@ -26,21 +26,27 @@ mkdir -p ${DIR}/config/
 mkdir -p ${DIR}/config/goodGNodeB/
 mkdir -p ${DIR}/config/evilGNodeB/
 
-set +e
+
 # scp the gNodeB stats from the good gnodeb
 scp ${USER}@${GOOD_GNB_HOSTNAME}:/results/roughData/gNodeB_statistics.json ${DIR}/roughData/gNodeB_statistics.json.raw
+
+# scp the timings file from the good gnodeb
+scp ${USER}@${GOOD_GNB_HOSTNAME}:/local/generated/timings.sh ${DIR}/config/
 
 # scp the gNodeB config from the good gnodeb (so we know what we launched with)
 scp ${USER}@${GOOD_GNB_HOSTNAME}:/local/generated/goodGNodeBConfig.yaml ${DIR}/config/goodGNodeB/
 
 # scp the gNodeB config from the evil gnodeb (so we know what we launched with)
+set +e
 scp ${USER}@${EVIL_GNB_HOSTNAME}:/local/generated/evilGNodeBConfig.yaml ${DIR}/config/evilGNodeB/
-
+set -e
 
 for NUC_HOSTNAME_INDEX in ${!NUC_HOSTNAMES[@]}; do
     NUC_HOSTNAME=${NUC_HOSTNAMES[NUC_HOSTNAME_INDEX]}
     UENUM=$((NUC_HOSTNAME_INDEX+1))
+    set +e
     scp ${USER}@${NUC_HOSTNAME}:/results/roughData/UE_iperf_results.json ${DIR}/roughData/UE${UENUM}_iperf_results.json.raw
+    set -e
 done
 
 set -e
