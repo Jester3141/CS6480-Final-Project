@@ -22,7 +22,7 @@ cell_cfg:
   common_scs: 30
   nof_antennas_dl: 1
   nof_antennas_ul: 1
-  plmn: '99999'
+  plmn: "99999"
   tac: 1
   pci: 3
   pdsch:
@@ -42,15 +42,13 @@ cell_cfg:
     nof_ul_symbols: 0
 
 slicing:
-- sst: 1
-  sd: 1
+  -
+    sst: 1
+    sd: 1
 
 metrics:
   autostart_stdout_metrics: true
 
-  addr: 127.0.0.1
-  port: 55555
-  enable_json_metrics: true
 log:
   filename: /tmp/gnb.log
   all_level: warning

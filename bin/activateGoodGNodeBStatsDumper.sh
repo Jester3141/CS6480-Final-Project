@@ -4,11 +4,12 @@ set -e
 # bring in common functions
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source ${SCRIPT_DIR}/activateFunctions.sh
+source /local/generated/timings.sh
 
 echo ""
-echo "Sleeping for ${GOOD_GNODEB_STATUS_DUMPER_STARTUP_DELAY} seconds to allow the 5G core to start"
+echo "Sleeping for ${GOOD_GNODEB_STATS_DUMPER_STARTUP_DELAY} seconds to allow the 5G core to start"
 echo ""
-sleep ${GOOD_GNODEB_STATUS_DUMPER_STARTUP_DELAY}
+sleep ${GOOD_GNODEB_STATS_DUMPER_STARTUP_DELAY}
 
 sudo mkdir -p ${RESULTS_FOLDER}
 sudo chmod a+rwx ${RESULTS_FOLDER}

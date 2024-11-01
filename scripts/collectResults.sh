@@ -31,10 +31,10 @@ set +e
 scp ${USER}@${GOOD_GNB_HOSTNAME}:/results/roughData/gNodeB_statistics.json ${DIR}/roughData/gNodeB_statistics.json.raw
 
 # scp the gNodeB config from the good gnodeb (so we know what we launched with)
-scp ${USER}@${GOOD_GNB_HOSTNAME}:/var/tmp/etc/srsran/gnb_rf_x310_tdd_n78_40mhz_good.yml ${DIR}/config/goodGNodeB/
+scp ${USER}@${GOOD_GNB_HOSTNAME}:/local/generated/goodGNodeBConfig.yaml ${DIR}/config/goodGNodeB/
 
 # scp the gNodeB config from the evil gnodeb (so we know what we launched with)
-scp ${USER}@${EVIL_GNB_HOSTNAME}:/var/tmp/etc/srsran/gnb_rf_x310_tdd_n78_40mhz_evil.yml ${DIR}/config/evilGNodeB/
+scp ${USER}@${EVIL_GNB_HOSTNAME}:/local/generated/evilGNodeBConfig.yaml ${DIR}/config/evilGNodeB/
 
 
 for NUC_HOSTNAME_INDEX in ${!NUC_HOSTNAMES[@]}; do

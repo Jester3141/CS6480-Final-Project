@@ -1,21 +1,34 @@
 #!/bin/bash
 set -e
 
-UE_STARTUP_DELAY=0
 
 # bring in common functions
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source ${SCRIPT_DIR}/activateFunctions.sh
+source /local/generated/UENUM.sh
+source /local/generated/timings.sh
+
+VARNAME=$(echo -e "UE${UENUM}_STARTUP_DELAY")
+UE_STARTUP_DELAY="${!VARNAME}"
+
+VARNAME=$(echo -e "USE_UE${UENUM}")
+USE_UE="${!VARNAME}"
+
+if [[ "$USE_UE" == *[fF]alse ]]; then
+  echo "UE${UENUM}: was not configured for use.  Not doing anything"
+  exit 0
+fi
 
 echo ""
-echo "Sleeping for ${UE_STARTUP_DELAY} seconds to allow the 5G core and GNB to start"
+echo "UE${UENUM}: Sleeping for ${UE_STARTUP_DELAY} seconds to allow the 5G core and GNB to start"
 echo ""
 sleep ${UE_STARTUP_DELAY}
 
-if [ -f ${RESULTS_FOLDER}/roughData/UE_metrics.jsons ]; then
-    sudo rm -f ${RESULTS_FOLDER}/roughData/UE_metrics.json
-fi
 
+
+echo ""
+echo "UE${UENUM}: Starting UE"
+echo ""
 
 # turn on the modem
 sudo sh -c "chat -t 1 -sv '' AT OK 'AT+CFUN=1' OK < /dev/ttyUSB2 > /dev/ttyUSB2"

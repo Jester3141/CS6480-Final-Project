@@ -1,17 +1,34 @@
 #!/bin/bash
 set -e
 
-UE_IPERF_CLIENT_STARTUP_DELAY=30
 
 # bring in common functions
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source ${SCRIPT_DIR}/activateFunctions.sh
+source /local/generated/UENUM.sh
+source /local/generated/timings.sh
+
+VARNAME=$(echo -e "UE${UENUM}_PACKET_GENERATION_DELAY")
+UE_PACKET_GENERATION_DELAY="${!VARNAME}"
+
+VARNAME=$(echo -e "USE_UE${UENUM}")
+USE_UE="${!VARNAME}"
+
+if [[ "$USE_UE" == *[fF]alse ]]; then
+  echo "UE${UENUM}: was not configured for use.  Not doing anything"
+  exit 0
+fi
+
 
 echo ""
-echo "Sleeping for ${UE_IPERF_CLIENT_STARTUP_DELAY} seconds to allow the 5G core and GNB to start"
+echo "UE${UENUM}: Sleeping for ${UE_PACKET_GENERATION_DELAY} seconds to allow the 5G core and GNB to start"
 echo ""
-sleep ${UE_IPERF_CLIENT_STARTUP_DELAY}
+sleep ${UE_PACKET_GENERATION_DELAY}
 
+
+echo ""
+echo "UE${UENUM}: Starting UE IPerf Client"
+echo ""
 
 sudo mkdir -p ${RESULTS_FOLDER}
 sudo chmod a+rwx ${RESULTS_FOLDER}
@@ -24,5 +41,6 @@ fi
 
 
 # start iperf3 client for UE1 and pass traffic on the downlink
-echo "Starting IPerf3 Client.  Output is being redirected to file so you won't see anything. This is normal."
-iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json
+echo "UE${UENUM}: Starting IPerf3 Client.  Output is being redirected to file so you won't see anything. This is normal."
+iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json -p 520${UENUM} -t ${DWELL_DURATION}
+echo "UE${UENUM}: IPerf3 Client exited"

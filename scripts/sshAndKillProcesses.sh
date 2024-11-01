@@ -19,14 +19,14 @@ echo -e "Sending SIGINT any to running Iperf3 clients on the NUCS"
 for NUC_HOSTNAME in ${NUC_HOSTNAMES[@]}; do
     echo -e "Terminating any running UE pingers on ${NUC_HOSTNAME}"
     set +e
-    ssh  ${USER}@${NUC_HOSTNAME} "sudo /local/repository/bin/terminateNucUeServices.sh"
+    ssh  -o StrictHostKeyChecking=no ${USER}@${NUC_HOSTNAME} "sudo /local/repository/bin/terminateNucUeServices.sh"
     set -e
 done
 echo -e "Done Killing IPerf3 Clients and pingers on NUCS"
 
 echo -e "Sending SIGINT any to running iperf3 servers on the 5G Core node: ${FIVEG_CORE_HOSTNAME}"
 set +e
-ssh  ${USER}@${FIVEG_CORE_HOSTNAME} "sudo /local/repository/bin/terminate5GCoreServices.sh"
+ssh  -o StrictHostKeyChecking=no ${USER}@${FIVEG_CORE_HOSTNAME} "sudo /local/repository/bin/terminate5GCoreServices.sh"
 set -e
 echo -e "Done Killing IPerf3 server on the 5GCore"
 
@@ -35,7 +35,7 @@ echo -e "Sending SIGINT any to running gNodeB Status Gatherers and gNodeB on the
 for GNB_HOSTNAME in ${GNB_HOSTNAMES[@]}; do
     echo -e "Terminating any running gNodeB Stats Gatherers or gNodeB applications on ${GNB_HOSTNAME}"
     set +e
-    ssh  ${USER}@${GNB_HOSTNAME} "sudo /local/repository/bin/terminateGnbServices.sh"
+    ssh  -o StrictHostKeyChecking=no ${USER}@${GNB_HOSTNAME} "sudo /local/repository/bin/terminateGnbServices.sh"
     set -e
     exit 0
 done

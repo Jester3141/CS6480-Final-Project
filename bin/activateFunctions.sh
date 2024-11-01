@@ -1,16 +1,4 @@
 
-GOOD_GNODEB_STARTUP_DELAY=10
-
-GOOD_GNODEB_STATUS_DUMPER_STARTUP_DELAY=18
-IPERF3_STARTUP_DELAY=15
-
-UE1_STARTUP_DELAY=15
-UE1_PING_STARTUP_DELAY=20
-UE1_IPERF_CLIENT_STARTUP_DELAY=35
-
-RESULTS_GATHERING_DELAY=60
-
-
 RESULTS_FOLDER=/results/
 
 
@@ -103,5 +91,5 @@ TerminateAllServices () {
     TerminateGNodeBStatsGatherers
     TerminateGNodeBs
     Terminate5GCore
-    echo "All Services have been terminated"
+    echo "All services have been terminated"
 }
