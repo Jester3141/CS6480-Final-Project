@@ -132,7 +132,7 @@
       profile = default
       title = UE1
       uuid = b49185d9-21b0-48ca-be0c-5db73ac788e6
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE.sh; bash'; bash"
     [[[child14]]]
       type = VPaned
       parent = child12
@@ -146,7 +146,7 @@
       profile = default
       title = UE1 Ping
       uuid = ca855bb9-e204-4f5c-9e75-c637374fe45a
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1Ping.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUEPing.sh; bash'; bash"
     [[[terminal16]]]
       type = Terminal
       parent = child14
@@ -154,7 +154,7 @@
       profile = default
       title = UE1 IPerf3 Client
       uuid = f842d809-85e0-4795-b9d0-f4f5b73927c6
-      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUE1IPerfClient.sh; bash'; bash"
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_1_HOSTNAME} -t '/local/repository/bin/activateUEIPerfClient.sh; bash'; bash"
     [[[child17]]]
       type = VPaned
       parent = child11
@@ -168,6 +168,7 @@
       profile = default
       title = UE2
       uuid = c3fca73d-770b-4376-ae85-d555f91715fc
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_2_HOSTNAME} -t '/local/repository/bin/activateUE.sh; bash'; bash"
     [[[child19]]]
       type = VPaned
       parent = child17
@@ -181,6 +182,7 @@
       profile = default
       title = UE2 Ping
       uuid = a992d503-977d-471c-91c7-f92c38ce082e
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_2_HOSTNAME} -t '/local/repository/bin/activateUEPing.sh; bash'; bash"
     [[[terminal21]]]
       type = Terminal
       parent = child19
@@ -188,6 +190,7 @@
       profile = default
       title = UE2 IPerf3 Client
       uuid = a17d940d-1aa8-4700-8680-98d8d08eddf6
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_2_HOSTNAME} -t '/local/repository/bin/activateUEIPerfClient.sh; bash'; bash"
     [[[child22]]]
       type = HPaned
       parent = child10
@@ -207,6 +210,7 @@
       profile = default
       title = UE3
       uuid = bbfbefc1-bbd2-436e-bd57-b9d47ada1037
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_3_HOSTNAME} -t '/local/repository/bin/activateUE.sh; bash'; bash"
     [[[child25]]]
       type = VPaned
       parent = child23
@@ -220,6 +224,7 @@
       profile = default
       title = UE3 Ping
       uuid = 4b05160b-5cef-4465-ad83-b85cfc7d66ad
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_3_HOSTNAME} -t '/local/repository/bin/activateUEPing.sh; bash'; bash"
     [[[terminal27]]]
       type = Terminal
       parent = child25
@@ -227,6 +232,7 @@
       profile = default
       title = UE3 IPerf3 Client
       uuid = de60c764-550d-4a3c-a86e-30cb3c55fa2e
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_3_HOSTNAME} -t '/local/repository/bin/activateUEIPerfClient.sh; bash'; bash"
     [[[child28]]]
       type = VPaned
       parent = child22
@@ -240,6 +246,7 @@
       profile = default
       title = UE4
       uuid = 2417279f-5766-484a-bff6-afe553038d41
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_4_HOSTNAME} -t '/local/repository/bin/activateUE.sh; bash'; bash"
     [[[child30]]]
       type = VPaned
       parent = child28
@@ -253,6 +260,7 @@
       profile = default
       title = UE4 Ping
       uuid = daf5977f-d00e-444f-a77f-bc6caab89603
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_4_HOSTNAME} -t '/local/repository/bin/activateUEPing.sh; bash'; bash"
     [[[terminal32]]]
       type = Terminal
       parent = child30
@@ -260,6 +268,7 @@
       profile = default
       title = UE4 IPerf3 Client
       uuid = d5ec883d-5935-4443-b5d5-b347cfd57d8a
+      command = "ssh -o StrictHostKeyChecking=no ${USERNAME}@${NUC_4_HOSTNAME} -t '/local/repository/bin/activateUEIPerfClient.sh; bash'; bash"
     [[[terminal33]]]
       type = Terminal
       parent = child9

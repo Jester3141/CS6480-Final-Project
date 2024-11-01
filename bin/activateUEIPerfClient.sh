@@ -1,14 +1,16 @@
 #!/bin/bash
 set -e
 
+UE_IPERF_CLIENT_STARTUP_DELAY=30
+
 # bring in common functions
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source ${SCRIPT_DIR}/activateFunctions.sh
 
 echo ""
-echo "Sleeping for ${UE1_IPERF_CLIENT_STARTUP_DELAY} seconds to allow the 5G core and GNB to start"
+echo "Sleeping for ${UE_IPERF_CLIENT_STARTUP_DELAY} seconds to allow the 5G core and GNB to start"
 echo ""
-sleep ${UE1_IPERF_CLIENT_STARTUP_DELAY}
+sleep ${UE_IPERF_CLIENT_STARTUP_DELAY}
 
 
 sudo mkdir -p ${RESULTS_FOLDER}
@@ -16,8 +18,8 @@ sudo chmod a+rwx ${RESULTS_FOLDER}
 sudo mkdir -p ${RESULTS_FOLDER}/roughData/
 sudo chmod a+rwx ${RESULTS_FOLDER}/roughData/
 
-if [ -f ${RESULTS_FOLDER}/roughData/UE1_iperf_results.jsons ]; then
-    sudo rm -f ${RESULTS_FOLDER}/roughData/UE1_iperf_results.json
+if [ -f ${RESULTS_FOLDER}/roughData/UE_iperf_results.jsons ]; then
+    sudo rm -f ${RESULTS_FOLDER}/roughData/UE_iperf_results.json
 fi
 
 
