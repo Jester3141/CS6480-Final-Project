@@ -193,14 +193,25 @@ def generateGraphsFromExperimentResults(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='modifyGnbConfig.py', description='Performs modifications to the GNB config file',)
     parser.add_argument('-u', '--user',   required=True, help="The username for the node")
-    parser.add_argument('-n', '--experimentNumber',   required=True, help="The experiment number of the nodes")
+    parser.add_argument('-n', '--experimentName',   required=True, help="The experiment name")
     parser.add_argument('-e', '--experimentDefinitionFile',   required=True, help="The yaml defining the experiment to run")
+    parser.add_argument('-p', '--project',   required=True, help="The powder project the experiment is running under")
     parser.add_argument('-r', '--resultsFolder',   required=False, default=os.path.abspath(f'{os.path.dirname(__file__)}/../results/{datetime.now().strftime("%Y-%m-%d_%H%M%S")}'),
                         help="The folder to put results in.  Defaults to a dated subfolder inside this projects results folder")
     args = parser.parse_args()
 
-    print(f"Launching terminator with config file for experiement: {args.experimentNumber}")
+    print(f"Launching terminator with config file for experiement: {args.experimentName}")
     print(f"Placing results in: {args.resultsFolder}")
+
+
+    silentremove("hostConfig.sh")
+    silentremove("hostConfig.yml")
+    shutil.copy2("hostConfig.yml.template", "hostConfig.yml")
+    subprocess.call(["sed -i -e 's/${%s}/%s/g' hostConfig.yml" % ('USER', args.user)], shell=True)
+    subprocess.call(["sed -i -e 's/${%s}/%s/g' hostConfig.yml" % ('EXPERIMENTNAME', args.experimentName)], shell=True)
+    subprocess.call(["sed -i -e 's/${%s}/%s/g' hostConfig.yml" % ('PROJECT', args.project)], shell=True)
+
+
 
     print(f"Loading experiment definition yaml from {args.experimentDefinitionFile}")
     
