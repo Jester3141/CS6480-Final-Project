@@ -26,27 +26,31 @@ def loadDataFromJsonFile(filename):
 
 
 def getXYDataFromData(data, paramName, ueNum):
-    x = [p["timestamp"] for p in data if "ue_list" in p]
+    x = []
     # print(data)
     y = []
     for p in data:
-        if "ue_list" not in p:
+        if "ue_list" not in p or len(p['ue_list']) == 0:
             continue
         for ueCont in p['ue_list']:
             # print(ueCont)
             if 'ue_container' in ueCont and 'ue' in ueCont['ue_container'] and ueCont['ue_container']['ue'] == ueNum:
                 y.append(ueCont['ue_container'][paramName])
+                x.append(p["timestamp"])
     return x,y
 
 def getXYTotalsDataFromData(data, paramName):
     # print("getXYTotalsDataFromData")
-    x = [p["timestamp"] for p in data]
+    x = []
     # print(data)
     y = []
     for p in data:
+        if "ue_list" not in p or len(p['ue_list']) == 0:
+            continue
         if "totals" not in p:
             continue
         y.append(p['totals'][paramName])
+        x.append(p["timestamp"])
     return x,y
 
 
@@ -60,6 +64,7 @@ def getXYDataForPlotParameter(param, args):
     2: A string indicating which file to pull the stat from (GoodGNodeB, UE1, UE2, UE3, or UE4)
     3: The parameter name inside the file to graph
     '''
+    print(f"Attempting to load x,y data for {param}")
     x = []
     y = []
     sourceNameToFilenameDict = {'GoodGNodeB': 'gNodeB_statistics_normalized.json',

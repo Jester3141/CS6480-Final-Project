@@ -309,7 +309,10 @@ Launch an experiment with this profile.  Take note of the experiment number from
 
 Once the experiment is running and all startup scripts have completed, then you can launch the experiment with the following (Replacing the `<ITEM>` with its corresponding value)
 ```bash
-./launchExperiment.py -u <USERNAME> -n <EXPERIMENT_NUMBER> -e <EXPERIMENT_YAML_FILENAME>
+./launchExperiment.py -u <USERNAME> -n <EXPERIMENT_NAME> -p <PROJECT_NAME> -e <EXPERIMENT_YAML_FILENAME>
+
+# for example
+./launchExperiment.py -u u0204096 -n u0204096-227153 -p TDDInterfere -e experiments.withandwithoutevil.yaml
 ```
 Once the test finishes, you will find results in the `<GITCHECKOUTDIR>/results/<DATE>/` folder
 
