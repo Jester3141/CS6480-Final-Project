@@ -1,0 +1,282 @@
+experiment:
+    name: "example_experiment" # no spaces allowed in name
+    description: "This is a short description" # a short one line description of the experiment to run
+    tests:
+        - test1:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    tx_gain: 10
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+        - test2:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    tx_gain: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+        - test3:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    tx_gain: 30
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+        - test4:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    tx_gain: 40
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+        - test5:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+                ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+                
+                ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+                ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+                
+                ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+                ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    tx_gain: 50
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+    graphs:
+        - graph1:
+            filename: testplot.png
+            graphTitle: UE Download bandwidth
+            xaxisLabel: Time
+            yaxisLabel: bitrate
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|UE1|bits_per_second
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|UE1|bits_per_second
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|UE1|bits_per_second
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|UE1|bits_per_second
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|UE1|bits_per_second
+                    
+

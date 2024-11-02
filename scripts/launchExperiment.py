@@ -13,6 +13,15 @@ import psutil
 from datetime import datetime
 from pprint import PrettyPrinter
 
+try:
+    import matplotlib
+    import ruamel.yaml
+    import jsonstream
+except ModuleNotFoundError as ex:
+    print('You need matplotlib, ruamel.yaml, and jsonstream to run this.  Run "sudo pip install ruamel.yaml jsonstream matplotlib"')
+    sys.exit(1)
+
+
 pp = PrettyPrinter(indent=4, width=180)
 
 def silentremove(filename):
@@ -141,6 +150,12 @@ def runExperimentTest(testName, testParamDict, args):
     for key, value in data.items():
         subprocess.call(["sed -i -e 's/${%s}/%s/g' terminatorconfig" % (key, value)], shell=True)
     subprocess.call(["sed -i -e 's/${USERNAME}/%s/g' terminatorconfig" % args.user], shell=True)
+
+    # double check that terminator is installed
+    ret = subprocess.call(["which terminator"], shell=True)
+    if ret != 0:
+        print(f'ERROR: you must have terminator installed to run this.  Install it with the command "sudo apt install -y terminator".')
+        sys.exit(1)
 
     # launch terminator (in the background)
     termShortCommandLine = 'terminator -g terminatorconfig -l TestRunner'
