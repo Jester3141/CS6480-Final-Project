@@ -19,7 +19,7 @@ experiment:
                 ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
                 ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
                 
-                goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
                 dwellDuration: 30 # How long (in seconds) will the iperf generators run for
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
@@ -65,7 +65,7 @@ experiment:
                 ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
                 ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
                 
-                goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
                 dwellDuration: 30 # How long (in seconds) will the iperf generators run for
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
@@ -80,20 +80,18 @@ experiment:
     graphs:
         - graph1:
             filename: testplot.png
-            graphTitle: Download bandwidth
+            graphTitle: UE Download bandwidth
             xaxisLabel: Time
             yaxisLabel: bitrate
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
                 - plot1:
-                    plotName: UE1 Download Bandwidth (with evil gNodeB)
+                    plotName: w/ evil gNodeB
                     # all graphs are plotted with time on the x axis
                     plotParameter: test1|UE1|bits_per_second
                 - plot2:
-                    plotName: UE1 Download Bandwidth (as reported by the gNodeB(with evil gNodeB)
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test1|GoodGNodeB|UE1|dl_brate
-                - plot3:
-                    plotName: UE1 Download Bandwidth (w/o evil GnodeB but with 4UEs
+                    plotName: w/o evil gNodeB
                     # all graphs are plotted with time on the x axis
                     plotParameter: test2|UE1|bits_per_second
                     

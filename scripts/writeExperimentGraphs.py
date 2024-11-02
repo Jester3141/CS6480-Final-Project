@@ -12,6 +12,7 @@ pp = PrettyPrinter(indent=4, width=180)
 try:
     import matplotlib
     import matplotlib.pyplot as plt
+    import matplotlib.ticker as tkr 
 except ModuleNotFoundError as ex:
     print('You need matplotlib to run this.  Run "python -m pip install matplotlib"')
     sys.exit(1)
@@ -161,13 +162,29 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
             x,y = getXYDataForPlotParameter(param=paramDict['plotParameter'], args=args)
             plt.plot(x, y, label=paramDict['plotName'])
 
+    if 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(sizeof_fmt))
 
-    plt.legend(loc="upper left")
+    if 'legendLocation' in graphParamDict and len(graphParamDict['legendLocation']) > 0:
+        plt.legend(loc=graphParamDict['legendLocation'])
+    else:
+        plt.legend(loc="best")
+    
+    plt.gcf().set_tight_layout(True)
+
     plt.savefig(f'{graphOutputDirectory}/{graphFilename}')  # Save as PNG file
     plt.clf()
 
 
-
+def sizeof_fmt(x, pos):
+    # matlapb formatter for bytes.
+    if x<0:
+        return ""
+    for x_unit in ['bps', 'kbps', 'Mbps', 'Gbps', 'Tbps']:
+        if x < 1024.0:
+            return "%3.1f %s" % (x, x_unit)
+        x /= 1024.0
 
 
 

@@ -89,6 +89,8 @@ experiment:
             graphTitle: Download bandwidth
             xaxisLabel: Time
             yaxisLabel: bitrate
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
                 - plot1:
                     plotName: UE1 Download Bandwidth (with evil gNodeB)
@@ -107,6 +109,8 @@ experiment:
             graphTitle: Upload bandwidth
             xaxisLabel: Time
             yaxisLabel: bitrate
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
                 - plot1:
                     plotName: Good GNodeB total bitrate
