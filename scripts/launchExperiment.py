@@ -176,7 +176,7 @@ def runExperimentTest(testName, testParamDict, args):
     print(f"Collecting results and placing them into {testResultsFolder}")
     os.makedirs(testResultsFolder, exist_ok=True)
     subprocess.call([f"{os.path.dirname(__file__)}/collectResults.sh {testResultsFolder}"], shell=True)
-    shutil.copy(args.experimentDefinitionFile, args.resultsFolder)
+    shutil.copy(args.experimentDefinitionFile, f"args.resultsFolder/experiment.yaml")
     print(f"Results have been collected and are in: {testResultsFolder}")
 
 

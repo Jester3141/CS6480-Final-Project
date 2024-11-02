@@ -83,3 +83,38 @@ experiment:
                 - 2
                 - 3
                 - 4
+    graphs:
+        - graph1:
+            filename: testplot.png
+            graphTitle: Download bandwidth
+            xaxisLabel: Time
+            yaxisLabel: bitrate
+            plots:
+                - plot1:
+                    plotName: UE1 Download Bandwidth (with evil gNodeB)
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|UE1|bits_per_second
+                - plot2:
+                    plotName: UE2 Download Bandwidth (w/o evil GnodeB but with 4UEs
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|UE1|bits_per_second
+        - graph2:
+            filename: testplot2.png
+            graphTitle: Upload bandwidth
+            xaxisLabel: Time
+            yaxisLabel: bitrate
+            plots:
+                - plot1:
+                    plotName: Good GNodeB total bitrate
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|total_brate
+                - plot2:
+                    plotName: Good GNodeB total upload bitrate
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|total_ul_brate
+                - plot3:
+                    plotName: Good GNodeB total download bitrate
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|total_dl_brate
+                    
+
