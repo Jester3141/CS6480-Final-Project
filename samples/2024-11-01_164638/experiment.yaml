@@ -95,6 +95,10 @@ experiment:
                     # all graphs are plotted with time on the x axis
                     plotParameter: test1|UE1|bits_per_second
                 - plot2:
+                    plotName: UE1 Download Bandwidth (as reported by the gNodeB(with evil gNodeB)
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_brate
+                - plot3:
                     plotName: UE2 Download Bandwidth (w/o evil GnodeB but with 4UEs
                     # all graphs are plotted with time on the x axis
                     plotParameter: test2|UE1|bits_per_second
@@ -116,5 +120,3 @@ experiment:
                     plotName: Good GNodeB total download bitrate
                     # all graphs are plotted with time on the x axis
                     plotParameter: test1|GoodGNodeB|total_dl_brate
-                    
-

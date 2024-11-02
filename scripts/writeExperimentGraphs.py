@@ -39,7 +39,7 @@ def getXYDataFromData(data, paramName, ueNum):
     return x,y
 
 def getXYTotalsDataFromData(data, paramName):
-    print("getXYTotalsDataFromData")
+    # print("getXYTotalsDataFromData")
     x = [p["timestamp"] for p in data]
     # print(data)
     y = []
@@ -50,44 +50,77 @@ def getXYTotalsDataFromData(data, paramName):
     return x,y
 
 
-def writeGraphWithDataToFile(args, filename, gNodeBParameter, gNodeBDisplayName, ueParameter, ueDisplayName, gNodeBUeNum=1):
-    #pp.pprint(gnbData)
-    plt.clf()
 
-    if gNodeBParameter.startswith("total_"):
-        print(f"Adding GNB totals data to graph for {gNodeBParameter}")
-        x,y = getXYTotalsDataFromData(args.gNodebStatistics, gNodeBParameter)
+
+def getXYDataForPlotParameter(param, args):
+    '''
+    Plot param name is a bar separated string consiting of 3 parts.
+
+    1: The test name
+    2: A string indicating which file to pull the stat from (GoodGNodeB, UE1, UE2, UE3, or UE4)
+    3: The parameter name inside the file to graph
+    '''
+    x = []
+    y = []
+    sourceNameToFilenameDict = {'GoodGNodeB': 'gNodeB_statistics_normalized.json',
+                                'UE1': 'UE1_iperf_results_normalized.json',
+                                'UE2': 'UE2_iperf_results_normalized.json',
+                                'UE3': 'UE3_iperf_results_normalized.json',
+                                'UE4': 'UE4_iperf_results_normalized.json',
+                                }
+    thirdNameToUENumDict = {'UE1': 1,
+                            'UE2': 2,
+                            'UE3': 3,
+                            'UE4': 4,
+                            }
+
+    # do a bit of input validation:
+    splits = param.split('|')
+    if len(splits) != 3 and len(splits) != 4:
+        raise Exception(f"Error: Plot param was not in the correct format: {param}")
+    testName = splits[0].strip()
+    sourceName = splits[1].strip()
+    third = splits[2].strip()
+    paramName = third
+    if len(testName) == 0 or len(sourceName) == 0 or len(third) == 0:
+        raise Exception(f"Error: One of the parameters items was of zero length: {param}")
+    
+    resultsFolder = os.path.abspath(args.inputDir)
+    if not os.path.exists(resultsFolder):
+        raise Exception(f"Error: The specified results folder doesn't exist: {resultsFolder}")
+    
+    testFolder = f"{resultsFolder}/{testName}"
+    if not os.path.exists(testFolder):
+        raise Exception(f"Error: The folder for the specified test doesn't exist: {testFolder}")
+    
+    if sourceName not in sourceNameToFilenameDict:
+        raise Exception(f"Error: you specified a source name of '{sourceName}' but this is not a possible choice.  Correct choices are {list(sourceNameToFilenameDict.keys())}")
+    
+    sourceFilename = f"{testFolder}/data/{sourceNameToFilenameDict[sourceName]}"
+    if not os.path.exists(sourceFilename):
+        raise Exception(f"Error: The source file doesn't exist: {sourceFilename}")
+    
+    ueNum = 1
+    if sourceName == "GoodGNodeB" and third in thirdNameToUENumDict:
+        # the 4th split is the parameter name
+        if len(splits) != 4:
+            raise Exception(f"Error: Plot param was not in the correct format: {param}")
+        paramName = splits[3].strip()
+        ueNum = thirdNameToUENumDict[third]
+
+    # now we are reasonably certain that we can look in the file and get some reasonable results.
+    jsonData = loadDataFromJsonFile(sourceFilename)
+    if paramName.startswith("total_"):
+        x,y = getXYTotalsDataFromData(data=jsonData, paramName=paramName)
     else:
-        print(f"Adding GNB data for UE {gNodeBUeNum} to graph for {gNodeBParameter}")
-        x,y = getXYDataFromData(args.gNodebStatistics, gNodeBParameter, gNodeBUeNum)
+        x,y = getXYDataFromData(data=jsonData, paramName=paramName, ueNum=ueNum)
 
-    # plotting the points 
-    plt.plot(x, y, label=f"{gNodeBDisplayName} vs Time")
 
-    # naming the x axis
-    plt.xlabel('Time')
-    # naming the y axis
-    plt.ylabel(gNodeBDisplayName)
-
-    # giving a title to my graph
-    plt.title(f"TODO Graph Title")
-
-    for ueNum in range(0,4):   # 1-4
-            x,y = getXYDataFromData(args.ueIperfStatistics[ueNum], ueParameter, ueNum+1)
-            if len(y) == 0:
-                # We don't have any data for this UE.  Skip it
-                continue
-            print(f"Adding UE{ueNum+1} data to graph for {ueParameter}")
-            calcUeDisplayName = ueDisplayName.replace("<UE>", "UE%s" % (ueNum+1))
-            plt.plot(x, y, label=f"{calcUeDisplayName} vs Time")
+    return x, y
+    
 
 
 
-    # function to show the plot
-    # plt.show()
-    plt.legend(loc="upper left")
-    plt.savefig(f'{args.outputDir}/{filename}')  # Save as PNG file
-    plt.clf()
 
 
 def outputAllGraphs(experiment, args):
@@ -96,13 +129,46 @@ def outputAllGraphs(experiment, args):
     for graph in graphs:
         graphName = list(graph.keys())[0]  # there will be only one key
         graphParamDict = graph[graphName]
-        pp.pprint(graphParamDict)
+        graphFilename = graphParamDict['filename']
+        graphTitle = graphParamDict['graphTitle']
+        outputGraph(graphName=graphName, graphFilename=graphFilename, graphTitle=graphTitle, graphParamDict=graphParamDict, args=args)
+
+
+def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
+    print(f"\n\nOutputting graph {graphName} with title {graphTitle} to file {graphFilename}")
+    pp.pprint(graphParamDict)
+
+    graphOutputDirectory = f"{os.path.abspath(args.inputDir)}/graphs/"
+    os.makedirs(graphOutputDirectory, exist_ok=True)
+
+
+    plt.clf()
+
+    # output overall graph items
+    plt.xlabel(graphParamDict['xaxisLabel'])
+    plt.ylabel(graphParamDict['yaxisLabel'])
+    plt.title(graphTitle)
+
+    if len(graphParamDict['plots']) > 0:
+        for plot in graphParamDict['plots']:
+            plotName = list(plot.keys())[0]  # there will be only one key
+            paramDict = plot[plotName]
+            x,y = getXYDataForPlotParameter(param=paramDict['plotParameter'], args=args)
+            plt.plot(x, y, label=paramDict['plotName'])
+
+
+    plt.legend(loc="upper left")
+    plt.savefig(f'{graphOutputDirectory}/{graphFilename}')  # Save as PNG file
+    plt.clf()
+
+
+
 
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='writeExperimentGraphs.py', description='takes in a results directory and creates the graphs',)
-    parser.add_argument('-i',          '--inputDir',      required=True, help="Input Directory (the one containing the )")
+    parser.add_argument('-i',          '--inputDir',      required=True, help="Input Directory (the one containing the experiment.yaml)")
     args = parser.parse_args()
 
     experimentDefinitionFile = f"{os.path.abspath(args.inputDir)}/experiment.yaml"
@@ -114,65 +180,3 @@ if __name__ == "__main__":
 
     outputAllGraphs(experiment=experimentDefinition, args=args)
     sys.exit(1)
-
-    # gNodeBFilename = f"{os.path.abspath(args.inputDir)}/gNodeB_stats_normalized.json"
-    # ue1IperfFilename = f"{os.path.abspath(args.inputDir)}/UE1_iperf_results_normalized.json"
-    # ue2IperfFilename = f"{os.path.abspath(args.inputDir)}/UE2_iperf_results_normalized.json"
-    # ue3IperfFilename = f"{os.path.abspath(args.inputDir)}/UE3_iperf_results_normalized.json"
-    # ue4IperfFilename = f"{os.path.abspath(args.inputDir)}/UE4_iperf_results_normalized.json"
-
-    # if not os.path.exists(gNodeBFilename):
-    #     print("Error: the gnodeB normailzed stats file doesn't exist: %s    (This is required)" % gNodeBFilename)
-    #     sys.exit(1)
-
-    # if not os.path.exists(ue1IperfFilename):
-    #     print("Error: the UE1 normalized stats file doesn't exist: %s    (This is required)" % ue1IperfFilename)
-    #     sys.exit(1)
-
-    # if not os.path.exists(ue2IperfFilename):
-    #     print("Info: the UE2 normalized stats file doesn't exist: %s    (UE2 data won't be included)" % ue2IperfFilename)
-
-    # if not os.path.exists(ue3IperfFilename):
-    #     print("Info: the UE3 normalized stats file doesn't exist: %s    (UE3 data won't be included)" % ue3IperfFilename)
-
-    # if not os.path.exists(ue4IperfFilename):
-    #     print("Info: the UE4 normalized stats file doesn't exist: %s    (UE4 data won't be included)" % ue4IperfFilename)
-
-    # args.gNodebStatistics = loadDataFromJsonFile(gNodeBFilename)
-    # args.ue1IperfStatistics = loadDataFromJsonFile(ue1IperfFilename)
-    # args.ue2IperfStatistics = loadDataFromJsonFile(ue2IperfFilename)
-    # args.ue3IperfStatistics = loadDataFromJsonFile(ue3IperfFilename)
-    # args.ue4IperfStatistics = loadDataFromJsonFile(ue4IperfFilename)
-    # args.ueIperfStatistics = [args.ue1IperfStatistics, args.ue2IperfStatistics, args.ue3IperfStatistics, args.ue4IperfStatistics]
-
-
-    # print("****************************************************************************************************")
-    # writeGraphWithDataToFile(args=args,
-    #                          filename="dl_bitrate.png",
-    #                          gNodeBParameter="dl_brate",
-    #                          gNodeBDisplayName="gNodeB DL bitrate",
-    #                          gNodeBUeNum=2,
-    #                          ueParameter="bits_per_second",
-    #                          ueDisplayName="<UE> bit per second"
-    #                          )
-    
-    # print("****************************************************************************************************")
-    # writeGraphWithDataToFile(args=args,
-    #                          filename="ul_bitrate.png",
-    #                          gNodeBParameter="ul_brate",
-    #                          gNodeBDisplayName="gNodeB UL bitrate",
-    #                          gNodeBUeNum=2,
-    #                          ueParameter="bits_per_second",
-    #                          ueDisplayName="<UE> bit per second"
-    #                          )
-
-    # print("****************************************************************************************************")
-    # writeGraphWithDataToFile(args=args,
-    #                          filename="total.png",
-    #                          gNodeBParameter="total_brate",
-    #                          gNodeBDisplayName="gNodeB UL bitrate",
-    #                          ueParameter="bits_per_second",
-    #                          ueDisplayName="<UE> bit per second"
-    #                          )
-    # print("****************************************************************************************************")
-    

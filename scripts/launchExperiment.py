@@ -176,10 +176,16 @@ def runExperimentTest(testName, testParamDict, args):
     print(f"Collecting results and placing them into {testResultsFolder}")
     os.makedirs(testResultsFolder, exist_ok=True)
     subprocess.call([f"{os.path.dirname(__file__)}/collectResults.sh {testResultsFolder}"], shell=True)
-    shutil.copy(args.experimentDefinitionFile, f"args.resultsFolder/experiment.yaml")
+    shutil.copy(args.experimentDefinitionFile, f"{args.resultsFolder}/experiment.yaml")
     print(f"Results have been collected and are in: {testResultsFolder}")
 
 
+
+
+
+def generateGraphsFromExperimentResults(args):
+    print("Writing graphs for experiment to file")
+    subprocess.call([f"{os.path.dirname(__file__)}/writeExperimentGraphs.py -i {args.resultsFolder}"], shell=True)
 
 
 
@@ -210,3 +216,8 @@ if __name__ == "__main__":
 
     # run the experiment
     runExperiment(experimentDefinition, args)
+
+    # generate graphs from experiment
+    generateGraphsFromExperimentResults(args=args)
+
+    print(f"Test complete. You can find your results in {args.resultsFolder}")
