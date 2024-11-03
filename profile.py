@@ -272,7 +272,7 @@ for frange in params.freq_ranges:
     request.requestSpectrum(frange.freq_min, frange.freq_max, 0)
 
 tourInstructions = "Loading from file"
-with open('README.md', 'r') as file:
+with open(f'{os.path.dirname(os.path.abspath(__file__))}/README.md', 'r') as file:
     data = file.read()
 
 
