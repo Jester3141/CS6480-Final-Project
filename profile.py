@@ -35,72 +35,6 @@ Note: This profile currently defaults to using the 3430-3470 MHz spectrum range 
 
 """
 
-tourInstructions = """
-
-Startup scripts will still be running when your experiment becomes ready. Watch the "Startup" column on the "List View" tab for your experiment and wait until all of the compute nodes show "Finished" before proceeding.
-
-After all startup scripts have finished...
-
-On `cn`:
-
-After your experiment becomes ready, the Open5GS core network services will be running as system services. You can check their status with `systemctl status open5gs-*`.
-
-If you'd like to monitor traffic between the various network functions and the gNodeB, start tshark in a session:
-
-```
-NGIF=`ip r | awk '/192\.168\.1\.0/{print $3}'`
-sudo tshark -i $NGIF \
-  -f "not arp and not llc and not port 53 and not host archive.ubuntu.com and not host security.ubuntu.com"
-```
-
-Note: you should stop tshark before you generate heavy traffic across the network (e.g., with iperf3), as it will start generating too much output to be useful.
-
-In another session, start following the logs for the AMF. This way you can see when the UE attaches to the network.
-
-```
-sudo tail -f /var/log/open5gs/amf.log
-```
-
-In a session on `ota-nuc1-gnb-comp` do the following to start the srsRAN gNodeB:
-
-```
-sudo /var/tmp/srsRAN_Project/build/apps/gnb/gnb -c /var/tmp/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml
-
-```
-
-Have a look at these files to see how the gNodeB is configured.
-
-On `ota-nucX-cots-ue`:
-
-After you've started the gNodeB, you can bring the COTS UE online. First, start the Quectel connection manager (this manages the network interface associated with the 5G UE):
-
-```
-sudo quectel-CM -s internet -4
-```
-
-In another session on the same node, bring the UE online:
-
-```
-# turn modem on
-sudo sh -c "chat -t 1 -sv '' AT OK 'AT+CFUN=1' OK < /dev/ttyUSB2 > /dev/ttyUSB2"
-```
-
-The UE should attach to the network and pick up an IP address on the wwan interface associated with the module. You'll see the wwan interface name and the IP address in the stdout of the quectel-CM process.
-
-You should now be able to generate traffic in either direction:
-
-```
-# from UE to CN traffic gen node (in session on ota-nucX-cots-ue)
-ping 10.45.0.1
-
-# from CN traffic generation service to UE (in session on CN5G node)
-ping <IP address from quectel-CM>
-```
-
-This process may be repeated on the indoor OTA NUCs in order to attach multiple modules to the network.
-
-If the module doesn't attach to the network or pick up an IP address on the first try, put the module into airplane mode with `sudo sh -c "chat -t 1 -sv '' AT OK 'AT+CFUN=4' OK < /dev/ttyUSB2 > /dev/ttyUSB2"`, kill and restart quectel-CM, then bring the module back online. If the module still fails to associate and/or pick up an IP, try putting the module into airplane mode, rebooting the associated NUC, and bringing the module back online again. `chat` may return an error. If so, just run the command again.
-"""
 
 BIN_PATH = "/local/repository/bin"
 ETC_PATH = "/local/repository/etc"
@@ -336,6 +270,11 @@ for ue_node_id, ue_name in indoor_ota_nucs:
 
 for frange in params.freq_ranges:
     request.requestSpectrum(frange.freq_min, frange.freq_max, 0)
+
+tourInstructions = "Loading from file"
+with open('README.md', 'r') as file:
+    data = file.read()
+
 
 tour = IG.Tour()
 tour.Description(IG.Tour.MARKDOWN, tourDescription)

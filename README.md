@@ -72,6 +72,30 @@ A profile called `EvilGNB` has been setup in the `TDDInterfere` project.  Due to
 
 This section describes various interaces
 
+## gNodeB Configuration
+
+The gNodeB application can take in one or more yml files with the `-c` flag.  For each setting in the file, it overrides the settings from the previous files.
+
+For example, consider the command:
+```bash
+sudo /var/tmp/srsRAN_Project/build/apps/gnb/gnb -c /var/tmp/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml -c /local/generated/goodGNodeBConfig.yaml
+```
+
+The first `-c` sets up all parameters to the default x310 profile contained in `/var/tmp/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml`.
+
+The second `-c` only contains:
+
+```yaml
+metrics:
+  addr: 127.0.0.1
+  enable_json_metrics: true
+  port: 55555
+```
+It only overides a few settings.
+
+
+
+
 ## Getting GNB Metrics
 
 Metrics will be output to the console by default.  
@@ -112,17 +136,15 @@ Console output will look liek this:
 * **ta**: Timing Advance in microseconds https://www.sharetechnote.com/html/5G/5G_TimingAdvance.html
 * **phr**: Power Headroom as reported by the UE https://www.sharetechnote.com/html/Handbook_LTE_PHR.html
 
+
+
+
 ### GNB Metrics output as JSON file
 
-Before starting the gNB, edit /etc/srsran/gnb.cfg and change the metrics addr to `127.0.0.1`.
-This can be done automatically with the command: 
-```shell
-sudo sed -i 's/addr: 172.19.1.4/addr: 127.0.0.1/g' /etc/srsran/gnb.conf
-```
-When edited the metrics part of your config file will look like this: 
+
+To output gNodeB json metrics you will need to set the following settings
 ```yml
 metrics:
-  autostart_stdout_metrics: true
   enable_json_metrics: true            # Optional BOOLEAN (false). Enables JSON metrics reporting. Supported: [false, true].
   addr: 127.0.0.1                       # Optional TEXT:IPV4 (127.0.0.1). Sets the metrics address. Supported: IPV4 address.
   port: 55555                           # Optional UINT. Sets the metrics UPD port. Supported: [0 - 65535].
@@ -224,31 +246,26 @@ Need to figure out how to run the EVIL gNB.  Some kind of a boolean flag.  Read 
 
 ## Evil gNodeB
 
-Copy the existing `gnb.conf` to a `gnb_evil.conf`.
-
-In the `amf` section add a line that says `no_core: true`.  This allows the evil GNB operate without a connection to the 5g core
+To enable test mode you must have settings like this
 
 ```yml
 
 amf:
-  #...
   no_core: true
-  #...
 
-```
-
-To enable test mode, add the following section at the end of the file.
-
-```yml
 test_mode:
   test_ue:
-    rnti: 0x44
-    ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
     cqi: 15
     nof_ues: 4
-    pusch_active: true
     pdsch_active: true
+    pusch_active: true
+    ri: 1
+    rnti: 68
+
 ```
+NOTE: In the `amf` section add a line that says `no_core: true`.  This allows the evil GNB operate without a connection to the 5g core
+
+
 
 If you have more than one radio attached to the machine, you might also possibly need to reconfigure the radio.
 
@@ -288,7 +305,7 @@ terminator
 ```
 That should pop up a terminator window
 
-![asdf](images/terminator.png)
+![asdf](images/terminator.png){width="400px"}
 
 If you've got all that, in theory your ready to run.
 
@@ -314,53 +331,175 @@ Once the experiment is running and all startup scripts have completed, then you 
 # for example
 ./launchExperiment.py -u u0204096 -n u0204096-227153 -p TDDInterfere -e experiments.withandwithoutevil.yaml
 ```
+
+The test will run for a while getting everything setup.  After a while it will launch a terminator window.
+
+![asdf](images/running_experiment.png)
 Once the test finishes, you will find results in the `<GITCHECKOUTDIR>/results/<DATE>/` folder
+
+Please note that the gNodeB configuration files that were used during a test as well as the experiment yaml file
+will be copied to the results folder.  This is useful as you can see what settings your results were for.
+
+
 
 ## Experiment config file
 
-The experiement yaml file allows you to run 1 or more tests serially (one after the other).  See the `scripts/experiments.template.yaml` for examples of how to use it.
+The experiement yaml file allows you to run 1 or more tests serially (one after the other).  See the following files for examples of usage:
 
-In each test there is a section called `goodGNodeBParameters` and if your using the evil gNodeB a section called `evilGNodeBParameters`.  Items under these section will override the default .yml config files for the good/evil gnb.  The defaults can be found in `scripts/gnb_rf_x310_tdd_n78_40mhz.yml`
+The `scripts/experiments.template.yaml` has an example of pretty much all parameters.  One test uses a evil gNodeB and the other doesn't.  The one that does't instantiates 4 UES, where the first one only does one.  Not much experimentation here, but at least shows the syntax.
+
+The `scripts/experiments.withandwithoutevil.yaml` uses a single UE to record download bandwidth.  The only difference
+here is one has an evil gNodeB started.
+
+The `scripts/experiments.gaintest.yaml` uses a single UE and runs the experiment 5 times.  The only difference is the ru_sdr's gain  set to 10, 20, 30, 40, and 50 db gain for the evil gNodeB.
+
+### Timings Section
+
+The timing section is required and all parameters in the examples must be present.  If you are not using a parameter it still needs to be included but will be ignored
+
+```yaml
+timings: # these are some delay values before starting up things
+    goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+    evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+    ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+    ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+    
+    ue2StartupDelay: 12  # from launch, how long to wait (in seconds) before starting UE 2
+    ue2PacketGenerationStartupDelay: 30  # How long to wait for startup (ue2StartupDelay + ue2PacketGenerationStartupDelay)
+    
+    ue3StartupDelay: 14  # from launch, how long to wait (in seconds) before starting UE 3
+    ue3PacketGenerationStartupDelay: 30  # How long to wait for startup (ue3StartupDelay + ue3PacketGenerationStartupDelay)
+    
+    ue4StartupDelay: 16  # from launch, how long to wait (in seconds) before starting UE 4
+    ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
+    
+    goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+    dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+```
+
+### Good gNodeB Experiment section
+
+Everything in the `goodGNodeBParameters` section will be output to a yml and used when starting the good gNodeB.
+Items under these section will override the default .yml config files for the good gnb.  The defaults can be found in `scripts/gnb_rf_x310_tdd_n78_40mhz.yml`
+
+```yaml
+goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+    metrics:
+        addr: 127.0.0.1
+        port: 55555
+        enable_json_metrics: true
+```
+
+### Evil gNodeB Experiment section
+
+Everything in the `evilGNodeBParameters` section will be output to a yml and used when starting the evil gNodeB.
+Items under these section will override the default .yml config files for the evil gnb.  The defaults can be found in `scripts/gnb_rf_x310_tdd_n78_40mhz.yml`
+```yaml
+useEvilGNodeB: true # whether or not to start the evil gNodeB
+evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+    metrics:
+        addr: 127.0.0.1
+        port: 55556
+        enable_json_metrics: true
+    amf:
+        no_core: true
+    test_mode:
+        test_ue:
+            rnti: 0x44
+            ri: 1 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+            cqi: 15
+            nof_ues: 4
+            pusch_active: true
+            pdsch_active: true
+```
+or if not using the evil gNodeB
+```yaml
+useEvilGNodeB: false # whether or not to start the evil gNodeB
+```
+
+### UE(s) experiment section
+In the UEs section you may indicate that you want to use between 1 and 4 UES.
+```yaml
+uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+    - 1
+    - 2
+    - 3
+    - 4
+```
+
+
+
 
 ### graphs
 
-Output graphs will be able to be defined here.  This functionality has not yet been implemented (nor the yml syntax defined).
+The graphs section allow you to indicate that you would like 1 or more graphs output to disk.  They will be put in the ```<RESULTS>/graphs``` subfolder.
 
-TODO
+For example,  The `experiments.gaintest.yaml` experiment runs 5 tests with various gains.  We would like to see the difference between them in graph form.  Therefore we add a section like this:
+
+```yaml
+graphs:
+    - graph1:
+        filename: testplot.png
+        graphTitle: UE Download bandwidth
+        xaxisLabel: Time
+        yaxisLabel: bitrate
+        yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+        legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+        plots:
+            - plot1:
+                plotName: evil gNodeB gain 10
+                # all graphs are plotted with time on the x axis
+                plotParameter: test1|UE1|bits_per_second
+            - plot2:
+                plotName: evil gNodeB gain 20
+                # all graphs are plotted with time on the x axis
+                plotParameter: test2|UE1|bits_per_second
+            - plot3:
+                plotName: evil gNodeB gain 30
+                # all graphs are plotted with time on the x axis
+                plotParameter: test3|UE1|bits_per_second
+            - plot4:
+                plotName: evil gNodeB gain 40
+                # all graphs are plotted with time on the x axis
+                plotParameter: test4|UE1|bits_per_second
+            - plot5:
+                plotName: evil gNodeB gain 50
+                # all graphs are plotted with time on the x axis
+                plotParameter: test5|UE1|bits_per_second
+```
+This indicates that we are going to have a single output graph with 5 plots on that graph.
+
+When specifying the `plotParameter`, UE items are specified in this format:
+
+```
+<TESTNAME>|<UENAME>|<PARAMETER>
+```
+In the above example I am graphing `bits_per_second` for `UE1` for each of the tests that were ran.
+
+For gNodeB stats, the format is slighly more complicated as it has total status (total for all UEs) and per UE stats.
+```
+<TESTNAME>|GoodGNodeB|<UENAME>|<PARAMETER>
+<TESTNAME>|GoodGNodeB|<TOTAL_PARAMETER>
+```
+
+For example if I wanted to plot the `total_dl_brate` for all UEs in `test1`, I would use `test1|GoodGNodeB|total_dl_brate`.  
+
+If I wanted the `dl_brate` for `UE1` in `test1`, I would use `test1|GoodGNodeB|UE1|dl_brate`
+
+
+![asdf](images/exampleplot.png)
 
 ## Other random unorganized thoughts
 
-Which profile? srs-indoor-ota
+Please ignore everything below here as It is random musing and notes.
 
 tdd (Time division Duplexing) parameterization?
 
 
 
-Will instantiate 1 normal setup gNBs core with 1 or more UEs connected to the first gNB where measurements will be recorded.  Iperf will be ran on this one with the UEs connected here.
-
-Additionally we will have 1 more gNB in test mode where it is in test mode and constantly transmitting.  This second one allows
-us to configure the interference more easily.
-
-UE1-4  ------------ > GNB -> Core
-
-                      Evil GNB
-
-
-how to get UE metrics?
-And IperfD
 
 Knobs GnB are transmit power and the tdd config.  https://gitlab.flux.utah.edu/dmaas/srs-indoor-ota/-/blob/master/etc/srsran/gnb_rf_x310_tdd_n78_40mhz.yml?ref_type=heads
-
-ssh commands need 
--o StrictHostKeyChecking=no
-
-on gnb servers
-sudo sysctl -w net.core.wmem_max=24912805
-
-on NUCs install iperf3
-
-
-
 
 
 
