@@ -271,7 +271,7 @@ terminator
 ```
 That should pop up a terminator window
 
-![asdf](images/terminator.png){width="400px"}
+![terminator.png](images/terminator.png){width="400px"}
 
 If you've got all that, in theory your ready to run.
 
@@ -300,7 +300,8 @@ Once the experiment is running and all startup scripts have completed, then you 
 
 The test will run for a while getting everything setup.  After a while it will launch a terminator window.
 
-![asdf](images/running_experiment.png)
+![running_experiment.png](images/running_experiment.png)
+
 Once the test finishes, you will find results in the `<GITCHECKOUTDIR>/results/<DATE>/` folder
 
 Please note that the gNodeB configuration files that were used during a test as well as the experiment yaml file
@@ -454,7 +455,7 @@ For example if I wanted to plot the `total_dl_brate` for all UEs in `test1`, I w
 If I wanted the `dl_brate` for `UE1` in `test1`, I would use `test1|GoodGNodeB|UE1|dl_brate`
 
 
-![asdf](images/exampleplot.png)
+![exampleplot.png](images/exampleplot.png)
 """
 
 BIN_PATH = "/local/repository/bin"
