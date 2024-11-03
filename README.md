@@ -12,7 +12,9 @@ Project Members
 
 https://www.overleaf.com/project/66fb5c7f570d812e548bfae0
 
+Video link explaining how to run the experiment.
 
+https://youtu.be/450AihzAOTs
 
 # Idea
 
