@@ -271,10 +271,10 @@ for ue_node_id, ue_name in indoor_ota_nucs:
 for frange in params.freq_ranges:
     request.requestSpectrum(frange.freq_min, frange.freq_max, 0)
 
-tourInstructions = "Loading from file"
-with open(f'{os.path.dirname(os.path.abspath(__file__))}/README.md', 'r') as file:
-    data = file.read()
-
+tourFilename = f'{os.path.dirname(os.path.abspath(__file__))}/README.md'
+tourInstructions = tourFilename
+# with open(f'{os.path.dirname(os.path.abspath(__file__))}/README.md', 'r') as file:
+#     data = file.read()
 
 tour = IG.Tour()
 tour.Description(IG.Tour.MARKDOWN, tourDescription)
