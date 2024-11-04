@@ -251,11 +251,11 @@ experiment:
 
     graphs:
         - graph1:
-            filename: testplot.png
+            filename: dl_bandwidth.png
             graphTitle: UE Download bandwidth
             xaxisLabel: Time
             yaxisLabel: bitrate
-            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
                 - plot1:
@@ -279,4 +279,143 @@ experiment:
                     # all graphs are plotted with time on the x axis
                     plotParameter: test5|UE1|bits_per_second
                     
+        - graph2:
+            filename: cqi.png
+            graphTitle: UE CQI
+            xaxisLabel: Time
+            yaxisLabel: CQI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|cqi
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|GoodGNodeB|UE1|cqi
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|cqi
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|GoodGNodeB|UE1|cqi
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|cqi
 
+        - graph3:
+            filename: ri.png
+            graphTitle: UE Rank Indicator
+            xaxisLabel: Time
+            yaxisLabel: RI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|ri
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|GoodGNodeB|UE1|ri
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|ri
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|GoodGNodeB|UE1|ri
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|ri
+
+        - graph4:
+            filename: mcs.png
+            graphTitle: UE Download Modulation and Coding Scheme
+            xaxisLabel: Time
+            yaxisLabel: Download MCS
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_mcs
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|GoodGNodeB|UE1|dl_mcs
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|dl_mcs
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|GoodGNodeB|UE1|dl_mcs
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|dl_mcs
+
+        - graph5:
+            filename: pusch.png
+            graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
+            xaxisLabel: Time
+            yaxisLabel: SINR dbm
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|pusch_snr_db
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|GoodGNodeB|UE1|pusch_snr_db
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|pusch_snr_db
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|GoodGNodeB|UE1|pusch_snr_db
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|pusch_snr_db
+
+        - graph6:
+            filename: dl_bs.png
+            graphTitle: UE Download buffer status
+            xaxisLabel: Time
+            yaxisLabel: bytes
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_bs
+                - plot2:
+                    plotName: evil gNodeB gain 20
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test2|GoodGNodeB|UE1|dl_bs
+                - plot3:
+                    plotName: evil gNodeB gain 30
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|dl_bs
+                - plot4:
+                    plotName: evil gNodeB gain 40
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test4|GoodGNodeB|UE1|dl_bs
+                - plot5:
+                    plotName: evil gNodeB gain 50
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|dl_bs

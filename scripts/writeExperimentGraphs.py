@@ -162,9 +162,18 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
             x,y = getXYDataForPlotParameter(param=paramDict['plotParameter'], args=args)
             plt.plot(x, y, label=paramDict['plotName'])
 
-    if 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
+    if 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bitspersec":
         ax = plt.gca()  # get the axes object
-        ax.yaxis.set_major_formatter(tkr.FuncFormatter(sizeof_fmt))
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bitspersec_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytespersec":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytespersec_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bits":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bits_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytes_sizeof_fmt))
 
     if 'legendLocation' in graphParamDict and len(graphParamDict['legendLocation']) > 0:
         plt.legend(loc=graphParamDict['legendLocation'])
@@ -177,7 +186,7 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     plt.clf()
 
 
-def sizeof_fmt(x, pos):
+def bitspersec_sizeof_fmt(x, pos):
     # matlapb formatter for bytes.
     if x<0:
         return ""
@@ -186,6 +195,32 @@ def sizeof_fmt(x, pos):
             return "%3.1f %s" % (x, x_unit)
         x /= 1024.0
 
+def bytespersec_sizeof_fmt(x, pos):
+    # matlapb formatter for bytes.
+    if x<0:
+        return ""
+    for x_unit in ['Bps', 'KBps', 'MBps', 'GBps', 'TBps']:
+        if x < 1024.0:
+            return "%3.1f %s" % (x, x_unit)
+        x /= 1024.0
+
+def bits_sizeof_fmt(x, pos):
+    # matlapb formatter for bytes.
+    if x<0:
+        return ""
+    for x_unit in ['b', 'kb', 'Mb', 'Gb', 'Tb']:
+        if x < 1024.0:
+            return "%3.1f %s" % (x, x_unit)
+        x /= 1024.0
+
+def bytes_sizeof_fmt(x, pos):
+    # matlapb formatter for bytes.
+    if x<0:
+        return ""
+    for x_unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+        if x < 1024.0:
+            return "%3.1f %s" % (x, x_unit)
+        x /= 1024.0
 
 
 if __name__ == "__main__":
