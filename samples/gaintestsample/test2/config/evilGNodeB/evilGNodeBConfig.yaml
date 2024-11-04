@@ -1,0 +1,16 @@
+amf:
+  no_core: true
+metrics:
+  addr: 127.0.0.1
+  enable_json_metrics: true
+  port: 55556
+ru_sdr:
+  tx_gain: 20
+test_mode:
+  test_ue:
+    cqi: 15
+    nof_ues: 4
+    pdsch_active: true
+    pusch_active: true
+    ri: 1
+    rnti: 68
