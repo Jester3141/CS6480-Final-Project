@@ -1,0 +1,49 @@
+gnb_id: 10
+
+amf:
+  addr: 10.53.1.2
+  bind_addr: 10.53.0.1
+
+ru_sdr:
+  device_driver: uhd
+  device_args: type=n3xx, addr=192.168.10.2,send_frame_size=8000,recv_frame_size=8000
+  tx_gain: 50
+  rx_gain: 50
+  srate:  30.72
+  sync: external
+  clock: external
+  time_alignment_calibration: 0
+  lo_offset: 45
+
+cell_cfg:
+  dl_arfcn: 629334                                                # ARFCN of the downlink carrier (center frequency).
+  band: 78                                                        # The NR band.
+  channel_bandwidth_MHz: 20                                       # Bandwith in MHz. Number of PRBs will be automatically derived.
+  common_scs: 30                                                  # Subcarrier spacing in kHz used for data.
+  plmn: "99999"                                                   # PLMN broadcasted by the gNB.
+  tac: 1                                                          # Tracking area code (needs to match the core configuration).
+  pci: 1                                                          # Physical cell ID.
+  nof_antennas_ul: 2
+  nof_antennas_dl: 2
+
+slicing:
+  -
+    sst: 1
+    sd: 1
+
+log:
+  filename: /tmp/gnb.log                                          # Path of the log file.
+  all_level: info                                                 # Logging level applied to all layers. 
+  tracing_filename: /tmp/gnb-trace.log
+
+pcap:
+  mac_enable: false
+  mac_filename: /tmp/gnb_mac.pcap
+  ngap_enable: false
+  ngap_filename: /tmp/gnb_ngap.pcap
+
+metrics:
+  autostart_stdout_metrics: true
+  enable_json_metrics: true            # Optional BOOLEAN (false). Enables JSON metrics reporting. Supported: [false, true].
+  addr: 127.0.0.1                       # Optional TEXT:IPV4 (127.0.0.1). Sets the metrics address. Supported: IPV4 address.
+  port: 55555                           # Optional UINT. Sets the metrics UPD port. Supported: [0 - 65535].
