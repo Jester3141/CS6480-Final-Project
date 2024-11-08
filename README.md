@@ -520,3 +520,5 @@ cell_cfg:
   dl_arfcn: 536020                      # Required UINT (536020). Sets the Downlink ARFCN.
   band: auto                            # Optional TEXT (auto). Sets the NR band being used for the cell. If not specified, will be set automatically based on ARFCN. Supported: all release 17 bands.
 ```
+
+Useful arfcn calculator:  https://5g-tools.com/5g-nr-arfcn-calculator/

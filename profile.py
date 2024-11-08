@@ -28,7 +28,7 @@ The following will be deployed:
 - 2x Server-class compute node (d430) with with fiber connections to a X310.  (not used, but reserved so there will be no cross experiment interference)
 - 4x NUC compute nodes, each with a COTS 5G module and supporting tools
 
-Note: This profile currently defaults to using the 3430-3470 MHz spectrum range and you need an approved reservation for this spectrum in order to use it. It's also strongly recommended that you include the following necessary resources in your reservation to gaurantee their availability at the time of your experiment:
+Note: This profile currently defaults to using the 3380-3470 MHz spectrum range and you need an approved reservation for this spectrum in order to use it. It's also strongly recommended that you include the following necessary resources in your reservation to gaurantee their availability at the time of your experiment:
 
 """
 
@@ -621,7 +621,7 @@ indoor_ota_nucs = [
 
 pc.defineStructParameter(
     "freq_ranges", "Frequency Ranges To Transmit In",
-    defaultValue=[{"freq_min": 3430.0, "freq_max": 3470.0}],
+    defaultValue=[{"freq_min": 3380.0, "freq_max": 3470.0}],
     multiValue=True,
     min=0,
     multiValueTitle="Frequency ranges to be used for transmission.",

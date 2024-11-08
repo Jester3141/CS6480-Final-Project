@@ -27,6 +27,14 @@ experiment:
                     addr: 127.0.0.1
                     port: 55555
                     enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+
 
             useEvilGNodeB: true # whether or not to start the evil gNodeB
             evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
@@ -36,6 +44,14 @@ experiment:
                     enable_json_metrics: true
                 amf:
                     no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -73,10 +89,22 @@ experiment:
                     addr: 127.0.0.1
                     port: 55555
                     enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+
 
             useEvilGNodeB: false # whether or not to start the evil gNodeB
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
+
+
+
+                
     graphs:
         - graph1:
             filename: dl_bandwidth.png
