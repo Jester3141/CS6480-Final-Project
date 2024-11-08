@@ -569,7 +569,7 @@ pc.defineParameter(
     name="x310_good_radio",
     description="X310 Radio for the good gNodeB",
     typ=portal.ParameterType.STRING,
-    defaultValue=indoor_ota_x310s[0],
+    defaultValue=indoor_ota_x310s[1],
     legalValues=indoor_ota_x310s
 )
 
@@ -577,7 +577,7 @@ pc.defineParameter(
     name="x310_evil_radio",
     description="X310 Radio for the EVIL gNodeB",
     typ=portal.ParameterType.STRING,
-    defaultValue=indoor_ota_x310s[1],
+    defaultValue=indoor_ota_x310s[2],
     legalValues=indoor_ota_x310s
 )
 
@@ -585,7 +585,7 @@ pc.defineParameter(
     name="x310_unused_radio_1",
     description="X310 Radio 1 that will be reserved but not used",
     typ=portal.ParameterType.STRING,
-    defaultValue=indoor_ota_x310s[2],
+    defaultValue=indoor_ota_x310s[3],
     legalValues=indoor_ota_x310s
 )
 
@@ -593,7 +593,7 @@ pc.defineParameter(
     name="x310_unused_radio_2",
     description="X310 Radio 2 that will be reserved but not used",
     typ=portal.ParameterType.STRING,
-    defaultValue=indoor_ota_x310s[3],
+    defaultValue=indoor_ota_x310s[0],
     legalValues=indoor_ota_x310s
 )
 
