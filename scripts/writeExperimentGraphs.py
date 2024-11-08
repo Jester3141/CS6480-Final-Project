@@ -137,6 +137,11 @@ def outputAllGraphs(experiment, args):
         graphParamDict = graph[graphName]
         graphFilename = graphParamDict['filename']
         graphTitle = graphParamDict['graphTitle']
+
+        if ('xaxisMin' in graphParamDict and 'xaxisMax' not in graphParamDict) or \
+           ('xaxisMin' not in graphParamDict and 'xaxisMax' in graphParamDict):
+           raise Exception(f"Error: For graph {graphName}, if you provide either the xaxisMin or a xaxisMax, you must provide both.")
+        
         outputGraph(graphName=graphName, graphFilename=graphFilename, graphTitle=graphTitle, graphParamDict=graphParamDict, args=args)
 
 
@@ -174,6 +179,10 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
         ax = plt.gca()  # get the axes object
         ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytes_sizeof_fmt))
+
+    if 'xaxisMin' in graphParamDict and 'xaxisMax' in graphParamDict:
+        ax = plt.gca()
+        ax.set_xlim(int(graphParamDict['xaxisMin']),int(graphParamDict['xaxisMax']))
 
     if 'legendLocation' in graphParamDict and len(graphParamDict['legendLocation']) > 0:
         plt.legend(loc=graphParamDict['legendLocation'])

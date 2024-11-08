@@ -82,6 +82,8 @@ experiment:
             filename: dl_bandwidth.png
             graphTitle: UE Download bandwidth
             xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
             yaxisLabel: bitrate
             yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
@@ -99,6 +101,8 @@ experiment:
             filename: cqi.png
             graphTitle: UE CQI
             xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
             yaxisLabel: CQI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
@@ -115,6 +119,8 @@ experiment:
             filename: ri.png
             graphTitle: UE Rank Indicator
             xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
             yaxisLabel: RI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
@@ -131,6 +137,8 @@ experiment:
             filename: mcs.png
             graphTitle: UE Download Modulation and Coding Scheme
             xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
             yaxisLabel: Download MCS
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
@@ -147,7 +155,9 @@ experiment:
             filename: pusch.png
             graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
             xaxisLabel: Time
-            yaxisLabel: SINR dbm
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: SINR db
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             plots:
                 - plot1:
@@ -163,6 +173,8 @@ experiment:
             filename: dl_bs.png
             graphTitle: UE Download buffer status
             xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
             yaxisLabel: bytes
             yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
