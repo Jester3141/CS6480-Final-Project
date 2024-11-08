@@ -87,6 +87,7 @@ experiment:
             yaxisLabel: bitrate
             yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB
@@ -105,6 +106,7 @@ experiment:
             xaxisMax: 30
             yaxisLabel: CQI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB
@@ -123,6 +125,7 @@ experiment:
             xaxisMax: 30
             yaxisLabel: RI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB
@@ -141,6 +144,7 @@ experiment:
             xaxisMax: 30
             yaxisLabel: Download MCS
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB
@@ -159,6 +163,7 @@ experiment:
             xaxisMax: 30
             yaxisLabel: SINR db
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB
@@ -178,6 +183,7 @@ experiment:
             yaxisLabel: bytes
             yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
             plots:
                 - plot1:
                     plotName: w/ evil gNodeB

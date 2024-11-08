@@ -184,10 +184,15 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
         ax = plt.gca()
         ax.set_xlim(int(graphParamDict['xaxisMin']),int(graphParamDict['xaxisMax']))
 
+    fontSize = 'medium'
+    if 'legendFontSize' in graphParamDict:
+        fontSize = int(graphParamDict['legendFontSize'])
+
     if 'legendLocation' in graphParamDict and len(graphParamDict['legendLocation']) > 0:
-        plt.legend(loc=graphParamDict['legendLocation'])
+        plt.legend(loc=graphParamDict['legendLocation'], fontsize=fontSize)
     else:
-        plt.legend(loc="best")
+        plt.legend(loc="best", fontsize=fontSize)
+    
     
     plt.gcf().set_tight_layout(True)
 
