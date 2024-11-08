@@ -45,7 +45,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 1
@@ -112,7 +111,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 3
@@ -179,7 +177,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 5
@@ -246,7 +243,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 7
@@ -313,7 +309,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 9
@@ -380,7 +375,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 11
@@ -447,7 +441,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 13
@@ -514,7 +507,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 15
@@ -581,7 +573,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 17
@@ -648,7 +639,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 19
@@ -715,7 +705,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 21
@@ -782,7 +771,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 23
@@ -849,7 +837,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 25
@@ -916,7 +903,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 27
@@ -983,7 +969,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 29
@@ -1050,7 +1035,6 @@ experiment:
                 amf:
                     no_core: true
                 ru_sdr:
-                    pci: 2
                     clock: external
                     sync: external
                     tx_gain: 31
@@ -1383,7 +1367,7 @@ experiment:
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 30
-            yaxisLabel: SINR dbm
+            yaxisLabel: SINR db
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
             plots:
