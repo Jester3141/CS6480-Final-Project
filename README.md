@@ -354,11 +354,16 @@ The `scripts/experiments.template.yaml` has an example of pretty much all parame
 The `scripts/experiments.withandwithoutevil.yaml` uses a single UE to record download bandwidth.  The only difference
 here is one has an evil gNodeB started.
 
-The `scripts/experiments.gaintest.yaml` uses a single UE and runs the experiment 5 times.  The only difference is the ru_sdr's gain  set to 10, 20, 30, 40, and 50 db gain for the evil gNodeB.
+The `scripts/experiments.gaintest.yaml` uses a single UE and runs the experiment many times.  The only difference is the ru_sdr's gain is varied from 1-31 db gain in increments of 2 db for the evil gNodeB.
+
+The `scripts/experiments.arfcntest.yaml` uses a single UE and runs the experiment many times.  The only difference is the center frequency's gain is varied from 1-31 db gain in increments of 2 for the evil gNodeB.
+
+The `scripts/experiments.tddtest.yaml` uses a single UE and runs the experiment many times.  The only difference is the upload and download slots in TDD configuration of the evil gNodeB are varied between them.
+
 
 ### Timings Section
 
-The timing section is required and all parameters in the examples must be present.  If you are not using a parameter it still needs to be included but will be ignored
+The timing section is required and all parameters in the examples must be present.  If you are not using a UE then the startup delay and packet generation startup delay parameter it required for that UE.  If present for a UE that is not in use, it will be ignored.
 
 ```yaml
 timings: # these are some delay values before starting up things

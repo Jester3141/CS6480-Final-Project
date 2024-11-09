@@ -89,23 +89,20 @@ def generateExperimentConfigFiles(experiment):
             file.write(f"EVIL_GNODEB_STARTUP_DELAY={testParamDict['timings']['evilGNodeBStartupDelay']}\n")
             file.write(f"USE_EVIL_GNODEB={testParamDict['useEvilGNodeB']}\n")
 
-            file.write(f"UE1_STARTUP_DELAY={testParamDict['timings']['ue1StartupDelay']}\n")
-            file.write(f"UE2_STARTUP_DELAY={testParamDict['timings']['ue2StartupDelay']}\n")
-            file.write(f"UE3_STARTUP_DELAY={testParamDict['timings']['ue3StartupDelay']}\n")
-            file.write(f"UE4_STARTUP_DELAY={testParamDict['timings']['ue4StartupDelay']}\n")
 
-            file.write(f"UE1_PACKET_GENERATION_DELAY={testParamDict['timings']['ue1StartupDelay'] + testParamDict['timings']['ue1PacketGenerationStartupDelay']}\n")
-            file.write(f"UE2_PACKET_GENERATION_DELAY={testParamDict['timings']['ue2StartupDelay'] + testParamDict['timings']['ue2PacketGenerationStartupDelay']}\n")
-            file.write(f"UE3_PACKET_GENERATION_DELAY={testParamDict['timings']['ue3StartupDelay'] + testParamDict['timings']['ue3PacketGenerationStartupDelay']}\n")
-            file.write(f"UE4_PACKET_GENERATION_DELAY={testParamDict['timings']['ue4StartupDelay'] + testParamDict['timings']['ue4PacketGenerationStartupDelay']}\n")
+            for i in range(1,5):  # 1-4
+                useUe = i in testParamDict['uesToUse']
+                file.write(f"USE_UE{i}={useUe}\n")
+                if f'ue{i}StartupDelay' in testParamDict['timings'] and f'ue{i}PacketGenerationStartupDelay' in testParamDict['timings']:
+                    file.write(f"UE{i}_STARTUP_DELAY={testParamDict['timings'][f'ue{i}StartupDelay']}\n")
+                    file.write(f"UE{i}_PACKET_GENERATION_DELAY={testParamDict['timings'][f'ue{i}StartupDelay'] + testParamDict['timings'][f'ue{i}PacketGenerationStartupDelay']}\n")
+
+
 
             file.write(f"DWELL_DURATION={testParamDict['timings']['dwellDuration']}\n")
         
             file.write(f"GOOD_GNODEB_STATS_DUMPER_STARTUP_DELAY={testParamDict['timings']['goodGNodeBStatsDumperStartupDelay']}\n")
 
-            for i in range(1,5):  # 1-4
-                useUe = i in testParamDict['uesToUse']
-                file.write(f"USE_UE{i}={useUe}\n")
 
 
 def runExperiment(experiment, args):

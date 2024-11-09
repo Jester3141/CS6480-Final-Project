@@ -8,9 +8,7 @@ source ${SCRIPT_DIR}/activateFunctions.sh
 source /local/generated/UENUM.sh
 source /local/generated/timings.sh
 
-VARNAME=$(echo -e "UE${UENUM}_PACKET_GENERATION_DELAY")
-UE_PACKET_GENERATION_DELAY="${!VARNAME}"
-
+# check if this should be used with this UE
 VARNAME=$(echo -e "USE_UE${UENUM}")
 USE_UE="${!VARNAME}"
 
@@ -18,6 +16,11 @@ if [[ "$USE_UE" == *[fF]alse ]]; then
   echo "UE${UENUM}: was not configured for use.  Not doing anything"
   exit 0
 fi
+
+
+
+VARNAME=$(echo -e "UE${UENUM}_PACKET_GENERATION_DELAY")
+UE_PACKET_GENERATION_DELAY="${!VARNAME}"
 
 
 echo ""
