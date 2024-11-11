@@ -5,6 +5,8 @@ import sys
 import json
 import os
 import yaml
+import textwrap
+import numpy as np
 from pprint import PrettyPrinter
 
 pp = PrettyPrinter(indent=4, width=180)
@@ -153,6 +155,13 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     os.makedirs(graphOutputDirectory, exist_ok=True)
 
 
+    '''
+    ******************************************************
+    **
+    **                 Output Standard plots
+    **
+    *******************************************************
+    '''
     plt.clf()
 
     # output overall graph items
@@ -196,8 +205,82 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     
     plt.gcf().set_tight_layout(True)
 
+    plt.gcf().set_size_inches(10, 6)
     plt.savefig(f'{graphOutputDirectory}/{graphFilename}')  # Save as PNG file
     plt.clf()
+
+
+    '''
+    ******************************************************
+    **
+    **                 Output box plots
+    **
+    *******************************************************
+    '''
+    plt.clf()
+    fig, ax = plt.subplots()
+    #plt.figure(figsize=(10,6))
+
+    # output overall graph items
+    #plt.xlabel(graphParamDict['xaxisLabel'])
+    #plt.ylabel(graphParamDict['yaxisLabel'])
+    plt.title(graphTitle)
+
+    #plt.gcf().set_tight_layout(True)
+    labels = ['peaches', 'oranges', 'tomatoes']
+
+
+    labels = []
+    values = []
+
+    if len(graphParamDict['plots']) > 0:
+        for plot in graphParamDict['plots']:
+            plotName = list(plot.keys())[0]  # there will be only one key
+            paramDict = plot[plotName]
+            labels.append(paramDict['plotName'])
+            x,y = getXYDataForPlotParameter(param=paramDict['plotParameter'], args=args)
+            if 'xaxisMin' in graphParamDict and 'xaxisMax' in graphParamDict:
+                xMin = int(graphParamDict['xaxisMin']) + 2
+                xMax = int(graphParamDict['xaxisMax']) - 2
+                # we are going to shave 2 seconds off of both ends
+                yTruncated = []
+                for xv, yv in zip(x,y):
+                    if xv >=xMin and xv <= xMax:
+                        yTruncated.append(yv)
+                values.append(yTruncated)
+            else:
+                values.append(y)
+
+    wrapped_labels = [textwrap.fill(label, 8) for label in labels]
+
+
+    
+    ax.set_ylabel('')
+
+    bplot = ax.boxplot(values,
+                       patch_artist=True,  # fill with color
+                       tick_labels=wrapped_labels)  # will be used to label x-ticks
+
+    if 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bitspersec":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bitspersec_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytespersec":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytespersec_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bits":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bits_sizeof_fmt))
+    elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
+        ax = plt.gca()  # get the axes object
+        ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytes_sizeof_fmt))
+
+
+
+    plt.gcf().set_size_inches(max(10,len(values)), 6)
+    plt.gcf().subplots_adjust(bottom=0.15)
+    plt.savefig(f'{graphOutputDirectory}/boxplot_{graphFilename}')  # Save as PNG file
+    plt.clf()
+
 
 
 def bitspersec_sizeof_fmt(x, pos):
