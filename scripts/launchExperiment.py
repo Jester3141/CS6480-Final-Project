@@ -93,7 +93,7 @@ def generateExperimentConfigFiles(experiment):
             for i in range(1,5):  # 1-4
                 useUe = i in testParamDict['uesToUse']
                 file.write(f"USE_UE{i}={useUe}\n")
-                if f'ue{i}StartupDelay' in testParamDict['timings'] and f'ue{i}PacketGenerationStartupDelay' in testParamDict['timings']:
+                if useUe and f'ue{i}StartupDelay' in testParamDict['timings'] and f'ue{i}PacketGenerationStartupDelay' in testParamDict['timings']:
                     file.write(f"UE{i}_STARTUP_DELAY={testParamDict['timings'][f'ue{i}StartupDelay']}\n")
                     file.write(f"UE{i}_PACKET_GENERATION_DELAY={testParamDict['timings'][f'ue{i}StartupDelay'] + testParamDict['timings'][f'ue{i}PacketGenerationStartupDelay']}\n")
 
@@ -122,10 +122,19 @@ def runExperimentTest(testName, testParamDict, args):
     print(f"**                                                                      **")
     print(f"**************************************************************************")
 
-    ue1CompletionDelay = testParamDict['timings']['ue1StartupDelay'] + testParamDict['timings']['ue1PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
-    ue2CompletionDelay = testParamDict['timings']['ue2StartupDelay'] + testParamDict['timings']['ue2PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
-    ue3CompletionDelay = testParamDict['timings']['ue3StartupDelay'] + testParamDict['timings']['ue3PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
-    ue4CompletionDelay = testParamDict['timings']['ue4StartupDelay'] + testParamDict['timings']['ue4PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
+    ue1CompletionDelay = 0
+    ue2CompletionDelay = 0
+    ue3CompletionDelay = 0
+    ue4CompletionDelay = 0
+
+    if 'ue1StartupDelay' in testParamDict['timings'] and 'ue1PacketGenerationStartupDelay' in testParamDict['timings']:
+        ue1CompletionDelay = testParamDict['timings']['ue1StartupDelay'] + testParamDict['timings']['ue1PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
+    if 'ue2StartupDelay' in testParamDict['timings'] and 'ue2PacketGenerationStartupDelay' in testParamDict['timings']:
+        ue2CompletionDelay = testParamDict['timings']['ue2StartupDelay'] + testParamDict['timings']['ue2PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
+    if 'ue3StartupDelay' in testParamDict['timings'] and 'ue3PacketGenerationStartupDelay' in testParamDict['timings']:
+        ue3CompletionDelay = testParamDict['timings']['ue3StartupDelay'] + testParamDict['timings']['ue3PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
+    if 'ue43StartupDelay' in testParamDict['timings'] and 'ue4PacketGenerationStartupDelay' in testParamDict['timings']:
+        ue4CompletionDelay = testParamDict['timings']['ue4StartupDelay'] + testParamDict['timings']['ue4PacketGenerationStartupDelay'] + testParamDict['timings']['dwellDuration']
     experimentTime = max(ue1CompletionDelay, ue2CompletionDelay, ue3CompletionDelay, ue4CompletionDelay) + 5
 
     with open("hostConfig.yml", "r") as file:
