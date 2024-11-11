@@ -43,6 +43,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 8   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 1   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -51,9 +54,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 8   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 1   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -105,6 +105,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 7   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 2   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -113,9 +116,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 7   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 2   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -167,6 +167,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 6   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 3   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -175,9 +178,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 6   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 3   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -229,6 +229,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 5   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 4   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -237,9 +240,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 5   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 4   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -291,6 +291,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 4   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 5   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -299,9 +302,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 4   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 5   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -353,6 +353,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 3   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 6   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -361,9 +364,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 3   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 6   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -415,6 +415,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 2   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 7   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -423,9 +426,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 2   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 7   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
@@ -477,6 +477,9 @@ experiment:
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
                     dl_arfcn: 630000  # 3450 MHz center frequency
+                    tdd_ul_dl_cfg:
+                        nof_dl_slots: 1   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
+                        nof_ul_slots: 8   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -485,9 +488,6 @@ experiment:
                         nof_ues: 4
                         pusch_active: true
                         pdsch_active: true
-                tdd_ul_dl_cfg:
-                    nof_dl_slots: 1   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                    nof_ul_slots: 8   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
 
             uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
                 - 1
