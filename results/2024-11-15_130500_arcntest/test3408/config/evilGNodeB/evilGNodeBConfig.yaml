@@ -1,0 +1,22 @@
+amf:
+  no_core: true
+cell_cfg:
+  dl_arfcn: 627200
+  nof_antennas_dl: 2
+  nof_antennas_ul: 2
+  pci: 2
+metrics:
+  addr: 127.0.0.1
+  enable_json_metrics: true
+  port: 55556
+ru_sdr:
+  clock: external
+  sync: external
+test_mode:
+  test_ue:
+    cqi: 15
+    nof_ues: 4
+    pdsch_active: true
+    pusch_active: true
+    ri: 2
+    rnti: 68
