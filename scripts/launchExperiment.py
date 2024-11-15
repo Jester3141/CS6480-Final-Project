@@ -98,8 +98,11 @@ def generateExperimentConfigFiles(experiment):
                     file.write(f"UE{i}_PACKET_GENERATION_DELAY={testParamDict['timings'][f'ue{i}StartupDelay'] + testParamDict['timings'][f'ue{i}PacketGenerationStartupDelay']}\n")
 
 
-
-            file.write(f"DWELL_DURATION={testParamDict['timings']['dwellDuration']}\n")
+            settleDelay = 0
+            if 'settleDelay' in testParamDict['timings']:
+                settleDelay = testParamDict['timings']['settleDelay']
+            file.write(f"SETTLE_DELAY={settleDelay}\n")
+            file.write(f"DWELL_DURATION={testParamDict['timings']['dwellDuration'] + settleDelay}\n")
         
             file.write(f"GOOD_GNODEB_STATS_DUMPER_STARTUP_DELAY={testParamDict['timings']['goodGNodeBStatsDumperStartupDelay']}\n")
 

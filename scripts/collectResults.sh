@@ -50,6 +50,7 @@ for NUC_HOSTNAME_INDEX in ${!NUC_HOSTNAMES[@]}; do
 done
 
 set -e
+source ${DIR}/config/timings.sh
 
 #########################################################################################################
 ##                                                                                                     ##
@@ -60,7 +61,7 @@ set -e
 # normalize gNodeB Statistics
 if [ -f ${DIR}/roughData/gNodeB_statistics.json.raw ]; then
     echo -e "Normalizing gNodeB Statistics"
-    ${SCRIPT_DIR}/../bin/normalizeGNodeBData.py --input ${DIR}/roughData/gNodeB_statistics.json.raw --output ${DIR}/data/gNodeB_statistics_normalized.json
+    ${SCRIPT_DIR}/../bin/normalizeGNodeBData.py --input ${DIR}/roughData/gNodeB_statistics.json.raw --output ${DIR}/data/gNodeB_statistics_normalized.json --startOffset ${SETTLE_DELAY}
 fi
 
 # normalize UE Statistics

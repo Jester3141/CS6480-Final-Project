@@ -383,7 +383,8 @@ timings: # these are some delay values before starting up things
     ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
     
     goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-    dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+    settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+    dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
 ```
 
 ### Good gNodeB Experiment section
@@ -527,3 +528,19 @@ cell_cfg:
 ```
 
 Useful arfcn calculator:  https://5g-tools.com/5g-nr-arfcn-calculator/
+
+
+
+
+# Notes:
+
+Might want to do a tcp dump?  Also could do it using UDP, but will have to pick a transmission rate.
+
+
+New gap evaluation test.
+
+Potentially checking power levels.  More samples around the overlap frequencies (maybe 1MHz or smaller?)
+
+Fix colors
+
+Test mode mostly 

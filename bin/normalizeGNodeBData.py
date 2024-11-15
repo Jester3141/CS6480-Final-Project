@@ -12,12 +12,16 @@ from pprint import PrettyPrinter
 
 pp = PrettyPrinter(indent=4, width=180)
 
-def getEarliestTimestamp(iperfData):
+def getEarliestTimestamp(iperfData, startOffsetInSeconds):
     earliestTimestamp = datetime.now().timestamp()
     for iperfJson in iperfData:
         if earliestTimestamp > iperfJson['timestamp']:
             earliestTimestamp = iperfJson['timestamp']
-    return earliestTimestamp
+
+    # at this point earliestTimestamp contains the absolutely earliest timestamp, in the gNodeB stats
+    # we will add the startOffSetInSeconds to this so that the the timestamps post settle period will
+    # start as the settle period ends
+    return earliestTimestamp + startOffsetInSeconds
 
 def normalizeGNodeBData(iperfData, earliestTimestamp):
     """
@@ -56,6 +60,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='normalizeIperf3Data.py', description='Normalizes a stream of iperf3 json data to a better format')
     parser.add_argument('--input',         required=True, help="The file to read the stream in from")
     parser.add_argument('--output',        required=True, help="the file to write json out to")
+    parser.add_argument('--startOffset',   required=False, default=0, type=int, help="The offset from the launch of the gNodeB where we consider the test to have started.  (noramlly we zero out the test's timescale to the launch of this)")
     args = parser.parse_args()
 
     if not os.path.exists(args.input):
@@ -69,7 +74,7 @@ if __name__ == "__main__":
 
     #pp.pprint(data)
 
-    earliestTimestamp = getEarliestTimestamp(data)
+    earliestTimestamp = getEarliestTimestamp(data, startOffsetInSeconds=args.startOffset)
     print(f"The earliest timestamp is {earliestTimestamp}")
     # write out the earliest timestamp file
     earliestTimestampOutputFile = f"{os.path.dirname(os.path.abspath(args.input))}/earliestTimestamp.json"

@@ -11,7 +11,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -73,7 +75,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -135,7 +139,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -197,7 +203,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -259,7 +267,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -321,7 +331,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -383,7 +395,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -445,7 +459,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -504,7 +520,7 @@ experiment:
             graphTitle: UE Download bandwidth
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: bitrate
             yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
@@ -549,7 +565,7 @@ experiment:
             graphTitle: UE CQI
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: CQI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
@@ -592,7 +608,7 @@ experiment:
             graphTitle: UE Rank Indicator
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: RI
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
@@ -635,7 +651,7 @@ experiment:
             graphTitle: UE Download Modulation and Coding Scheme
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: Download MCS
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
@@ -678,7 +694,7 @@ experiment:
             graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: SINR db
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
@@ -721,7 +737,7 @@ experiment:
             graphTitle: UE Download buffer status
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: bytes
             yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html

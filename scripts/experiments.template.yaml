@@ -11,7 +11,9 @@ experiment:
                 ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -60,7 +62,9 @@ experiment:
                 ue4PacketGenerationStartupDelay: 30  # How long to wait for startup (ue4StartupDelay + ue4PacketGenerationStartupDelay)
                 
                 goodGNodeBStatsDumperStartupDelay: 44  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                dwellDuration: 30 # How long (in seconds) will the iperf generators run for
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
 
             goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
                 metrics:
@@ -80,7 +84,7 @@ experiment:
             graphTitle: Download bandwidth
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: bitrate
             yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
@@ -103,7 +107,7 @@ experiment:
             graphTitle: Upload bandwidth
             xaxisLabel: Time
             xaxisMin: 0
-            xaxisMax: 30
+            xaxisMax: 90
             yaxisLabel: bitrate
             yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
             legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html

@@ -6,6 +6,8 @@ import json
 import os
 import yaml
 import textwrap
+from cycler import cycler
+from itertools import cycle, islice
 import numpy as np
 from pprint import PrettyPrinter
 
@@ -169,6 +171,15 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     plt.ylabel(graphParamDict['yaxisLabel'])
     plt.title(graphTitle)
 
+    NUM_COLORS = len(graphParamDict['plots'])
+    cm = plt.get_cmap('gist_rainbow')
+    ax = plt.gca()  # get the axes object
+
+    custom_cycler = (cycler(color=[cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)]) + 
+                     cycler(lw=list(islice(cycle([1, 1.5]), NUM_COLORS))))
+
+    ax.set_prop_cycle(custom_cycler)
+
     if len(graphParamDict['plots']) > 0:
         for plot in graphParamDict['plots']:
             plotName = list(plot.keys())[0]  # there will be only one key
@@ -177,7 +188,6 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
             plt.plot(x, y, label=paramDict['plotName'])
 
     if 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bitspersec":
-        ax = plt.gca()  # get the axes object
         ax.yaxis.set_major_formatter(tkr.FuncFormatter(bitspersec_sizeof_fmt))
     elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytespersec":
         ax = plt.gca()  # get the axes object
@@ -219,6 +229,7 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     '''
     plt.clf()
     fig, ax = plt.subplots()
+    
     #plt.figure(figsize=(10,6))
 
     # output overall graph items
