@@ -1,5 +1,5 @@
 experiment:
-    name: "gain_test_experiment" # no spaces allowed in name
+    name: "gain_without_overlap_test_experiment" # no spaces allowed in name
     description: "This is a short description" # a short one line description of the experiment to run
     tests:
         - test1:
@@ -45,7 +45,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -105,7 +105,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -165,7 +165,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -225,7 +225,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -285,7 +285,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -345,7 +345,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -405,7 +405,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -465,7 +465,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -525,7 +525,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -585,7 +585,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -645,7 +645,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -705,7 +705,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -765,7 +765,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -825,7 +825,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -885,7 +885,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44
@@ -945,7 +945,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
+                    dl_arfcn: 627334  # 3410 MHz center frequency
                 test_mode:
                     test_ue:
                         rnti: 0x44

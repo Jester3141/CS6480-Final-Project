@@ -27,6 +27,7 @@ experiment:
                     pci: 1
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
 
 
             useEvilGNodeB: true # whether or not to start the evil gNodeB
@@ -44,6 +45,7 @@ experiment:
                     pci: 2
                     nof_antennas_dl: 2
                     nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
 
                 test_mode:
                     test_ue:
