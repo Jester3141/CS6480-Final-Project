@@ -517,7 +517,7 @@ experiment:
     graphs:
         - graph1:
             filename: dl_bandwidth.png
-            graphTitle: UE Download bandwidth
+            graphTitle: UE Download bandwidth (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
@@ -562,7 +562,7 @@ experiment:
                     
         - graph2:
             filename: cqi.png
-            graphTitle: UE CQI
+            graphTitle: UE CQI (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
@@ -605,7 +605,7 @@ experiment:
 
         - graph3:
             filename: ri.png
-            graphTitle: UE Rank Indicator
+            graphTitle: UE Rank Indicator (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
@@ -648,7 +648,7 @@ experiment:
 
         - graph4:
             filename: mcs.png
-            graphTitle: UE Download Modulation and Coding Scheme
+            graphTitle: UE Download Modulation and Coding Scheme (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
@@ -691,7 +691,7 @@ experiment:
 
         - graph5:
             filename: pusch.png
-            graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
+            graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio) (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
@@ -734,7 +734,7 @@ experiment:
 
         - graph6:
             filename: dl_bs.png
-            graphTitle: UE Download buffer status
+            graphTitle: UE Download buffer status (20 MHz overlap)
             xaxisLabel: Time
             xaxisMin: 0
             xaxisMax: 80
