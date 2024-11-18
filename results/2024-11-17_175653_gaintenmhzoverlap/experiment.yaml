@@ -1,0 +1,1420 @@
+experiment:
+    name: "gain_tenmhz_overlap_test_experiment" # no spaces allowed in name
+    description: "This is a short description" # a short one line description of the experiment to run
+    tests:
+        - test1:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 1
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test3:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 3
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test5:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 5
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test7:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 7
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test9:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 9
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test11:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 11
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test13:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 13
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test15:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 15
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test17:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 17
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test19:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 19
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test21:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 21
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test23:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 23
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test25:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 25
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test27:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 27
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test29:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 29
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+        - test31:
+            timings: # these are some delay values before starting up things
+                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
+                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
+
+                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
+                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
+                
+                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+
+            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630000  # 3450 MHz center frequency
+
+            useEvilGNodeB: true # whether or not to start the evil gNodeB
+            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                    tx_gain: 31
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628000  # 3420 MHz center frequency
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
+                - 1
+
+
+
+
+
+
+    graphs:
+        - graph1:
+            filename: dl_bandwidth.png
+            graphTitle: UE Download bandwidth
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: bitrate
+            yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|UE1|bits_per_second
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|UE1|bits_per_second
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|UE1|bits_per_second
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|UE1|bits_per_second
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|UE1|bits_per_second
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|UE1|bits_per_second
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|UE1|bits_per_second
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|UE1|bits_per_second
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|UE1|bits_per_second
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|UE1|bits_per_second
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|UE1|bits_per_second
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|UE1|bits_per_second
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|UE1|bits_per_second
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|UE1|bits_per_second
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|UE1|bits_per_second
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|UE1|bits_per_second
+                    
+        - graph2:
+            filename: cqi.png
+            graphTitle: UE CQI
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: CQI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|cqi
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|cqi
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|cqi
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|GoodGNodeB|UE1|cqi
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|GoodGNodeB|UE1|cqi
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|GoodGNodeB|UE1|cqi
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|GoodGNodeB|UE1|cqi
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|GoodGNodeB|UE1|cqi
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|GoodGNodeB|UE1|cqi
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|GoodGNodeB|UE1|cqi
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|GoodGNodeB|UE1|cqi
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|GoodGNodeB|UE1|cqi
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|GoodGNodeB|UE1|cqi
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|GoodGNodeB|UE1|cqi
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|GoodGNodeB|UE1|cqi
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|GoodGNodeB|UE1|cqi
+
+        - graph3:
+            filename: ri.png
+            graphTitle: UE Rank Indicator
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: RI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|ri
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|ri
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|ri
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|GoodGNodeB|UE1|ri
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|GoodGNodeB|UE1|ri
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|GoodGNodeB|UE1|ri
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|GoodGNodeB|UE1|ri
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|GoodGNodeB|UE1|ri
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|GoodGNodeB|UE1|ri
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|GoodGNodeB|UE1|ri
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|GoodGNodeB|UE1|ri
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|GoodGNodeB|UE1|ri
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|GoodGNodeB|UE1|ri
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|GoodGNodeB|UE1|ri
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|GoodGNodeB|UE1|ri
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|GoodGNodeB|UE1|ri
+
+        - graph4:
+            filename: mcs.png
+            graphTitle: UE Download Modulation and Coding Scheme
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: Download MCS
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_mcs
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|dl_mcs
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|dl_mcs
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|GoodGNodeB|UE1|dl_mcs
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|GoodGNodeB|UE1|dl_mcs
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|GoodGNodeB|UE1|dl_mcs
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|GoodGNodeB|UE1|dl_mcs
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|GoodGNodeB|UE1|dl_mcs
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|GoodGNodeB|UE1|dl_mcs
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|GoodGNodeB|UE1|dl_mcs
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|GoodGNodeB|UE1|dl_mcs
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|GoodGNodeB|UE1|dl_mcs
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|GoodGNodeB|UE1|dl_mcs
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|GoodGNodeB|UE1|dl_mcs
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|GoodGNodeB|UE1|dl_mcs
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|GoodGNodeB|UE1|dl_mcs
+
+        - graph5:
+            filename: pusch.png
+            graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: SINR db
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|pusch_snr_db
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|pusch_snr_db
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|pusch_snr_db
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|GoodGNodeB|UE1|pusch_snr_db
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|GoodGNodeB|UE1|pusch_snr_db
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|GoodGNodeB|UE1|pusch_snr_db
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|GoodGNodeB|UE1|pusch_snr_db
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|GoodGNodeB|UE1|pusch_snr_db
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|GoodGNodeB|UE1|pusch_snr_db
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|GoodGNodeB|UE1|pusch_snr_db
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|GoodGNodeB|UE1|pusch_snr_db
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|GoodGNodeB|UE1|pusch_snr_db
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|GoodGNodeB|UE1|pusch_snr_db
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|GoodGNodeB|UE1|pusch_snr_db
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|GoodGNodeB|UE1|pusch_snr_db
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|GoodGNodeB|UE1|pusch_snr_db
+
+        - graph6:
+            filename: dl_bs.png
+            graphTitle: UE Download buffer status
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 80
+            yaxisLabel: bytes
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot1:
+                    plotName: evil gNodeB gain 10
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_bs
+                - plot1:
+                    plotName: evil gNodeB gain 1
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test1|GoodGNodeB|UE1|dl_bs
+                - plot3:
+                    plotName: evil gNodeB gain 3
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test3|GoodGNodeB|UE1|dl_bs
+                - plot5:
+                    plotName: evil gNodeB gain 5
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test5|GoodGNodeB|UE1|dl_bs
+                - plot7:
+                    plotName: evil gNodeB gain 7
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test7|GoodGNodeB|UE1|dl_bs
+                - plot9:
+                    plotName: evil gNodeB gain 9
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test9|GoodGNodeB|UE1|dl_bs
+                - plot11:
+                    plotName: evil gNodeB gain 11
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test11|GoodGNodeB|UE1|dl_bs
+                - plot13:
+                    plotName: evil gNodeB gain 13
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test13|GoodGNodeB|UE1|dl_bs
+                - plot15:
+                    plotName: evil gNodeB gain 15
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test15|GoodGNodeB|UE1|dl_bs
+                - plot17:
+                    plotName: evil gNodeB gain 17
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test17|GoodGNodeB|UE1|dl_bs
+                - plot19:
+                    plotName: evil gNodeB gain 19
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test19|GoodGNodeB|UE1|dl_bs
+                - plot21:
+                    plotName: evil gNodeB gain 21
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test21|GoodGNodeB|UE1|dl_bs
+                - plot23:
+                    plotName: evil gNodeB gain 23
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test23|GoodGNodeB|UE1|dl_bs
+                - plot25:
+                    plotName: evil gNodeB gain 25
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test25|GoodGNodeB|UE1|dl_bs
+                - plot27:
+                    plotName: evil gNodeB gain 27
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test27|GoodGNodeB|UE1|dl_bs
+                - plot29:
+                    plotName: evil gNodeB gain 29
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test29|GoodGNodeB|UE1|dl_bs
+                - plot31:
+                    plotName: evil gNodeB gain 31
+                    # all graphs are plotted with time on the x axis
+                    plotParameter: test31|GoodGNodeB|UE1|dl_bs
