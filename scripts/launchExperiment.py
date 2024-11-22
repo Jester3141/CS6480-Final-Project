@@ -89,6 +89,21 @@ def generateExperimentConfigFiles(experiment):
             file.write(f"EVIL_GNODEB_STARTUP_DELAY={testParamDict['timings']['evilGNodeBStartupDelay']}\n")
             file.write(f"USE_EVIL_GNODEB={testParamDict['useEvilGNodeB']}\n")
 
+            pp.pprint(testParamDict)
+
+            if 'iperf3UseUDP' in testParamDict and testParamDict['iperf3UseUDP']:
+                # we are using UDP
+                udpRate = "1M"  # default
+                if 'iperf3UDPTargetBandwidth' in testParamDict:
+                    udpRate = testParamDict['iperf3UDPTargetBandwidth']
+                file.write(f"IPERF3_USE_UDP=TRUE\n")
+                file.write(f"IPERF3_UDP_TARGET_BANDWIDTH={udpRate}\n")
+            else:
+                # we are not using UDP
+                file.write(f"IPERF3_USE_UDP=FALSE\n")
+                file.write(f"IPERF3_UDP_TARGET_BANDWIDTH=NOT_APPLICABLE\n")
+
+
 
             for i in range(1,5):  # 1-4
                 useUe = i in testParamDict['uesToUse']

@@ -45,5 +45,9 @@ fi
 
 # start iperf3 client for UE1 and pass traffic on the downlink
 echo "UE${UENUM}: Starting IPerf3 Client.  Output is being redirected to file so you won't see anything. This is normal."
-iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json -p 520${UENUM} -t ${DWELL_DURATION}
+if [[ "$IPERF3_USE_UDP" == "TRUE" ]]; then
+  iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json -p 520${UENUM} -t ${DWELL_DURATION} -u -b ${IPERF3_UDP_TARGET_BANDWIDTH}
+else
+  iperf3 -c 10.45.0.1 -R --json --logfile ${RESULTS_FOLDER}/roughData/UE_iperf_results.json -p 520${UENUM} -t ${DWELL_DURATION}
+fi
 echo "UE${UENUM}: IPerf3 Client exited"

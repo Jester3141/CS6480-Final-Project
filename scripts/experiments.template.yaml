@@ -22,6 +22,8 @@ experiment:
                     enable_json_metrics: true
 
             useEvilGNodeB: true # whether or not to start the evil gNodeB
+            iperf3UseUDP: false # If true, uses UDP.  Otherwise TCP
+            iperf3UDPTargetBandwidth: "1M" # in the format n[KM].  Set target bandwidth to n bits/sec 
             evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
                 metrics:
                     addr: 127.0.0.1
