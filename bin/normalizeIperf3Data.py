@@ -34,6 +34,9 @@ def normalizeIperfData(iperfData, ueNum, earliestTimestamp):
             q["bits_per_second"] = interval["sum"]["bits_per_second"]
             q["bytes"] = interval["sum"]["bytes"]
             q["sender"] = interval["sum"]["sender"]
+            q["lost_packets"] = interval["sum"]["lost_packets"]
+            q["lost_percent"] = interval["sum"]["lost_percent"]
+            q["packets"] = interval["sum"]["packets"]
             c = {}
             c["ue_container"] = q
             p["ue_list"].append(c)
