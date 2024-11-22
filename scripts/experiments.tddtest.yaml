@@ -450,64 +450,6 @@ experiment:
 
 
 
-        - test18:
-            timings: # these are some delay values before starting up things
-                goodGNodeBStartupDelay: 5  # from launch, how long to wait (in seconds) before starting the good gNode B
-                evilGNodeBStartupDelay: 30   # from launch, how long to wait (in seconds) before starting the evil gNode B (if configured to use)
-
-                ue1StartupDelay: 10  # from launch, how long to wait (in seconds) before starting UE 1
-                ue1PacketGenerationStartupDelay: 30  # How long to wait for startup (ue1StartupDelay + ue1PacketGenerationStartupDelay)
-                
-                goodGNodeBStatsDumperStartupDelay: 39  # from launch, how long to wait (in seconds) before starting the good gNode B stats dumper.
-                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
-                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
-
-
-            goodGNodeBParameters:  # everything in here will be added to the good gNodeB's config file
-                metrics:
-                    addr: 127.0.0.1
-                    port: 55555
-                    enable_json_metrics: true
-                ru_sdr:
-                    clock: external
-                    sync: external
-                cell_cfg:
-                    pci: 1
-                    nof_antennas_dl: 2
-                    nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
-
-            useEvilGNodeB: true # whether or not to start the evil gNodeB
-            evilGNodeBParameters:  # everything in here will be added to the evil gNodeB's config file
-                metrics:
-                    addr: 127.0.0.1
-                    port: 55556
-                    enable_json_metrics: true
-                amf:
-                    no_core: true
-                ru_sdr:
-                    clock: external
-                    sync: external
-                cell_cfg:
-                    pci: 2
-                    nof_antennas_dl: 2
-                    nof_antennas_ul: 2
-                    dl_arfcn: 630000  # 3450 MHz center frequency
-                    tdd_ul_dl_cfg:
-                        nof_dl_slots: 1   # Optional INT (6). Number of consecutive full Downlink slots. Supported: [0-80].
-                        nof_ul_slots: 8   # Optional INT (3). Number of consecutive full Uplink slots. Supported: [0 - 80].
-                test_mode:
-                    test_ue:
-                        rnti: 0x44
-                        ri: 2 # Set to 2 or 4 for 2 layer or 4 layer MIMO operation
-                        cqi: 15
-                        nof_ues: 4
-                        pusch_active: true
-                        pdsch_active: true
-
-            uesToUse:  # Use one or more UEs.  Just use the lower numbers first.
-                - 1
-
 
 
 
@@ -554,10 +496,6 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|UE1|bits_per_second
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|UE1|bits_per_second
 
                     
         - graph2:
@@ -598,10 +536,6 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|GoodGNodeB|UE1|cqi
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|GoodGNodeB|UE1|cqi
 
         - graph3:
             filename: ri.png
@@ -641,10 +575,6 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|GoodGNodeB|UE1|ri
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|GoodGNodeB|UE1|ri
 
         - graph4:
             filename: mcs.png
@@ -684,10 +614,6 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|GoodGNodeB|UE1|dl_mcs
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|GoodGNodeB|UE1|dl_mcs
 
         - graph5:
             filename: pusch.png
@@ -727,10 +653,6 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|GoodGNodeB|UE1|pusch_snr_db
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|GoodGNodeB|UE1|pusch_snr_db
 
         - graph6:
             filename: dl_bs.png
@@ -771,7 +693,3 @@ experiment:
                     plotName: Evil gNodeB - 2 dl slot - 7 ul slot
                     # all graphs are plotted with time on the x axis
                     plotParameter: test27|GoodGNodeB|UE1|dl_bs
-                - plot18:
-                    plotName: Evil gNodeB - 1 dl slot - 8 ul slot
-                    # all graphs are plotted with time on the x axis
-                    plotParameter: test18|GoodGNodeB|UE1|dl_bs
