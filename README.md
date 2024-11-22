@@ -427,6 +427,15 @@ or if not using the evil gNodeB
 useEvilGNodeB: false # whether or not to start the evil gNodeB
 ```
 
+### IPerf3 Experiment section
+
+By default iperf 3 will use TCP.  If `iperf3UseUDP` is set to true, then iperf3 will use UDP.  When using UDP `iperf3UDPTargetBandwidth` to set the bandwidth to use for the stream.
+```yaml
+iperf3UseUDP: false # If true, uses UDP.  Otherwise TCP
+iperf3UDPTargetBandwidth: "1M" # in the format n[KM].  Set target bandwidth to n bits/sec 
+```
+
+
 ### UE(s) experiment section
 In the UEs section you may indicate that you want to use between 1 and 4 UES.
 ```yaml
