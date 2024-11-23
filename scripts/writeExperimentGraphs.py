@@ -146,6 +146,10 @@ def outputAllGraphs(experiment, args):
            ('xaxisMin' not in graphParamDict and 'xaxisMax' in graphParamDict):
            raise Exception(f"Error: For graph {graphName}, if you provide either the xaxisMin or a xaxisMax, you must provide both.")
         
+        if ('yaxisMin' in graphParamDict and 'yaxisMax' not in graphParamDict) or \
+           ('yaxisMin' not in graphParamDict and 'yaxisMax' in graphParamDict):
+           raise Exception(f"Error: For graph {graphName}, if you provide either the yaxisMin or a yaxisMax, you must provide both.")
+        
         outputGraph(graphName=graphName, graphFilename=graphFilename, graphTitle=graphTitle, graphParamDict=graphParamDict, args=args)
 
 
@@ -202,6 +206,10 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     if 'xaxisMin' in graphParamDict and 'xaxisMax' in graphParamDict:
         ax = plt.gca()
         ax.set_xlim(int(graphParamDict['xaxisMin']),int(graphParamDict['xaxisMax']))
+
+    if 'yaxisMin' in graphParamDict and 'yaxisMax' in graphParamDict:
+        ax = plt.gca()
+        ax.set_ylim(int(graphParamDict['yaxisMin']),int(graphParamDict['yaxisMax']))
 
     fontSize = 'medium'
     if 'legendFontSize' in graphParamDict:
@@ -284,6 +292,10 @@ def outputGraph(graphName, graphFilename, graphTitle, graphParamDict, args):
     elif 'yaxisType' in graphParamDict and graphParamDict['yaxisType'] == "bytes":
         ax = plt.gca()  # get the axes object
         ax.yaxis.set_major_formatter(tkr.FuncFormatter(bytes_sizeof_fmt))
+
+    if 'yaxisMin' in graphParamDict and 'yaxisMax' in graphParamDict:
+        ax = plt.gca()
+        ax.set_ylim(int(graphParamDict['yaxisMin']),int(graphParamDict['yaxisMax']))
 
 
 

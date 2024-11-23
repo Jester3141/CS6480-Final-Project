@@ -461,6 +461,10 @@ graphs:
         filename: testplot.png
         graphTitle: UE Download bandwidth
         xaxisLabel: Time
+        xaxisMin: 0
+        xaxisMax: 80
+        yaxisMin: 0
+        yaxisMax: 150000000
         yaxisLabel: bitrate
         yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
         legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html

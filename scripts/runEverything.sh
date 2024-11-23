@@ -30,14 +30,40 @@ set -e
 #  
 
 # new experiments
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzoverlaptest.yaml
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtwentymhzoverlaptest.yaml
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzbuffertest.yaml
+# ./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzoverlaptest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtwentymhzoverlaptest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzbuffertest.yaml
 
 # experimetns to redo
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintwentymhzoverlaptest.yaml
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gainfivemhzoverlaptest.yaml
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtest.yaml
-./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddfivemhzoverlaptest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintwentymhzoverlaptest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gainfivemhzoverlaptest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtest.yaml
+#./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddfivemhzoverlaptest.yaml
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gainfivemhzoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintwentymhzoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gainwithoutoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintenmhzbuffertest.udp.yaml
+
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddwithoutoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddfivemhzoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtwentymhzoverlaptest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzbuffertest.udp.yaml
+
+
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.arfcntest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintenmhzoverlaptest.udp.yaml
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaintest.udp.yaml
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.withandwithoutevil.udp.yaml
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.gaptest.udp.yaml
 
 #ssh u0204096@u0204096-232008.TDDInterfere.emulab.net
+
+
+./launchExperiment.py -u u0204096 -n u0204096-232008 -p TDDInterfere -e experiments.tddtenmhzoverlaptest.udp.yaml
