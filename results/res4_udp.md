@@ -285,6 +285,114 @@ In this test, the only change is the dl_arfcn values.  Test runs with the defaul
 ![asdf](2024-11-23_091425_gaptest_udp/graphs/dl_bs.png)
 ![asdf](2024-11-23_091425_gaptest_udp/graphs/boxplot_dl_bs.png)
 
+
+
+
+---
+# Experiment #5 (TDD CLI test)
+In this experiment, the TDD configuration for the good gNodeB uses the default 5 download and 4 upload slots (total 9 slots).  Channel bandwidth is 40MHz.  The evil gNodeB's TDD configuration is varied, running each allocation of the ul and download slots (8dl and 1ul, 7dl and 2ul, .....)  Previous test varied frequency overlap.  This test varies the Evil GnodeB's tx power  (31db, 25db, 20db, 15db, 10db, 5db).
+
+#### Experiment #5 (TDD CLI test) - Download Bandwidth
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/dl_bandwidth.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/dl_bandwidth.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/dl_bandwidth.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/dl_bandwidth.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/dl_bandwidth.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/dl_bandwidth.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_dl_bandwidth.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_dl_bandwidth.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_dl_bandwidth.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_dl_bandwidth.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_dl_bandwidth.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_dl_bandwidth.png)
+
+
+
+#### Experiment #5 (TDD CLI test) - CQI
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/cqi.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/cqi.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/cqi.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/cqi.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/cqi.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/cqi.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_cqi.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_cqi.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_cqi.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_cqi.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_cqi.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_cqi.png)
+
+
+
+#### Experiment #5 (TDD CLI test) - MCS
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/mcs.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/mcs.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/mcs.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/mcs.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/mcs.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/mcs.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_mcs.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_mcs.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_mcs.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_mcs.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_mcs.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_mcs.png)
+
+
+#### Experiment #5 (TDD CLI test) - PUSCH SINR
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/pusch.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/pusch.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/pusch.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/pusch.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/pusch.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/pusch.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_pusch.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_pusch.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_pusch.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_pusch.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_pusch.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_pusch.png)
+
+
+
+#### Experiment #5 (TDD CLI test) - Rank Indicator
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/ri.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/ri.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/ri.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/ri.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/ri.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/ri.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_ri.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_ri.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_ri.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_ri.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_ri.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_ri.png)
+
+
+
+#### Experiment #5 (TDD CLI test) - DL Buffer Status
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/dl_bs.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/dl_bs.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/dl_bs.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/dl_bs.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/dl_bs.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/dl_bs.png)
+
+31db Evil gNodeB Tx Gain    ![asdf](2024-11-23_235740_tddgainE31_udp/graphs/boxplot_dl_bs.png)
+25db Evil gNodeB Tx Gain    ![asdf](2024-11-24_001746_tddgainE25_udp/graphs/boxplot_dl_bs.png)
+20db Evil gNodeB Tx Gain    ![asdf](2024-11-24_003752_tddgainE20_udp/graphs/boxplot_dl_bs.png)
+15db Evil gNodeB Tx Gain    ![asdf](2024-11-24_005758_tddgainE15_udp/graphs/boxplot_dl_bs.png)
+10db Evil gNodeB Tx Gain    ![asdf](2024-11-24_011759_tddgainE10_udp/graphs/boxplot_dl_bs.png)
+ 5db Evil gNodeB Tx Gain    ![asdf](2024-11-24_013801_tddgainE05_udp/graphs/boxplot_dl_bs.png)
+
+
+
 Hopefully all these numbers seem reasonably sane to you.
 
 Mike
