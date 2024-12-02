@@ -1667,51 +1667,51 @@ experiment:
             yaxisMax: 150000000
             yaxisLabel: bitrate
             yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
-            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendLocation: lower right # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|UE1|bits_per_second
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|UE1|bits_per_second
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|UE1|bits_per_second
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|UE1|bits_per_second
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|UE1|bits_per_second
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|UE1|bits_per_second
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|UE1|bits_per_second
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|UE1|bits_per_second
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|UE1|bits_per_second
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|UE1|bits_per_second
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|UE1|bits_per_second
                 - plot34104:
@@ -1786,47 +1786,47 @@ experiment:
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|GoodGNodeB|UE1|cqi
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|GoodGNodeB|UE1|cqi
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|GoodGNodeB|UE1|cqi
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|GoodGNodeB|UE1|cqi
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|GoodGNodeB|UE1|cqi
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|GoodGNodeB|UE1|cqi
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|GoodGNodeB|UE1|cqi
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|GoodGNodeB|UE1|cqi
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|GoodGNodeB|UE1|cqi
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|GoodGNodeB|UE1|cqi
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|GoodGNodeB|UE1|cqi
                 - plot34104:
@@ -1901,47 +1901,47 @@ experiment:
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|GoodGNodeB|UE1|ri
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|GoodGNodeB|UE1|ri
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|GoodGNodeB|UE1|ri
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|GoodGNodeB|UE1|ri
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|GoodGNodeB|UE1|ri
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|GoodGNodeB|UE1|ri
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|GoodGNodeB|UE1|ri
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|GoodGNodeB|UE1|ri
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|GoodGNodeB|UE1|ri
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|GoodGNodeB|UE1|ri
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|GoodGNodeB|UE1|ri
                 - plot34104:
@@ -2017,47 +2017,47 @@ experiment:
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|GoodGNodeB|UE1|dl_mcs
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|GoodGNodeB|UE1|dl_mcs
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|GoodGNodeB|UE1|dl_mcs
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|GoodGNodeB|UE1|dl_mcs
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|GoodGNodeB|UE1|dl_mcs
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|GoodGNodeB|UE1|dl_mcs
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|GoodGNodeB|UE1|dl_mcs
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|GoodGNodeB|UE1|dl_mcs
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|GoodGNodeB|UE1|dl_mcs
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|GoodGNodeB|UE1|dl_mcs
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|GoodGNodeB|UE1|dl_mcs
                 - plot34104:
@@ -2133,47 +2133,47 @@ experiment:
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|GoodGNodeB|UE1|pusch_snr_db
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|GoodGNodeB|UE1|pusch_snr_db
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|GoodGNodeB|UE1|pusch_snr_db
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|GoodGNodeB|UE1|pusch_snr_db
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|GoodGNodeB|UE1|pusch_snr_db
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|GoodGNodeB|UE1|pusch_snr_db
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|GoodGNodeB|UE1|pusch_snr_db
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|GoodGNodeB|UE1|pusch_snr_db
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|GoodGNodeB|UE1|pusch_snr_db
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|GoodGNodeB|UE1|pusch_snr_db
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|GoodGNodeB|UE1|pusch_snr_db
                 - plot34104:
@@ -2250,47 +2250,47 @@ experiment:
             legendFontSize: 8
             plots:
                 - plot34060:
-                    plotName: 4.0 MHz buffer
+                    plotName: 4.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34060|GoodGNodeB|UE1|dl_bs
                 - plot34064:
-                    plotName: 3.6 MHz buffer
+                    plotName: 3.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34064|GoodGNodeB|UE1|dl_bs
                 - plot34068:
-                    plotName: 3.2 MHz buffer
+                    plotName: 3.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34068|GoodGNodeB|UE1|dl_bs
                 - plot34072:
-                    plotName: 2.8 MHz buffer
+                    plotName: 2.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34072|GoodGNodeB|UE1|dl_bs
                 - plot34076:
-                    plotName: 2.4 MHz buffer
+                    plotName: 2.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34076|GoodGNodeB|UE1|dl_bs
                 - plot34080:
-                    plotName: 2.0 MHz buffer
+                    plotName: 2.0 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34080|GoodGNodeB|UE1|dl_bs
                 - plot34084:
-                    plotName: 1.6 MHz buffer
+                    plotName: 1.6 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34084|GoodGNodeB|UE1|dl_bs
                 - plot34088:
-                    plotName: 1.2 MHz buffer
+                    plotName: 1.2 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34088|GoodGNodeB|UE1|dl_bs
                 - plot34092:
-                    plotName: 0.8 MHz buffer
+                    plotName: 0.8 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34092|GoodGNodeB|UE1|dl_bs
                 - plot34096:
-                    plotName: 0.4 MHz buffer
+                    plotName: 0.4 MHz guard band
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34096|GoodGNodeB|UE1|dl_bs
                 - plot34100:
-                    plotName: 0.0 MHz buffer
+                    plotName: Adjacent
                     # all graphs are plotted with time on the x axis
                     plotParameter: test34100|GoodGNodeB|UE1|dl_bs
                 - plot34104:
