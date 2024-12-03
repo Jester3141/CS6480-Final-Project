@@ -2699,6 +2699,127 @@ experiment:
                     plotParameter: test3460|GoodGNodeB|UE1|dl_bs
 
 
+        - graph7:
+            filename: nice_dl_bandwidth.png
+            graphTitle: UE Download bandwidth
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: bitrate
+            yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|UE1|bits_per_second
+                # - plot3392:
+                #     plotName: Evil gNodeB - cent freq 3392 MHz
+                #     plotParameter: test3392|UE1|bits_per_second
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|UE1|bits_per_second
+                # - plot3396:
+                #     plotName: Evil gNodeB - cent freq 3396 MHz
+                #     plotParameter: test3396|UE1|bits_per_second
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|UE1|bits_per_second
+                # - plot3400:
+                #     plotName: Evil gNodeB - cent freq 3400 MHz
+                #     plotParameter: test3400|UE1|bits_per_second
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|UE1|bits_per_second
+                # - plot3404:
+                #     plotName: Evil gNodeB - cent freq 3404 MHz
+                #     plotParameter: test3404|UE1|bits_per_second
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|UE1|bits_per_second
+                # - plot3408:
+                #     plotName: Evil gNodeB - cent freq 3408 MHz
+                #     plotParameter: test3408|UE1|bits_per_second
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|UE1|bits_per_second
+                # - plot3412:
+                #     plotName: Evil gNodeB - cent freq 3412 MHz
+                #     plotParameter: test3412|UE1|bits_per_second
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|UE1|bits_per_second
+                # - plot3416:
+                #     plotName: Evil gNodeB - cent freq 3416 MHz
+                #     plotParameter: test3416|UE1|bits_per_second
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|UE1|bits_per_second
+                # - plot3420:
+                #     plotName: Evil gNodeB - cent freq 3420 MHz
+                #     plotParameter: test3420|UE1|bits_per_second
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|UE1|bits_per_second
+                # - plot3424:
+                #     plotName: Evil gNodeB - cent freq 3424 MHz
+                #     plotParameter: test3424|UE1|bits_per_second
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|UE1|bits_per_second
+                # - plot3428:
+                #     plotName: Evil gNodeB - cent freq 3428 MHz
+                #     plotParameter: test3428|UE1|bits_per_second
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|UE1|bits_per_second
+                # - plot3432:
+                #     plotName: Evil gNodeB - cent freq 3432 MHz
+                #     plotParameter: test3432|UE1|bits_per_second
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|UE1|bits_per_second
+                # - plot3436:
+                #     plotName: Evil gNodeB - cent freq 3436 MHz
+                #     plotParameter: test3436|UE1|bits_per_second
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|UE1|bits_per_second
+                # - plot3440:
+                #     plotName: Evil gNodeB - cent freq 3440 MHz
+                #     plotParameter: test3440|UE1|bits_per_second
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|UE1|bits_per_second
+                # - plot3444:
+                #     plotName: Evil gNodeB - cent freq 3444 MHz
+                #     plotParameter: test3444|UE1|bits_per_second
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|UE1|bits_per_second
+                # - plot3448:
+                #     plotName: Evil gNodeB - cent freq 3448 MHz
+                #     plotParameter: test3448|UE1|bits_per_second
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|UE1|bits_per_second
+                # - plot3452:
+                #     plotName: Evil gNodeB - cent freq 3452 MHz
+                #     plotParameter: test3452|UE1|bits_per_second
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|UE1|bits_per_second
+                # - plot3456:
+                #     plotName: Evil gNodeB - cent freq 3456 MHz
+                #     plotParameter: test3456|UE1|bits_per_second
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|UE1|bits_per_second
+                # - plot3460:
+                #     plotName: Evil gNodeB - cent freq 3460 MHz
+                #     plotParameter: test3460|UE1|bits_per_second
+
+
 
 
 
