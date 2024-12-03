@@ -1,0 +1,2709 @@
+experiment:
+    name: "arcntest_experiment" # no spaces allowed in name
+    description: "This is a short description" # a short one line description of the experiment to run
+    tests:
+        # - test3390:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             # dl_arfcn: 626668  # 3400 MHz center frequency
+        #             dl_arfcn: 626000  # 3390 MHz center frequency
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3392:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+            #     settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+            #     dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            # goodGNodeBParameters:
+            #     metrics:
+            #         addr: 127.0.0.1
+            #         port: 55555
+            #         enable_json_metrics: true
+            #     ru_sdr:
+            #         clock: external
+            #         sync: external
+            #     cell_cfg:
+            #         pci: 1
+            #         nof_antennas_dl: 2
+            #         nof_antennas_ul: 2
+            #         dl_arfcn: 628400  # 3426 MHz center frequency
+            #         channel_bandwidth_MHz: 20
+
+            # useEvilGNodeB: true
+            # evilGNodeBParameters:
+            #     metrics:
+            #         addr: 127.0.0.1
+            #         port: 55556
+            #         enable_json_metrics: true
+            #     amf:
+            #         no_core: true
+            #     ru_sdr:
+            #         clock: external
+            #         sync: external
+            #     cell_cfg:
+            #         pci: 2
+            #         nof_antennas_dl: 2
+            #         nof_antennas_ul: 2
+            #         dl_arfcn: 626134  # 3392 MHz center frequency
+            #         channel_bandwidth_MHz: 20
+            #     test_mode:
+            #         test_ue:
+            #             rnti: 0x44
+            #             ri: 2
+            #             cqi: 15
+            #             nof_ues: 4
+            #             pusch_active: true
+            #             pdsch_active: true
+            # uesToUse:
+            #     - 1
+
+        # - test3394:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            # goodGNodeBParameters:
+            #     metrics:
+            #         addr: 127.0.0.1
+            #         port: 55555
+            #         enable_json_metrics: true
+            #     ru_sdr:
+            #         clock: external
+            #         sync: external
+            #     cell_cfg:
+            #         pci: 1
+            #         nof_antennas_dl: 2
+            #         nof_antennas_ul: 2
+            #         dl_arfcn: 628400  # 3426 MHz center frequency
+            #         channel_bandwidth_MHz: 20
+
+            # useEvilGNodeB: true
+            # evilGNodeBParameters:
+            #     metrics:
+            #         addr: 127.0.0.1
+            #         port: 55556
+            #         enable_json_metrics: true
+            #     amf:
+            #         no_core: true
+            #     ru_sdr:
+            #         clock: external
+            #         sync: external
+            #     cell_cfg:
+            #         pci: 2
+            #         nof_antennas_dl: 2
+            #         nof_antennas_ul: 2
+            #         dl_arfcn: 626268  # 3394 MHz center frequency
+            #         channel_bandwidth_MHz: 20
+            #     test_mode:
+            #         test_ue:
+            #             rnti: 0x44
+            #             ri: 2
+            #             cqi: 15
+            #             nof_ues: 4
+            #             pusch_active: true
+            #             pdsch_active: true
+            # uesToUse:
+            #     - 1
+
+        # - test3396:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 626400  # 3396 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        - test3398:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 626534  # 3398 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+        # - test3400:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 626668  # 3400 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3402:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 626012  # 3402 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3404:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 626934  # 3404 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3406:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627068  # 3406 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3408:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627200  # 3408 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3410:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627334  # 3410 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3412:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627468  # 3412 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3414:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627600  # 3414 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3416:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627734  # 3416 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3418:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 627868  # 3418 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3420:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628000  # 3420 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        - test3422:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628134  # 3422 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+        # - test3424:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628268  # 3424 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3425:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628333  # 3425 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628333  # 3425 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3426:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3428:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628534  # 3428 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3430:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628668  # 3430 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3432:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628800  # 3432 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3434:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628934  # 3434 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3436:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629068  # 3436 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3438:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629200  # 3438 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3440:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629334  # 3440 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3442:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629468  # 3442 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3444:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629600  # 3444 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3446:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629734  # 3446 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3448:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 629868  # 3448 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        # - test3450:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 630000  # 3450 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+        - test3452:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630134  # 3452 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+        - test3454:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630268  # 3454 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+        # - test3456:
+        #     timings:
+        #         goodGNodeBStartupDelay: 5
+        #         evilGNodeBStartupDelay: 30
+        #         ue1StartupDelay: 10
+        #         ue1PacketGenerationStartupDelay: 30
+        #         goodGNodeBStatsDumperStartupDelay: 39
+        #         settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+        #         dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+        #     goodGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55555
+        #             enable_json_metrics: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 1
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 628400  # 3426 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+
+        #     useEvilGNodeB: true
+        #     evilGNodeBParameters:
+        #         metrics:
+        #             addr: 127.0.0.1
+        #             port: 55556
+        #             enable_json_metrics: true
+        #         amf:
+        #             no_core: true
+        #         ru_sdr:
+        #             clock: external
+        #             sync: external
+        #         cell_cfg:
+        #             pci: 2
+        #             nof_antennas_dl: 2
+        #             nof_antennas_ul: 2
+        #             dl_arfcn: 630400  # 3456 MHz center frequency
+        #             channel_bandwidth_MHz: 20
+        #         test_mode:
+        #             test_ue:
+        #                 rnti: 0x44
+        #                 ri: 2
+        #                 cqi: 15
+        #                 nof_ues: 4
+        #                 pusch_active: true
+        #                 pdsch_active: true
+        #     uesToUse:
+        #         - 1
+
+        - test3458:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630534  # 3458 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+        - test3460:
+            timings:
+                goodGNodeBStartupDelay: 5
+                evilGNodeBStartupDelay: 30
+                ue1StartupDelay: 10
+                ue1PacketGenerationStartupDelay: 30
+                goodGNodeBStatsDumperStartupDelay: 39
+                settleDelay: 10  # from the start of the gNodeBStatsDumper, how long will it wait before zeroing the timestamp (ie: goodGNodeBStatsDumperStartupDelay + settleDelay is the start of the test)
+                dwellDuration: 90 # How long (in seconds) will the iperf generators run for.  In reality the packet generators will run for dwellDuration + settleDelay.
+            goodGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55555
+                    enable_json_metrics: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 1
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 628400  # 3426 MHz center frequency
+                    channel_bandwidth_MHz: 20
+
+            useEvilGNodeB: true
+            evilGNodeBParameters:
+                metrics:
+                    addr: 127.0.0.1
+                    port: 55556
+                    enable_json_metrics: true
+                amf:
+                    no_core: true
+                ru_sdr:
+                    clock: external
+                    sync: external
+                cell_cfg:
+                    pci: 2
+                    nof_antennas_dl: 2
+                    nof_antennas_ul: 2
+                    dl_arfcn: 630668 # 3460 MHz center frequency
+                    channel_bandwidth_MHz: 20
+                test_mode:
+                    test_ue:
+                        rnti: 0x44
+                        ri: 2
+                        cqi: 15
+                        nof_ues: 4
+                        pusch_active: true
+                        pdsch_active: true
+            uesToUse:
+                - 1
+
+
+
+
+
+
+
+
+
+
+    graphs:
+        - graph1:
+            filename: dl_bandwidth.png
+            graphTitle: UE Download bandwidth
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: bitrate
+            yaxisType: bitspersec # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|UE1|bits_per_second
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|UE1|bits_per_second
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|UE1|bits_per_second
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|UE1|bits_per_second
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|UE1|bits_per_second
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|UE1|bits_per_second
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|UE1|bits_per_second
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|UE1|bits_per_second
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|UE1|bits_per_second
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|UE1|bits_per_second
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|UE1|bits_per_second
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|UE1|bits_per_second
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|UE1|bits_per_second
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|UE1|bits_per_second
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|UE1|bits_per_second
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|UE1|bits_per_second
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|UE1|bits_per_second
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|UE1|bits_per_second
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|UE1|bits_per_second
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|UE1|bits_per_second
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|UE1|bits_per_second
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|UE1|bits_per_second
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|UE1|bits_per_second
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|UE1|bits_per_second
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|UE1|bits_per_second
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|UE1|bits_per_second
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|UE1|bits_per_second
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|UE1|bits_per_second
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|UE1|bits_per_second
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|UE1|bits_per_second
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|UE1|bits_per_second
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|UE1|bits_per_second
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|UE1|bits_per_second
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|UE1|bits_per_second
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|UE1|bits_per_second
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|UE1|bits_per_second
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|UE1|bits_per_second
+
+
+
+                    
+        - graph2:
+            filename: cqi.png
+            graphTitle: UE CQI
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: CQI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|GoodGNodeB|UE1|cqi
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|GoodGNodeB|UE1|cqi
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|GoodGNodeB|UE1|cqi
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|GoodGNodeB|UE1|cqi
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|GoodGNodeB|UE1|cqi
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|GoodGNodeB|UE1|cqi
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|GoodGNodeB|UE1|cqi
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|GoodGNodeB|UE1|cqi
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|GoodGNodeB|UE1|cqi
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|GoodGNodeB|UE1|cqi
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|GoodGNodeB|UE1|cqi
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|GoodGNodeB|UE1|cqi
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|GoodGNodeB|UE1|cqi
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|GoodGNodeB|UE1|cqi
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|GoodGNodeB|UE1|cqi
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|GoodGNodeB|UE1|cqi
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|GoodGNodeB|UE1|cqi
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|GoodGNodeB|UE1|cqi
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|GoodGNodeB|UE1|cqi
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|GoodGNodeB|UE1|cqi
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|GoodGNodeB|UE1|cqi
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|GoodGNodeB|UE1|cqi
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|GoodGNodeB|UE1|cqi
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|GoodGNodeB|UE1|cqi
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|GoodGNodeB|UE1|cqi
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|GoodGNodeB|UE1|cqi
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|GoodGNodeB|UE1|cqi
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|GoodGNodeB|UE1|cqi
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|GoodGNodeB|UE1|cqi
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|GoodGNodeB|UE1|cqi
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|GoodGNodeB|UE1|cqi
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|GoodGNodeB|UE1|cqi
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|GoodGNodeB|UE1|cqi
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|GoodGNodeB|UE1|cqi
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|GoodGNodeB|UE1|cqi
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|GoodGNodeB|UE1|cqi
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|GoodGNodeB|UE1|cqi
+
+
+
+
+
+
+        - graph3:
+            filename: ri.png
+            graphTitle: UE Rank Indicator
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: RI
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|GoodGNodeB|UE1|ri
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|GoodGNodeB|UE1|ri
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|GoodGNodeB|UE1|ri
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|GoodGNodeB|UE1|ri
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|GoodGNodeB|UE1|ri
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|GoodGNodeB|UE1|ri
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|GoodGNodeB|UE1|ri
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|GoodGNodeB|UE1|ri
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|GoodGNodeB|UE1|ri
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|GoodGNodeB|UE1|ri
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|GoodGNodeB|UE1|ri
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|GoodGNodeB|UE1|ri
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|GoodGNodeB|UE1|ri
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|GoodGNodeB|UE1|ri
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|GoodGNodeB|UE1|ri
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|GoodGNodeB|UE1|ri
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|GoodGNodeB|UE1|ri
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|GoodGNodeB|UE1|ri
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|GoodGNodeB|UE1|ri
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|GoodGNodeB|UE1|ri
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|GoodGNodeB|UE1|ri
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|GoodGNodeB|UE1|ri
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|GoodGNodeB|UE1|ri
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|GoodGNodeB|UE1|ri
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|GoodGNodeB|UE1|ri
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|GoodGNodeB|UE1|ri
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|GoodGNodeB|UE1|ri
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|GoodGNodeB|UE1|ri
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|GoodGNodeB|UE1|ri
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|GoodGNodeB|UE1|ri
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|GoodGNodeB|UE1|ri
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|GoodGNodeB|UE1|ri
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|GoodGNodeB|UE1|ri
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|GoodGNodeB|UE1|ri
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|GoodGNodeB|UE1|ri
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|GoodGNodeB|UE1|ri
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|GoodGNodeB|UE1|ri
+
+
+
+
+
+
+
+
+        - graph4:
+            filename: mcs.png
+            graphTitle: UE Download Modulation and Coding Scheme
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: Download MCS
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|GoodGNodeB|UE1|dl_mcs
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|GoodGNodeB|UE1|dl_mcs
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|GoodGNodeB|UE1|dl_mcs
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|GoodGNodeB|UE1|dl_mcs
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|GoodGNodeB|UE1|dl_mcs
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|GoodGNodeB|UE1|dl_mcs
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|GoodGNodeB|UE1|dl_mcs
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|GoodGNodeB|UE1|dl_mcs
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|GoodGNodeB|UE1|dl_mcs
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|GoodGNodeB|UE1|dl_mcs
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|GoodGNodeB|UE1|dl_mcs
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|GoodGNodeB|UE1|dl_mcs
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|GoodGNodeB|UE1|dl_mcs
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|GoodGNodeB|UE1|dl_mcs
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|GoodGNodeB|UE1|dl_mcs
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|GoodGNodeB|UE1|dl_mcs
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|GoodGNodeB|UE1|dl_mcs
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|GoodGNodeB|UE1|dl_mcs
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|GoodGNodeB|UE1|dl_mcs
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|GoodGNodeB|UE1|dl_mcs
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|GoodGNodeB|UE1|dl_mcs
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|GoodGNodeB|UE1|dl_mcs
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|GoodGNodeB|UE1|dl_mcs
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|GoodGNodeB|UE1|dl_mcs
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|GoodGNodeB|UE1|dl_mcs
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|GoodGNodeB|UE1|dl_mcs
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|GoodGNodeB|UE1|dl_mcs
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|GoodGNodeB|UE1|dl_mcs
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|GoodGNodeB|UE1|dl_mcs
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|GoodGNodeB|UE1|dl_mcs
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|GoodGNodeB|UE1|dl_mcs
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|GoodGNodeB|UE1|dl_mcs
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|GoodGNodeB|UE1|dl_mcs
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|GoodGNodeB|UE1|dl_mcs
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|GoodGNodeB|UE1|dl_mcs
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|GoodGNodeB|UE1|dl_mcs
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|GoodGNodeB|UE1|dl_mcs
+
+
+
+        - graph5:
+            filename: pusch.png
+            graphTitle: UE PUSCH SINR (Signal-to-Interference-plus-Noise Ratio)
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: SINR db
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|GoodGNodeB|UE1|pusch_snr_db
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|GoodGNodeB|UE1|pusch_snr_db
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|GoodGNodeB|UE1|pusch_snr_db
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|GoodGNodeB|UE1|pusch_snr_db
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|GoodGNodeB|UE1|pusch_snr_db
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|GoodGNodeB|UE1|pusch_snr_db
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|GoodGNodeB|UE1|pusch_snr_db
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|GoodGNodeB|UE1|pusch_snr_db
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|GoodGNodeB|UE1|pusch_snr_db
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|GoodGNodeB|UE1|pusch_snr_db
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|GoodGNodeB|UE1|pusch_snr_db
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|GoodGNodeB|UE1|pusch_snr_db
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|GoodGNodeB|UE1|pusch_snr_db
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|GoodGNodeB|UE1|pusch_snr_db
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|GoodGNodeB|UE1|pusch_snr_db
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|GoodGNodeB|UE1|pusch_snr_db
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|GoodGNodeB|UE1|pusch_snr_db
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|GoodGNodeB|UE1|pusch_snr_db
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|GoodGNodeB|UE1|pusch_snr_db
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|GoodGNodeB|UE1|pusch_snr_db
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|GoodGNodeB|UE1|pusch_snr_db
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|GoodGNodeB|UE1|pusch_snr_db
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|GoodGNodeB|UE1|pusch_snr_db
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|GoodGNodeB|UE1|pusch_snr_db
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|GoodGNodeB|UE1|pusch_snr_db
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|GoodGNodeB|UE1|pusch_snr_db
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|GoodGNodeB|UE1|pusch_snr_db
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|GoodGNodeB|UE1|pusch_snr_db
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|GoodGNodeB|UE1|pusch_snr_db
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|GoodGNodeB|UE1|pusch_snr_db
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|GoodGNodeB|UE1|pusch_snr_db
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|GoodGNodeB|UE1|pusch_snr_db
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|GoodGNodeB|UE1|pusch_snr_db
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|GoodGNodeB|UE1|pusch_snr_db
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|GoodGNodeB|UE1|pusch_snr_db
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|GoodGNodeB|UE1|pusch_snr_db
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|GoodGNodeB|UE1|pusch_snr_db
+
+
+
+
+
+        - graph6:
+            filename: dl_bs.png
+            graphTitle: UE Download buffer status
+            xaxisLabel: Time
+            xaxisMin: 0
+            xaxisMax: 30
+            yaxisLabel: bytes
+            yaxisType: bytes # optional param.  If bytes, will display y axis in MB/s type format
+            legendLocation: best # optional param.  default: best.  Valid options are the location string defined here: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.legend.html
+            legendFontSize: 8
+            plots:
+                - plot3390:
+                    plotName: Evil gNodeB - cent freq 3390 MHz
+                    plotParameter: test3390|GoodGNodeB|UE1|dl_bs
+                - plot3392:
+                    plotName: Evil gNodeB - cent freq 3392 MHz
+                    plotParameter: test3392|GoodGNodeB|UE1|dl_bs
+                - plot3394:
+                    plotName: Evil gNodeB - cent freq 3394 MHz
+                    plotParameter: test3394|GoodGNodeB|UE1|dl_bs
+                - plot3396:
+                    plotName: Evil gNodeB - cent freq 3396 MHz
+                    plotParameter: test3396|GoodGNodeB|UE1|dl_bs
+                - plot3398:
+                    plotName: Evil gNodeB - cent freq 3398 MHz
+                    plotParameter: test3398|GoodGNodeB|UE1|dl_bs
+                - plot3400:
+                    plotName: Evil gNodeB - cent freq 3400 MHz
+                    plotParameter: test3400|GoodGNodeB|UE1|dl_bs
+                - plot3402:
+                    plotName: Evil gNodeB - cent freq 3402 MHz
+                    plotParameter: test3402|GoodGNodeB|UE1|dl_bs
+                - plot3404:
+                    plotName: Evil gNodeB - cent freq 3404 MHz
+                    plotParameter: test3404|GoodGNodeB|UE1|dl_bs
+                - plot3406:
+                    plotName: Evil gNodeB - cent freq 3406 MHz
+                    plotParameter: test3406|GoodGNodeB|UE1|dl_bs
+                - plot3408:
+                    plotName: Evil gNodeB - cent freq 3408 MHz
+                    plotParameter: test3408|GoodGNodeB|UE1|dl_bs
+                - plot3410:
+                    plotName: Evil gNodeB - cent freq 3410 MHz
+                    plotParameter: test3410|GoodGNodeB|UE1|dl_bs
+                - plot3412:
+                    plotName: Evil gNodeB - cent freq 3412 MHz
+                    plotParameter: test3412|GoodGNodeB|UE1|dl_bs
+                - plot3414:
+                    plotName: Evil gNodeB - cent freq 3414 MHz
+                    plotParameter: test3414|GoodGNodeB|UE1|dl_bs
+                - plot3416:
+                    plotName: Evil gNodeB - cent freq 3416 MHz
+                    plotParameter: test3416|GoodGNodeB|UE1|dl_bs
+                - plot3418:
+                    plotName: Evil gNodeB - cent freq 3418 MHz
+                    plotParameter: test3418|GoodGNodeB|UE1|dl_bs
+                - plot3420:
+                    plotName: Evil gNodeB - cent freq 3420 MHz
+                    plotParameter: test3420|GoodGNodeB|UE1|dl_bs
+                - plot3422:
+                    plotName: Evil gNodeB - cent freq 3422 MHz
+                    plotParameter: test3422|GoodGNodeB|UE1|dl_bs
+                - plot3424:
+                    plotName: Evil gNodeB - cent freq 3424 MHz
+                    plotParameter: test3424|GoodGNodeB|UE1|dl_bs
+                # - plot3425:
+                #     plotName: Evil gNodeB - cent freq 3425 MHz
+                #     # all graphs are plotted with time on the x axis
+                #     plotParameter: test3425|GoodGNodeB|UE1|dl_bs
+                - plot3426:
+                    plotName: Evil gNodeB - cent freq 3426 MHz
+                    plotParameter: test3426|GoodGNodeB|UE1|dl_bs
+                - plot3428:
+                    plotName: Evil gNodeB - cent freq 3428 MHz
+                    plotParameter: test3428|GoodGNodeB|UE1|dl_bs
+                - plot3430:
+                    plotName: Evil gNodeB - cent freq 3430 MHz
+                    plotParameter: test3430|GoodGNodeB|UE1|dl_bs
+                - plot3432:
+                    plotName: Evil gNodeB - cent freq 3432 MHz
+                    plotParameter: test3432|GoodGNodeB|UE1|dl_bs
+                - plot3434:
+                    plotName: Evil gNodeB - cent freq 3434 MHz
+                    plotParameter: test3434|GoodGNodeB|UE1|dl_bs
+                - plot3436:
+                    plotName: Evil gNodeB - cent freq 3436 MHz
+                    plotParameter: test3436|GoodGNodeB|UE1|dl_bs
+                - plot3438:
+                    plotName: Evil gNodeB - cent freq 3438 MHz
+                    plotParameter: test3438|GoodGNodeB|UE1|dl_bs
+                - plot3440:
+                    plotName: Evil gNodeB - cent freq 3440 MHz
+                    plotParameter: test3440|GoodGNodeB|UE1|dl_bs
+                - plot3442:
+                    plotName: Evil gNodeB - cent freq 3442 MHz
+                    plotParameter: test3442|GoodGNodeB|UE1|dl_bs
+                - plot3444:
+                    plotName: Evil gNodeB - cent freq 3444 MHz
+                    plotParameter: test3444|GoodGNodeB|UE1|dl_bs
+                - plot3446:
+                    plotName: Evil gNodeB - cent freq 3446 MHz
+                    plotParameter: test3446|GoodGNodeB|UE1|dl_bs
+                - plot3448:
+                    plotName: Evil gNodeB - cent freq 3448 MHz
+                    plotParameter: test3448|GoodGNodeB|UE1|dl_bs
+                - plot3450:
+                    plotName: Evil gNodeB - cent freq 3450 MHz
+                    plotParameter: test3450|GoodGNodeB|UE1|dl_bs
+                - plot3452:
+                    plotName: Evil gNodeB - cent freq 3452 MHz
+                    plotParameter: test3452|GoodGNodeB|UE1|dl_bs
+                - plot3454:
+                    plotName: Evil gNodeB - cent freq 3454 MHz
+                    plotParameter: test3454|GoodGNodeB|UE1|dl_bs
+                - plot3456:
+                    plotName: Evil gNodeB - cent freq 3456 MHz
+                    plotParameter: test3456|GoodGNodeB|UE1|dl_bs
+                - plot3458:
+                    plotName: Evil gNodeB - cent freq 3458 MHz
+                    plotParameter: test3458|GoodGNodeB|UE1|dl_bs
+                - plot3460:
+                    plotName: Evil gNodeB - cent freq 3460 MHz
+                    plotParameter: test3460|GoodGNodeB|UE1|dl_bs
+
+
+
+
+
+
+
+
+
+
